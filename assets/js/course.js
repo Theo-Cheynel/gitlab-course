@@ -202,7 +202,6 @@ class CourseApp {
         document.getElementById('lessonContent').classList.add('hidden');
         document.getElementById('sidebar').classList.add('hidden');
         document.getElementById('roleBanner').classList.add('hidden');
-        document.getElementById('mobileMenuBtn').classList.add('hidden');
         document.getElementById('sidebarToggleShow').classList.add('hidden');
         
         document.querySelector('.app-container').classList.add('no-banner');
@@ -212,7 +211,6 @@ class CourseApp {
         document.getElementById('welcomeScreen').classList.add('hidden');
         document.getElementById('sidebar').classList.remove('hidden');
         document.getElementById('roleBanner').classList.remove('hidden');
-        document.getElementById('mobileMenuBtn').classList.remove('hidden');
         document.getElementById('sidebarToggleShow').classList.remove('hidden');
         
         document.querySelector('.app-container').classList.remove('no-banner');
@@ -268,10 +266,6 @@ class CourseApp {
             this.toggleSidebar();
         });
 
-        // Mobile menu
-        document.getElementById('mobileMenuBtn').addEventListener('click', () => {
-            this.toggleSidebar();
-        });
 
         // Module expansion
         document.addEventListener('click', (e) => {
@@ -429,8 +423,7 @@ class CourseApp {
         
         // Hide sidebar on mobile
         if (window.innerWidth <= 768) {
-            document.getElementById('sidebar').classList.add('hidden');
-            document.querySelector('.main-content').classList.add('sidebar-hidden');
+            this.toggleSidebar();
         }
     }
 

@@ -2,26 +2,9 @@
 
 A **virtual environment** is an isolated Python environment that keeps your project's dependencies separate from your system Python installation. This prevents conflicts between different projects and ensures everyone on your team uses the same Python packages.
 
-### Why Use Virtual Environments?
+### Step 1: Create Virtual Environment
 
-- **Isolation**: Each project has its own dependencies
-- **No conflicts**: Different projects can use different package versions
-- **Team consistency**: Everyone works with identical package versions
-- **Clean system**: Keeps your main Python installation clean
-- **Easy cleanup**: Delete the environment to remove all packages
-
-### Step 1: Navigate to Your Repository
-
-1. Open your terminal (Git Bash on Windows)
-2. Navigate to your cloned repository:
-
-```bash
-cd path/to/your/hangman-repository
-```
-
-### Step 2: Create Virtual Environment
-
-Create a new virtual environment in your project directory:
+From inside yout project directory, run the following command to create a new virtual environment:
 
 ```bash
 python -m venv venv
@@ -29,7 +12,7 @@ python -m venv venv
 
 This creates a folder called `venv` containing your isolated Python environment.
 
-### Step 3: Activate Virtual Environment
+### Step 2: Activate Virtual Environment
 
 #### Windows (Git Bash):
 ```bash

@@ -36,9 +36,9 @@
 
 Your GitLab repository interface contains:
 
-- **Left sidebar**: Navigation menu with Project, Issues, Merge requests, etc.
-- **Main area**: File listing (currently just README.md)
-- **README.md**: Project description file (displayed below the file list)
+1. **Left sidebar**: Navigation menu with Project, Issues, Merge requests, etc.
+2. **Main area**: File listing (currently just README.md)
+3. **README.md**: Project description file (displayed below the file list)
 
 <!-- /ROLE: A -->
 
@@ -60,7 +60,7 @@ You can then look at the repository's page on GitLab.
 
 Your GitLab repository interface contains:
 
-- **Left sidebar**: Navigation menu with Project, Issues, Merge requests, etc.
-- **Main area**: File listing (currently just README.md)
-- **README.md**: Project description file (displayed below the file list)
+1. **Left sidebar**: Navigation menu with Project, Issues, Merge requests, etc.
+2. **Main area**: File listing (currently just README.md)
+3. **README.md**: Project description file (displayed below the file list)
 <!-- /ROLE: B,C,D,E,F -->

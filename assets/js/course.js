@@ -388,13 +388,17 @@ class CourseApp {
         // Setup modal role selection
         document.querySelectorAll('.modal-role').forEach(el => {
             el.addEventListener('click', () => {
-                this.currentRole = el.dataset.role;
+                const newRole = el.dataset.role;
+                const oldRole = this.currentRole;
+                
+                this.currentRole = newRole;
                 this.saveUserData();
                 this.updateRoleBanner();
                 this.hideRoleModal();
                 
-                // Reload current lesson if it's role-specific
-                if (this.currentLesson && this.courseData.lessons[this.currentLesson].roleSpecific) {
+                // Always reload current lesson to update role-based content
+                if (this.currentLesson) {
+                    console.log(`Role changed from ${oldRole} to ${newRole}, reloading lesson: ${this.currentLesson}`);
                     this.loadLesson(this.currentLesson);
                 }
             });
@@ -832,16 +836,21 @@ class CourseApp {
 
     handleRoleBasedContent() {
         const lessonBody = document.getElementById('lessonBody');
-        if (!lessonBody || !this.currentRole) return;
+        if (!lessonBody || !this.currentRole) {
+            console.log('Role-based content: No lesson body or role');
+            return;
+        }
         
         const content = lessonBody.innerHTML;
         
         // Parse role-based sections
         const sections = this.parseRoleBasedSections(content);
+        console.log(`Found ${sections.length} role-based sections`);
         
         if (sections.length > 0) {
             // Find the section that matches current role
             const currentSection = this.findMatchingRoleSection(sections);
+            console.log(`Current role: ${this.currentRole}, Found matching section:`, currentSection ? 'Yes' : 'No');
             
             if (currentSection) {
                 // Replace content with role-specific section
@@ -853,6 +862,7 @@ class CourseApp {
                     processedContent = processedContent.replace(/{role}/g, this.currentRole);
                 }
                 
+                console.log('Updating lesson body with role-specific content');
                 lessonBody.innerHTML = processedContent;
             }
         }

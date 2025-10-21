@@ -1,5 +1,5 @@
 
-If you do not have VSCode installed yet, follow these steps to install it and configure it.s
+If you do not have VSCode installed yet, follow these steps to install it and configure it.
 
 ## Installation Instructions
 
@@ -7,16 +7,8 @@ If you do not have VSCode installed yet, follow these steps to install it and co
 
 1. Go to [https://code.visualstudio.com/](https://code.visualstudio.com/)
 2. Click the "Download for Windows" button
-3. Run the downloaded installer (VSCodeUserSetup-{version}.exe)
-4. Follow the installation wizard:
-   - Accept the license agreement
-   - Choose installation location (default is fine)
-   - **Important**: Check these boxes:
-     - ✅ "Add 'Open with Code' action to Windows Explorer file context menu"
-     - ✅ "Add 'Open with Code' action to Windows Explorer directory context menu"
-     - ✅ "Add to PATH"
-5. Click "Install" and wait for completion
-6. Launch VSCode when installation finishes
+3. Run the downloaded .exe installer and follow the installation steps
+4. Launch VSCode when installation finishes
 
 ### macOS
 
@@ -25,7 +17,6 @@ If you do not have VSCode installed yet, follow these steps to install it and co
 3. Open the downloaded .zip file
 4. Drag Visual Studio Code to your Applications folder
 5. Launch VSCode from Applications
-6. If you see a security warning, right-click VSCode and select "Open"
 
 ### Linux (Ubuntu/Debian)
 
@@ -36,19 +27,10 @@ sudo snap install --classic code
 
 Option 2: Using apt
 ```bash
-# Update package index
 sudo apt update
-
-# Install dependencies
 sudo apt install software-properties-common apt-transport-https wget
-
-# Add Microsoft GPG key
 wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
-
-# Add VSCode repository
 sudo add-apt-repository "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main"
-
-# Install VSCode
 sudo apt update
 sudo apt install code
 ```
@@ -59,8 +41,7 @@ When you first open VSCode:
 
 1. **Choose a theme**: VSCode will ask if you prefer a light or dark theme. Choose what's comfortable for your eyes.
 
-2. **Install recommended extensions**: For this course, install these essential extensions:
-   - **GitLens**: Enhanced Git capabilities
+2. **Install recommended extensions**: For this course, we will only need these extensions:
    - **Python**: Python language support (by Microsoft)
    - **GitLab Workflow**: GitLab integration
 
@@ -69,20 +50,7 @@ To install extensions:
 2. Search for the extension name
 3. Click "Install"
 
-## Verifying Installation
-
-To verify VSCode is properly installed:
-
-1. Open a terminal/command prompt
-2. Type: `code --version`
-3. You should see version information
-
-If the command is not found:
-- **Windows**: Restart your computer and try again
-- **macOS**: Open VSCode, press `Cmd+Shift+P`, type "shell command", and select "Install 'code' command in PATH"
-- **Linux**: The command should work immediately after installation
-
-## Basic Git Configuration in VSCode
+## Setting up your git identity
 
 Before we continue, let's configure Git with your identity:
 
@@ -92,10 +60,12 @@ Before we continue, let's configure Git with your identity:
 
 ```bash
 git config --global user.name "Your Name"
+```
+
+```bash
 git config --global user.email "your.email@example.com"
 ```
 
-> **Note**: Use the same email address you'll use for your GitLab account!
 
 ## Troubleshooting
 

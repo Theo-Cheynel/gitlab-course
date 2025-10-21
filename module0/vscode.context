@@ -6,12 +6,11 @@ Full course transcript for LLMs can be found here: https://theo-cheynel.github.i
 
 Current Module: Environment Setup
 Team Role: {role}
-Previous lessons: Course introduction and role selection.
+Previous lessons: N/A
 Current lesson: "Installing VSCode". It includes:
 - Download VSCode from official website
 - Install VSCode with recommended settings
-- Verify installation by opening VSCode
-- Basic VSCode interface overview
+- Set up git identity in VSCode's integrated terminal
 
 Environment:
 - Installing VSCode

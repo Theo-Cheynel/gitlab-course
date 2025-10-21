@@ -230,6 +230,28 @@ body {
     animation: none;
 }
 
+/* OS Detection Indicator */
+.os-header.auto-expanded {
+    background: linear-gradient(135deg, var(--success-color), #16a34a);
+    color: var(--text-white);
+}
+
+.os-header.auto-expanded h3 {
+    color: var(--text-white);
+}
+
+.os-header.auto-expanded i {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.os-header.auto-expanded::after {
+    content: '(Your OS)';
+    font-size: 0.75rem;
+    font-weight: 500;
+    opacity: 0.9;
+    margin-left: var(--space-sm);
+}
+
 .change-role-btn {
     background: rgba(255, 255, 255, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -976,6 +998,88 @@ body.dark-theme .lesson-body pre.language-bash {
     background: var(--bg-secondary);
     padding: var(--space-lg);
     border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+}
+
+/* OS-Specific Collapsible Sections */
+.os-section {
+    margin: var(--space-lg) 0;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--bg-card);
+}
+
+body.dark-theme .os-section {
+    border-color: var(--border-dark);
+    background: var(--bg-tertiary);
+}
+
+.os-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-md) var(--space-lg);
+    background: var(--bg-secondary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid var(--border-color);
+}
+
+body.dark-theme .os-header {
+    background: var(--bg-dark);
+    border-color: var(--border-dark);
+}
+
+.os-header:hover {
+    background: var(--bg-tertiary);
+}
+
+body.dark-theme .os-header:hover {
+    background: var(--bg-tertiary);
+}
+
+.os-header h3 {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.os-header i {
+    color: var(--text-secondary);
+    transition: transform 0.2s ease;
+    font-size: 1rem;
+}
+
+.os-header.expanded i {
+    transform: rotate(180deg);
+}
+
+.os-content {
+    padding: 0 var(--space-lg);
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+    max-height: 0;
+    opacity: 0;
+}
+
+.os-header.expanded + .os-content {
+    padding: var(--space-lg);
+}
+
+/* OS-specific styling hints */
+.os-section:has(.os-header h3:contains("Windows")) .os-header {
+    border-left: 4px solid #0078d4;
+}
+
+.os-section:has(.os-header h3:contains("macOS")) .os-header,
+.os-section:has(.os-header h3:contains("Mac OS")) .os-header {
+    border-left: 4px solid #007aff;
+}
+
+.os-section:has(.os-header h3:contains("Linux")) .os-header,
+.os-section:has(.os-header h3:contains("Ubuntu")) .os-header {
+    border-left: 4px solid #ff6b35;
 }
 
 .lesson-navigation {

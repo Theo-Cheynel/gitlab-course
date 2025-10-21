@@ -508,6 +508,9 @@ class CourseApp {
             
             document.getElementById('lessonBody').innerHTML = htmlContent;
             
+            // Add OS-specific collapsible sections
+            this.addOSCollapsibleSections();
+            
             // Add copy buttons to code blocks
             this.addCopyButtons();
             
@@ -715,6 +718,103 @@ class CourseApp {
                 button.innerHTML = originalContent;
                 button.style.background = '';
             }, 2000);
+        }
+    }
+
+    // =================
+    // OS-Specific Content
+    // =================
+
+    addOSCollapsibleSections() {
+        const lessonBody = document.getElementById('lessonBody');
+        if (!lessonBody) return;
+        
+        // Find OS-specific headers (h3 elements with OS names)
+        const osHeaders = lessonBody.querySelectorAll('h3');
+        const detectedOS = this.detectOperatingSystem().toLowerCase();
+        
+        osHeaders.forEach(header => {
+            const headerText = header.textContent.toLowerCase();
+            
+            // Check if this is an OS-specific section
+            const isWindows = headerText.includes('windows');
+            const isMacOS = headerText.includes('macos') || headerText.includes('mac os');
+            const isLinux = headerText.includes('linux') || headerText.includes('ubuntu') || headerText.includes('debian');
+            
+            if (isWindows || isMacOS || isLinux) {
+                // Determine if this section should be expanded by default
+                let shouldExpand = false;
+                if (isWindows && detectedOS.includes('windows')) shouldExpand = true;
+                if (isMacOS && detectedOS.includes('macos')) shouldExpand = true;
+                if (isLinux && detectedOS.includes('linux')) shouldExpand = true;
+                
+                // Create collapsible section
+                this.makeOSSectionCollapsible(header, shouldExpand);
+            }
+        });
+    }
+
+    makeOSSectionCollapsible(header, expanded = false) {
+        // Create wrapper for the collapsible content
+        const wrapper = document.createElement('div');
+        wrapper.className = 'os-section';
+        
+        // Create clickable header
+        const clickableHeader = document.createElement('div');
+        clickableHeader.className = `os-header ${expanded ? 'expanded auto-expanded' : ''}`;
+        clickableHeader.innerHTML = `
+            <h3>${header.textContent}</h3>
+            <i class="fas fa-chevron-down"></i>
+        `;
+        
+        // Create content container
+        const content = document.createElement('div');
+        content.className = 'os-content';
+        content.style.maxHeight = expanded ? 'none' : '0';
+        content.style.opacity = expanded ? '1' : '0';
+        
+        // Move all content until the next h3 or h2 into the collapsible section
+        let nextElement = header.nextElementSibling;
+        const elementsToMove = [];
+        
+        while (nextElement && !this.isHeaderElement(nextElement)) {
+            elementsToMove.push(nextElement);
+            nextElement = nextElement.nextElementSibling;
+        }
+        
+        // Move elements to content container
+        elementsToMove.forEach(element => {
+            content.appendChild(element);
+        });
+        
+        // Add click handler
+        clickableHeader.addEventListener('click', () => {
+            this.toggleOSSection(clickableHeader, content);
+        });
+        
+        // Replace original header with collapsible section
+        wrapper.appendChild(clickableHeader);
+        wrapper.appendChild(content);
+        header.parentNode.replaceChild(wrapper, header);
+    }
+
+    isHeaderElement(element) {
+        return element.tagName === 'H1' || element.tagName === 'H2' || element.tagName === 'H3' || element.tagName === 'H4';
+    }
+
+    toggleOSSection(header, content) {
+        const isExpanded = header.classList.contains('expanded');
+        
+        if (isExpanded) {
+            // Collapse
+            header.classList.remove('expanded');
+            content.style.maxHeight = '0';
+            content.style.opacity = '0';
+        } else {
+            // Expand
+            header.classList.add('expanded');
+            content.style.maxHeight = content.scrollHeight + 'px';
+            content.style.opacity = '1';
         }
     }
 

@@ -5,9 +5,9 @@ It also teaches best practice for complex python projects (venv, unit tests, pyt
 Full course transcript for LLMs can be found here: https://theo-cheynel.github.io/gitlab-course/llms.txt
 
 Current Module: Parallel Work
-Team Role: {role}
+Team Role: Member 4
 Previous lessons: Complete environment setup and team formation.
-Current lesson: "Your Team Role Task - Member 1". It includes:
+Current lesson: "Your Team Role Task - Member 4". It includes:
 - Create feature branch for your specific task
 - Implement assigned hangman game component
 - Write unit tests for your code

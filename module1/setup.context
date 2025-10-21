@@ -4,20 +4,20 @@ It simulates common interactions found when developing a team project (branches,
 It also teaches best practice for complex python projects (venv, unit tests, python package, pre-commits, CI/CD).
 Full course transcript for LLMs can be found here: https://theo-cheynel.github.io/gitlab-course/llms.txt
 
-Current Module: Parallel Work
+Current Module: Team Setup
 Team Role: {role}
-Previous lessons: Complete environment setup and team formation.
-Current lesson: "Your Team Role Task - Member 1". It includes:
-- Create feature branch for your specific task
-- Implement assigned hangman game component
-- Write unit tests for your code
-- Commit and push changes to your branch
+Previous lessons: Complete environment setup (VSCode, GitBash, SSH, repository creation, cloning, first commits).
+Current lesson: "Team Formation". It includes:
+- Add team members to GitLab project
+- Set up project permissions and roles
+- Understand team collaboration workflow
+- Plan project structure and responsibilities
 
 Environment:
 - VSCode
 - bash (GitBash for Windows users)
+- GitLab repository with team access
 - venv with Python 3.13
-- GitLab repository with team collaboration
 - OS: {os}
 
 Here is the issue I am facing: 

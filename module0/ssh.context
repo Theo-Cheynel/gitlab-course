@@ -1,33 +1,24 @@
-Course: Git & GitLab Team Project Course for Engineering Students
-Current Lesson: Setting up SSH Keys (Module 0 - Environment Setup)  
+I am currently following a "Using GitLab in Team Projects" online course.
+The goal of this course is to build a Hangman game in Python. 
+It simulates common interactions found when developing a team project (branches, issues, merge requests, peer review, conflicts)
+It also teaches best practice for complex python projects (venv, unit tests, python package, pre-commits, CI/CD).
+Full course transcript for LLMs can be found here: https://theo-cheynel.github.io/gitlab-course/llms.txt
+
+Current Module: Team Setup
 Team Role: {role}
-Operating System: {os}
+Previous lessons: installing VSCode and GitBash (if on Windows).
+Current lesson: "Setting up SSH keys". It includes:
+- Check if you already have SSH keys
+- Generate new SSH keys
+- Copy your public key
+- Add the key to GitLab
+- Test your SSH connection
 
-CONTEXT:
-You are learning Git and GitLab collaboration as part of a team project where you'll build a Python hangman game. SSH keys provide secure authentication with GitLab.
+Environment:
+- VSCode
+- bash (GitBash for Windows users)
+- venv with Python 3.13
+- OS: {os}
 
-CURRENT TASK:
-Setting up SSH keys for GitLab - creating a secure "password" that your computer and GitLab share.
-
-WHAT YOU'VE COMPLETED:
-- Course introduction and role selection
-- VSCode installation
-- Git Bash installation (Windows users)
-
-WHAT'S NEXT:
-- Create GitLab repository
-- Clone repository to your computer
-
-TECHNICAL DETAILS:
-- SSH keys consist of a private key (stays on your computer) and public key (shared with GitLab)
-- Ed25519 keys are recommended over RSA
-- Public key ends with .pub extension
-- Private key has no extension and must be kept secret
-
-COMMON ISSUES:
-- "ssh-keygen: command not found" - missing Git/OpenSSH installation
-- "Permission denied (publickey)" - wrong key uploaded or GitLab configuration issue
-- Copying private key instead of public key (.pub file)
-- Key already exists error - can use existing key or delete and recreate
-
-If you're stuck, mention your operating system, which step you're on (checking existing keys, generating new keys, copying public key, adding to GitLab, or testing connection), and any specific error messages.
+Here is the issue I am facing: 
+[Describe issue]

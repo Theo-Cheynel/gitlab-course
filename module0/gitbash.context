@@ -1,31 +1,22 @@
-Course: Git & GitLab Team Project Course for Engineering Students
-Current Lesson: Installing Git Bash (Module 0 - Environment Setup)
+I am currently following a "Using GitLab in Team Projects" online course.
+The goal of this course is to build a Hangman game in Python. 
+It simulates common interactions found when developing a team project (branches, issues, merge requests, peer review, conflicts)
+It also teaches best practice for complex python projects (venv, unit tests, python package, pre-commits, CI/CD).
+Full course transcript for LLMs can be found here: https://theo-cheynel.github.io/gitlab-course/llms.txt
+
+Current Module: Environment Setup
 Team Role: {role}
-Operating System: {os}
+Previous lessons: Installing VSCode.
+Current lesson: "Installing Git Bash (Windows)". It includes:
+- Download Git for Windows
+- Configure installation settings (PATH, line endings, SSH)
+- Verify Git Bash installation
+- Basic bash commands overview
 
-CONTEXT:
-You are learning Git and GitLab collaboration as part of a team project where you'll build a Python hangman game. This lesson is specifically for Windows users.
+Environment:
+- VSCode
+- Installing Git Bash (Windows only)
+- OS: {os}
 
-CURRENT TASK:
-Installing Git Bash for Windows - provides Git command line tools and a Unix-like terminal.
-
-WHAT YOU'VE COMPLETED:
-- Course introduction and role selection
-- VSCode installation
-
-WHAT'S NEXT:
-- Set up SSH keys for GitLab
-- Create and clone repositories
-
-TECHNICAL DETAILS:
-- Git Bash provides Git commands, Bash shell, SSH support, and MINGW environment
-- Linux/macOS users can skip this lesson (they have built-in terminals)
-- Installation includes important configuration choices for line endings, PATH, and SSH
-
-COMMON ISSUES:
-- Choosing wrong installation options (especially PATH and line ending settings)
-- Antivirus blocking installation
-- Not selecting "Git Bash Here" context menu option
-- Permission issues requiring administrator rights
-
-If you're stuck, mention if you're on Windows/Mac/Linux, what installation step you're on, and any error messages. Include screenshots if helpful.
+Here is the issue I am facing: 
+[Describe issue]

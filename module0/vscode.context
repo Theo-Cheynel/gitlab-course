@@ -1,30 +1,21 @@
-Course: Git & GitLab Team Project Course for Engineering Students
-Current Lesson: Installing VSCode (Module 0 - Environment Setup)
+I am currently following a "Using GitLab in Team Projects" online course.
+The goal of this course is to build a Hangman game in Python. 
+It simulates common interactions found when developing a team project (branches, issues, merge requests, peer review, conflicts)
+It also teaches best practice for complex python projects (venv, unit tests, python package, pre-commits, CI/CD).
+Full course transcript for LLMs can be found here: https://theo-cheynel.github.io/gitlab-course/llms.txt
+
+Current Module: Environment Setup
 Team Role: {role}
-Operating System: {os}
+Previous lessons: Course introduction and role selection.
+Current lesson: "Installing VSCode". It includes:
+- Download VSCode from official website
+- Install VSCode with recommended settings
+- Verify installation by opening VSCode
+- Basic VSCode interface overview
 
-CONTEXT:
-You are learning Git and GitLab collaboration as part of a team project where you'll build a Python hangman game. This is the first step in Module 0 (Environment Setup).
+Environment:
+- Installing VSCode
+- OS: {os}
 
-CURRENT TASK:
-Installing Visual Studio Code (VSCode) - a free code editor with built-in Git integration.
-
-WHAT YOU'VE COMPLETED:
-- Course introduction and role selection
-
-WHAT'S NEXT:
-- Install Git Bash (Windows users only)
-- Set up SSH keys for GitLab
-- Create and clone repositories
-
-TECHNICAL DETAILS:
-- VSCode provides syntax highlighting, Git integration, and debugging tools
-- You need VSCode for the rest of the course to write and manage code
-- It works on Windows, macOS, and Linux
-
-COMMON ISSUES:
-- Installation permissions on school/work computers
-- Antivirus software blocking installation
-- Confusion between VSCode and Visual Studio (different products)
-
-If you're stuck, describe what operating system you're using, what step you're on, and any error messages you see.
+Here is the issue I am facing: 
+[Describe issue]

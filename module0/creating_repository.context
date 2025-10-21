@@ -1,35 +1,23 @@
-Course: Git & GitLab Team Project Course for Engineering Students
-Current Lesson: Creating Repository (Module 0 - Environment Setup)
+I am currently following a "Using GitLab in Team Projects" online course.
+The goal of this course is to build a Hangman game in Python. 
+It simulates common interactions found when developing a team project (branches, issues, merge requests, peer review, conflicts)
+It also teaches best practice for complex python projects (venv, unit tests, python package, pre-commits, CI/CD).
+Full course transcript for LLMs can be found here: https://theo-cheynel.github.io/gitlab-course/llms.txt
+
+Current Module: Environment Setup
 Team Role: {role}
-Operating System: {os}
+Previous lessons: Installing VSCode, GitBash (if on Windows), and Setting up SSH keys.
+Current lesson: "Creating Repository". It includes:
+- Create GitLab account (if needed)
+- Create new project/repository on GitLab
+- Configure repository settings (visibility, README)
+- Understand repository structure and interface
 
-CONTEXT:
-You are learning Git and GitLab collaboration as part of a team project where you'll build a Python hangman game. You're now creating the central GitLab repository for your team.
+Environment:
+- VSCode
+- bash (GitBash for Windows users)
+- GitLab account with SSH keys configured
+- OS: {os}
 
-CURRENT TASK:
-Creating a GitLab repository that your team will use for the hangman game project.
-
-WHAT YOU'VE COMPLETED:
-- Course introduction and role selection
-- VSCode installation
-- Git Bash installation (Windows users)
-- SSH keys setup
-
-WHAT'S NEXT:
-- Clone the repository to your computer
-- Make your first commits
-
-TECHNICAL DETAILS:
-- Repository is the central location where all team code is stored
-- GitLab provides web interface for repository management
-- Repository will contain Python hangman game code
-- Team members will clone this repository to work locally
-
-COMMON ISSUES:
-- GitLab account not created or not signed in
-- Repository naming conflicts
-- Wrong visibility settings (public vs private)
-- SSH key not properly configured
-- GitLab interface confusion
-
-If you're stuck, mention what step you're on (account creation, repository creation, or configuration), and describe any error messages or interface issues you're seeing.
+Here is the issue I am facing: 
+[Describe issue]

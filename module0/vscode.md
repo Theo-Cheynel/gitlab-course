@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Installing VSCode"
+parent: "Module 0: Setting Up the Environment"
+nav_order: 1
+---
+
 # Installing VSCode
 
 Visual Studio Code (VSCode) is a free, open-source code editor that works great with Git and GitLab. It provides syntax highlighting, Git integration, debugging tools, and many useful extensions.

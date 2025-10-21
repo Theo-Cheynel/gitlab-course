@@ -1,0 +1,29 @@
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>Course Information</h4>
+            <p>{{ site.course.institution | default: "Engineering Course" }}</p>
+            <p>{{ site.description }}</p>
+        </div>
+        <div class="footer-section">
+            <h4>Quick Navigation</h4>
+            <ul>
+                <li><a href="{{ '/' | relative_url }}">Course Overview</a></li>
+                {% assign modules = site.pages | where: "layout", "module" | sort: "module_number" %}
+                {% for module in modules limit: 3 %}
+                <li><a href="{{ module.url | relative_url }}">{{ module.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Support</h4>
+            <p>For technical issues, consult the troubleshooting sections in each module</p>
+            {% if site.course.contact_email %}
+            <p>Contact: <a href="mailto:{{ site.course.contact_email }}">{{ site.course.contact_email }}</a></p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; {{ 'now' | date: '%Y' }} {{ site.course.institution | default: "Engineering Course" }} - Git & GitLab Tutorial</p>
+    </div>
+</footer>

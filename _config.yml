@@ -1,15 +1,20 @@
-# GitHub Pages Configuration for GitLab Course
+# Jekyll Configuration for Git & GitLab Course
 
 # Site settings
 title: "Git & GitLab for Team Projects"
-description: "A comprehensive course for engineering students to learn collaborative software development using Git, GitLab, and modern development practices."
+description: "Engineering team project course: collaborative software development with Git and GitLab"
 url: ""
 baseurl: ""
 
 # Build settings
 markdown: kramdown
 highlighter: rouge
-theme: null
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
 
 # GitHub Pages specific settings
 plugins:
@@ -27,14 +32,14 @@ exclude:
   - vendor
   - .git
   - .gitignore
+  - "*.md"
 
-# Include files
-include:
-  - _pages
-
-# Collections
+# Collections for course structure
 collections:
   modules:
+    output: true
+    permalink: /module:name/
+  lessons:
     output: true
     permalink: /:collection/:name/
 
@@ -46,38 +51,49 @@ defaults:
     values:
       layout: "module"
   - scope:
-      path: ""
-      type: "pages"
+      path: "module*"
     values:
-      layout: "page"
+      layout: "module"
 
-# Sass settings
-sass:
-  sass_dir: _sass
-  style: compressed
-
-# SEO settings
-author: "Engineering Course Team"
-twitter:
-  username: 
-facebook:
-  app_id: 
-  publisher: 
-
-# Analytics (optional)
-google_analytics: 
-
-# Social links
-social:
-  links:
-    - https://gitlab.com
-
-# Course specific settings
+# Course configuration
 course:
+  institution: "Engineering Department"
+  semester: "Team Project Course"
   total_modules: 6
   estimated_hours: 6
-  difficulty: "Beginner to Intermediate"
-  prerequisites:
-    - "Basic Git knowledge"
-    - "Python fundamentals"
-    - "Command line familiarity"
+  project: "Python Hangman Game"
+  team_size: "6 students per group"
+  contact_email: ""
+  
+# Module structure
+modules:
+  - number: 0
+    title: "Setting Up the Environment"
+    description: "Install tools and configure your development environment"
+    duration: "45 minutes"
+    lessons: 5
+  - number: 1
+    title: "Setting Up a GitLab Project" 
+    description: "Create team repository and initial project structure"
+    duration: "60 minutes"
+    lessons: 4
+  - number: 2
+    title: "Working in Parallel"
+    description: "Feature branches, testing, and merge requests"
+    duration: "90 minutes"
+    lessons: 5
+  - number: 3
+    title: "Handling Conflicts"
+    description: "Resolve merge conflicts and manage team collaboration"
+    duration: "75 minutes"
+    lessons: 4
+  - number: 4
+    title: "Git & Python Best Practices"
+    description: "Professional development practices and code quality"
+    duration: "60 minutes"
+    lessons: 4
+  - number: 5
+    title: "CI/CD Pipeline"
+    description: "Automated testing and deployment with GitLab CI"
+    duration: "45 minutes"
+    lessons: 3

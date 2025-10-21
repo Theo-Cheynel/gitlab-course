@@ -1,0 +1,97 @@
+# GitLab Team Projects Course - Full Transcript for LLMs
+
+This is the complete course transcript for "Using GitLab in Team Projects" - designed to help LLMs understand the full context of student questions.
+
+## Course Overview
+
+**Goal**: Build a Python Hangman game collaboratively using GitLab
+**Format**: 6-person teams, role-based learning
+**Skills**: Git workflows, team collaboration, Python best practices, CI/CD
+
+## Course Structure
+
+### Module 0: Environment Setup
+1. **Installing VSCode**: Download and install VSCode editor
+2. **Installing Git Bash (Windows)**: Windows users install Git Bash for terminal access
+3. **Setting up SSH Keys**: Generate and configure SSH keys for GitLab authentication
+4. **Creating Repository**: Create GitLab project repository
+5. **Cloning Repository**: Clone repository to local machine
+6. **First Commits**: Basic git workflow (add, commit, push)
+
+### Module 1: Team Setup
+1. **Team Formation**: Add team members, set permissions, plan structure
+2. **Project Structure**: Understand hangman game architecture and team roles
+
+### Module 2: Parallel Work
+1. **Team Role Tasks**: Each member (A-F) implements specific hangman components
+2. **Unit Testing**: Write tests for implemented code
+3. **Merge Requests**: Create and review merge requests for team collaboration
+
+### Module 3: Conflicts
+1. **Resolving Conflicts**: Handle merge conflicts when team work overlaps
+2. **Git Rebase**: Advanced Git techniques for clean history
+
+### Module 4: Best Practices
+1. **GitIgnore Setup**: Configure files to ignore in version control
+2. **Pre-commit Hooks**: Automated code quality checks
+3. **Python Package**: Structure code as proper Python package
+
+### Module 5: CI/CD
+1. **GitLab CI Setup**: Configure continuous integration pipelines
+2. **Pipeline Configuration**: Automated testing and deployment
+
+## Team Roles
+
+**Team Member A**: Core game logic and word validation
+**Team Member B**: User interface and input validation  
+**Team Member C**: Game state management
+**Team Member D**: Scoring and statistics system
+**Team Member E**: Testing framework and utilities
+**Team Member F**: Documentation and code quality
+
+## Technical Environment
+
+- **IDE**: Visual Studio Code
+- **Terminal**: bash (Git Bash for Windows users)
+- **Python**: Version 3.13 with virtual environment (venv)
+- **Version Control**: Git with GitLab hosting
+- **Authentication**: SSH keys for secure GitLab access
+- **Testing**: Unit tests and continuous integration
+- **Package Management**: pip with requirements.txt
+
+## Common Issues and Solutions
+
+### Environment Setup Issues
+- **Git Bash not found (Windows)**: Install Git for Windows with proper PATH configuration
+- **SSH key errors**: Ensure public key (.pub file) is copied to GitLab, not private key
+- **Permission denied (publickey)**: Check SSH key configuration and GitLab settings
+- **VSCode not opening**: Verify installation and PATH configuration
+
+### Git Workflow Issues
+- **Merge conflicts**: Use git status, manually resolve conflicts, then commit
+- **Branch confusion**: Use git branch to list branches, git checkout to switch
+- **Push rejected**: Pull latest changes first, then push
+- **Uncommitted changes**: Stage with git add, commit with git commit
+
+### Python Development Issues
+- **Import errors**: Ensure proper package structure and PYTHONPATH
+- **Virtual environment**: Always activate venv before installing packages
+- **Test failures**: Check test file naming (test_*.py) and assertion syntax
+- **Module not found**: Verify file paths and package initialization files
+
+### Team Collaboration Issues
+- **Merge request conflicts**: Coordinate with team, communicate changes
+- **Code review feedback**: Address comments before merging
+- **Integration issues**: Test locally before pushing to shared branches
+- **Access permissions**: Ensure all team members have proper GitLab access
+
+## Best Practices Taught
+
+1. **Git Workflow**: Feature branches, descriptive commit messages, regular pushes
+2. **Code Quality**: Unit tests, type hints, documentation, linting
+3. **Team Communication**: Clear merge request descriptions, code reviews
+4. **Project Structure**: Proper Python package layout, configuration files
+5. **Security**: SSH keys, no credentials in code, proper .gitignore
+6. **Automation**: CI/CD pipelines, automated testing, pre-commit hooks
+
+This course simulates real-world software development practices in a controlled educational environment, preparing students for professional team-based development.

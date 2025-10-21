@@ -961,6 +961,17 @@ body.dark-theme .module-header:hover {
     color: var(--text-secondary);
 }
 
+.lesson-body li ul,
+.lesson-body li ol {
+    margin-top: var(--space-sm);
+    margin-bottom: var(--space-sm);
+    padding-left: var(--space-lg);
+}
+
+.lesson-body li li {
+    margin-bottom: calc(var(--space-sm) / 2);
+}
+
 .lesson-body code {
     background: var(--bg-tertiary);
     padding: 0.2em 0.4em;
@@ -1170,8 +1181,9 @@ body.dark-theme .os-header:hover {
 }
 
 .nav-btn.complete {
-    background: var(--secondary-color);
-    color: var(--text-white);
+    background: var(--secondary-color) !important;
+    color: var(--text-white) !important;
+    border: none !important;
 }
 
 .nav-btn.complete:hover {

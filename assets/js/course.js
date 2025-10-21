@@ -627,10 +627,24 @@ class CourseApp {
         // Links
         html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');
         
-        // Lists
+        // Lists - handle nested lists properly
+        // First, handle indented items (nested)
+        html = html.replace(/^   - (.+)$/gim, '<nested-li>$1</nested-li>');
+        html = html.replace(/^   \* (.+)$/gim, '<nested-li>$1</nested-li>');
+        
+        // Then handle top-level items
         html = html.replace(/^\* (.+)$/gim, '<li>$1</li>');
-        html = html.replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>');
+        html = html.replace(/^- (.+)$/gim, '<li>$1</li>');
         html = html.replace(/^\d+\. (.+)$/gim, '<li>$1</li>');
+        
+        // Convert nested items to proper nested lists
+        html = html.replace(/(<li>.*?)(<nested-li>.*?<\/nested-li>)/gs, (match, parentLi, nestedItems) => {
+            const nestedList = nestedItems.replace(/<nested-li>/g, '<li>').replace(/<\/nested-li>/g, '</li>');
+            return parentLi + '<ul>' + nestedList + '</ul>';
+        });
+        
+        // Wrap consecutive list items in ul/ol tags
+        html = html.replace(/(<li>(?:(?!<li>|<ul>|<\/ul>)[\s\S])*?<\/li>(?:\s*<li>(?:(?!<li>|<ul>|<\/ul>)[\s\S])*?<\/li>)*)/g, '<ul>$1</ul>');
         
         // Paragraphs
         html = html.replace(/\n\n/g, '</p><p>');
@@ -642,6 +656,8 @@ class CourseApp {
         html = html.replace(/(<\/h[1-6]>)<\/p>/g, '$1');
         html = html.replace(/<p>(<ul>)/g, '$1');
         html = html.replace(/(<\/ul>)<\/p>/g, '$1');
+        html = html.replace(/<p>(<ol>)/g, '$1');
+        html = html.replace(/(<\/ol>)<\/p>/g, '$1');
         html = html.replace(/<p>(<pre>)/g, '$1');
         html = html.replace(/(<\/pre>)<\/p>/g, '$1');
         

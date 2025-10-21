@@ -1,9 +1,3 @@
----
-layout: default
-title: "Installing VSCode"
-parent: "Module 0: Setting Up the Environment"
-nav_order: 1
----
 
 # Installing VSCode
 

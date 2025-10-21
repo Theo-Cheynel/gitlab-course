@@ -1,9 +1,3 @@
----
-layout: default
-title: "Setting up SSH Keys"
-parent: "Module 0: Setting Up the Environment"
-nav_order: 2
----
 
 # Setting up SSH Keys for GitLab
 

@@ -1,34 +1,3 @@
----
-layout: module
-title: "Setting Up the Environment"
-module_number: "Module 0"
-description: "Install tools and configure your development environment for team collaboration"
-duration: "45 minutes"
-lessons:
-  - title: "Installing VSCode"
-    url: "./vscode"
-    description: "Install and configure Visual Studio Code with Git integration"
-    duration: "15 minutes"
-  - title: "Setting up SSH Keys"
-    url: "./ssh"
-    description: "Create SSH keys for secure GitLab authentication"
-    duration: "10 minutes"
-  - title: "Creating a GitLab Repository"
-    url: "./creating_repository"
-    description: "Set up your first GitLab project repository"
-    duration: "8 minutes"
-  - title: "Cloning the Repository"
-    url: "./cloning_repository"
-    description: "Get the repository on your local machine"
-    duration: "7 minutes"
-  - title: "Your First Commits"
-    url: "./commits"
-    description: "Learn the basic Git workflow for tracking changes"
-    duration: "5 minutes"
-next_module:
-  title: "Module 1: Setting Up a GitLab Project"
-  url: "../module1/"
----
 
 ## What is Git?
 

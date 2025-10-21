@@ -8,12 +8,14 @@ class CourseApp {
         this.currentLesson = null;
         this.completedLessons = new Set();
         this.courseData = this.initializeCourseData();
+        this.currentTheme = this.loadTheme() || 'light';
         
         this.init();
     }
 
     init() {
         this.loadUserData();
+        this.applyTheme(this.currentTheme);
         this.setupEventListeners();
         this.setupResponsiveDesign();
         this.initializeInterface();
@@ -264,6 +266,10 @@ class CourseApp {
             this.toggleSidebar();
         });
 
+        // Theme toggle
+        document.getElementById('themeToggle').addEventListener('click', () => {
+            this.toggleTheme();
+        });
 
         // Module expansion
         document.addEventListener('click', (e) => {
@@ -597,6 +603,78 @@ class CourseApp {
         this.completedLessons.forEach(lessonId => {
             this.updateLessonStatus(lessonId);
         });
+    }
+
+    // =================
+    // Theme Management
+    // =================
+
+    loadTheme() {
+        try {
+            // Try localStorage first
+            const stored = localStorage.getItem('gitlabCourseTheme');
+            if (stored) {
+                return stored;
+            }
+        } catch (error) {
+            console.warn('Could not load theme from localStorage:', error);
+        }
+
+        // Fallback to cookie
+        const cookieMatch = document.cookie.match(/gitlabCourseTheme=([^;]+)/);
+        if (cookieMatch) {
+            return cookieMatch[1];
+        }
+
+        // Default to light theme
+        return 'light';
+    }
+
+    saveTheme(theme) {
+        try {
+            localStorage.setItem('gitlabCourseTheme', theme);
+            
+            // Also set a cookie as backup
+            const expires = new Date();
+            expires.setTime(expires.getTime() + (30 * 24 * 60 * 60 * 1000)); // 30 days
+            document.cookie = `gitlabCourseTheme=${theme}; expires=${expires.toUTCString()}; path=/`;
+        } catch (error) {
+            console.warn('Could not save theme:', error);
+        }
+    }
+
+    applyTheme(theme) {
+        const body = document.body;
+        const themeToggleBtn = document.getElementById('themeToggle');
+        
+        if (theme === 'dark') {
+            body.classList.add('dark-theme');
+            if (themeToggleBtn) {
+                themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+            }
+        } else {
+            body.classList.remove('dark-theme');
+            if (themeToggleBtn) {
+                themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+            }
+        }
+        
+        this.currentTheme = theme;
+    }
+
+    toggleTheme() {
+        const newTheme = this.currentTheme === 'light' ? 'dark' : 'light';
+        this.applyTheme(newTheme);
+        this.saveTheme(newTheme);
+        
+        // Show feedback
+        const themeToggleBtn = document.getElementById('themeToggle');
+        if (themeToggleBtn) {
+            themeToggleBtn.style.transform = 'scale(1.1)';
+            setTimeout(() => {
+                themeToggleBtn.style.transform = '';
+            }, 200);
+        }
     }
 
     // =================

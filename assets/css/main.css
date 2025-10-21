@@ -252,6 +252,52 @@ body {
     margin-left: var(--space-sm);
 }
 
+/* Role-Based Content Styling */
+.lesson-body h2:first-child {
+    margin-top: 0;
+}
+
+/* Style for role identification */
+.lesson-body p:has(strong:contains("You are Team Member")) {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: var(--text-white);
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    margin: var(--space-lg) 0;
+    font-weight: 500;
+}
+
+/* Waiting/status indicators */
+.lesson-body h3:contains("What You Need to Do") + p {
+    background: var(--bg-secondary);
+    border: 2px solid var(--success-color);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    text-align: center;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--success-color);
+}
+
+/* Progress indicators */
+.lesson-body p:contains("🔄") {
+    background: var(--bg-tertiary);
+    border-left: 4px solid var(--accent-color);
+    padding: var(--space-lg);
+    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+    margin: var(--space-lg) 0;
+    font-weight: 500;
+}
+
+/* Checklist items */
+.lesson-body li:contains("✅") {
+    background: rgba(34, 197, 94, 0.1);
+    padding: var(--space-sm) var(--space-md);
+    margin: var(--space-sm) 0;
+    border-radius: var(--radius-md);
+    border-left: 3px solid var(--success-color);
+}
+
 .change-role-btn {
     background: rgba(255, 255, 255, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.3);

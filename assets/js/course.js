@@ -511,6 +511,9 @@ class CourseApp {
             // Add OS-specific collapsible sections
             this.addOSCollapsibleSections();
             
+            // Handle role-based content
+            this.handleRoleBasedContent();
+            
             // Add copy buttons to code blocks
             this.addCopyButtons();
             
@@ -816,6 +819,72 @@ class CourseApp {
             content.style.maxHeight = content.scrollHeight + 'px';
             content.style.opacity = '1';
         }
+    }
+
+    // =================
+    // Role-Based Content
+    // =================
+
+    handleRoleBasedContent() {
+        const lessonBody = document.getElementById('lessonBody');
+        if (!lessonBody || !this.currentRole) return;
+        
+        const content = lessonBody.innerHTML;
+        
+        // Parse role-based sections
+        const sections = this.parseRoleBasedSections(content);
+        
+        if (sections.length > 0) {
+            // Find the section that matches current role
+            const currentSection = this.findMatchingRoleSection(sections);
+            
+            if (currentSection) {
+                // Replace content with role-specific section
+                let processedContent = currentSection.content;
+                
+                // Replace {role} placeholder with actual role
+                const roleData = this.courseData.roleDescriptions[this.currentRole];
+                if (roleData) {
+                    processedContent = processedContent.replace(/{role}/g, this.currentRole);
+                }
+                
+                lessonBody.innerHTML = processedContent;
+            }
+        }
+    }
+
+    parseRoleBasedSections(content) {
+        const sections = [];
+        const roleRegex = /<!-- ROLE: ([^>]+) -->(.*?)<!-- \/ROLE: [^>]+ -->/gs;
+        let match;
+        
+        while ((match = roleRegex.exec(content)) !== null) {
+            const roleSpec = match[1].trim();
+            const sectionContent = match[2].trim();
+            
+            sections.push({
+                roles: roleSpec.split(',').map(r => r.trim()),
+                content: sectionContent
+            });
+        }
+        
+        return sections;
+    }
+
+    findMatchingRoleSection(sections) {
+        for (const section of sections) {
+            // Check if current role matches any role in this section
+            if (section.roles.includes(this.currentRole)) {
+                return section;
+            }
+            
+            // Check if this section is for multiple roles (like B,C,D,E,F)
+            if (section.roles.length > 1 && section.roles.includes(this.currentRole)) {
+                return section;
+            }
+        }
+        
+        return null;
     }
 
     // =================

@@ -9,13 +9,13 @@ Team Role: {role}
 Previous lessons: Installing VSCode.
 Current lesson: "Installing Git Bash (Windows)". It includes:
 - Download Git for Windows
-- Configure installation settings (PATH, line endings, SSH)
-- Verify Git Bash installation
-- Basic bash commands overview
+- Use default installation settings
+- Run Git Bash 
 
 Environment:
 - VSCode
-- Installing Git Bash (Windows only)
+- bash (GitBash for Windows users)
+- venv with Python 3.13
 - OS: {os}
 
 Here is the issue I am facing: 

@@ -1,28 +1,92 @@
+## Role-Based Instructions
 
-## Setting things up
+<!-- ROLE: A -->
+## Creating the GitLab Repository
 
-To create the repository, only one group member has to work. The others should still read this, so that they know how to do it for their future projects.
-> **GROUP MEMBER NUMBER 1** MUST NOW:
-> 1. Go to [gitlab](https://gitlab-cw3.centralesupelec.fr/). You should see a button "New Project" just like this:
-![New Project button](/images/image.png)
-> 2. Click it to create a new project. You should get the following page; click "create blank project":
-![alt text](/images/image-1.png)
-> 3. Next, you can configure settings for your project. You have to give it a name, and set its visibility level (use Private). Initialize the project with a README, this will make it easier for the next steps. Then, you can click "create project".
-![alt text](/images/image-2.png)
+**You are Team Member A** - You are responsible for creating the GitLab repository that your team will use for the hangman project.
 
-The gitlab interface looks like this:
-![alt text](/images/image-3.png)
-On the <span style="color:red">left part</span>, you can see several tabs. Most of them are for an advanced use, but we will be using the "Project" tab as well as the "Manage" tab in the following tutorial.
+### Step 1: Create New Project
 
-The <span style="color:green">middle part</span> contains a listing of the files present in your repository. So far, you only have the default README.md file. It is a text file written in Markdown, a markup language allowing basic text formatting. This file is used to store information about the project (for example : how to run the code, how to contribute to the project, etc.). The README.md is displayed underneath : so far, it contains basic information about git/gitlab.
+1. Go to your GitLab server (your instructor will provide the URL)
+2. Sign in with your account
+3. Look for the **"New Project"** button and click it
+4. Select **"Create blank project"**
 
-## Adding your teammates
-So far, you are the only person able to see the repository, as it is private by default. There are also public repositories, that anyone on the internet can see. However, even when a repository is public, there is a limited list of people who are allowed to *contribute* to it (push commits).
+### Step 2: Configure Project Settings
 
-> **GROUP MEMBER NUMBER 1** MUST NOW:
-> 1. Open the "Manage > Members" tab
-> ![Manage Members](image.png)
-> 2. Click on Invite Members, and add the other group members, with a role of Maintainer or Owner. The role defines the permissions of the member.
-> If they already have an account on this Gitlab server, they will be added directly. If they haven't created an account yet, it should send them a registration email.
-> 3. Check that everyone now has access to the repository.
+1. **Project name**: Enter a descriptive name like `hangman-team-[your-team-number]`
+2. **Visibility Level**: Set to **Private** (only team members can see it)
+3. **Initialize repository**: Check the box for **"Initialize repository with a README"**
+4. Click **"Create project"**
 
+### Step 3: Add Your Team Members
+
+1. In your new repository, go to **"Project information > Members"** in the left sidebar
+2. Click **"Invite members"**
+3. Add each of your team members (B, C, D, E, F) with the following details:
+   - **Role**: Select **"Maintainer"** (gives full access to the repository)
+   - **Username/Email**: Enter their GitLab username or email address
+4. Click **"Invite"** for each member
+
+### Step 4: Verify Team Access
+
+1. Check that all team members appear in the Members list
+2. Share the repository URL with your team
+3. Ask each team member to confirm they can access the repository
+
+### Step 5: Repository Overview
+
+Your GitLab repository interface contains:
+
+- **Left sidebar**: Navigation menu with Project, Issues, Merge requests, etc.
+- **Main area**: File listing (currently just README.md)
+- **README.md**: Project description file (displayed below the file list)
+
+### What's Next
+
+Once the repository is created and all team members have access:
+1. Each team member will clone the repository to their computer
+2. You'll all learn to make commits and work with branches
+3. The repository will become the central hub for your hangman game development
+
+**Important**: Keep the repository URL handy - your team will need it for cloning in the next lesson.
+
+<!-- /ROLE: A -->
+
+<!-- ROLE: B,C,D,E,F -->
+## Repository Setup in Progress
+
+**You are Team Member {role}** - Team Member A is currently setting up the GitLab repository for your team.
+
+### What's Happening Now
+
+🔄 **Team Member A is creating the repository and adding all team members**
+
+### What You Need to Do
+
+**Nothing!** Just wait for Team Member A to complete the setup.
+
+### What to Expect
+
+1. **Repository Creation**: Team Member A is creating a new GitLab project for your team
+2. **Access Setup**: You will be added as a team member with full access rights
+3. **Notification**: You may receive an email invitation to join the repository
+
+### While You Wait
+
+- ✅ Make sure your GitLab account is set up and you can log in
+- ✅ Ensure your SSH keys are properly configured (previous lesson)
+- ✅ Have VSCode and Git Bash (Windows) ready for the next steps
+
+### Once Setup is Complete
+
+Team Member A will share the repository URL with the team. You'll then be ready to:
+1. Clone the repository to your computer
+2. Start working on your assigned parts of the hangman game
+3. Learn collaborative Git workflows
+
+**Estimated wait time**: 5-10 minutes
+
+**Tip**: Use this time to review the previous lessons or help other team members with their SSH key setup if needed.
+
+<!-- /ROLE: B,C,D,E,F -->

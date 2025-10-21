@@ -30,8 +30,8 @@ ssh-keygen
 
 1. **File location**: Press Enter to accept the default location (`/home/your-username/.ssh/id_ed25519`)
 2. **Passphrase**: You can either:
-   - Press Enter for no passphrase (less secure, but easier to use)
-   - Enter a passphrase (more secure, but you'll need to enter it every time) -- your passphrase won't show up on screen, it's normal!
+   + Press Enter for no passphrase (less secure, but easier to use)
+   + Enter a passphrase (more secure, but you'll need to enter it every time) -- your passphrase won't show up on screen, it's normal!
 
 You should see output like:
 ```
@@ -95,9 +95,9 @@ Welcome to GitLab, @your-username!
 ## Troubleshooting
 
 ### "ssh-keygen: command not found"
-- **Windows**: Make sure you have opened GitBash.
-- **macOS**: Install Xcode Command Line Tools: `xcode-select --install`
-- **Linux**: Install OpenSSH: `sudo apt install openssh-client`
+1. **Windows**: Make sure you have opened GitBash.
+2. **macOS**: Install Xcode Command Line Tools: `xcode-select --install`
+3. **Linux**: Install OpenSSH: `sudo apt install openssh-client`
 
 ### Key already exists
 If you get "already exists", either:
@@ -108,11 +108,11 @@ If you get "already exists", either:
 If you used RSA instead of Ed25519, replace `id_ed25519` with `id_rsa` in all commands.
 
 ## Security Best Practices
-- **Never share your private key** (the file without `.pub`)
-- **Keep your private key secure** - don't copy it to shared computers
-- **Use a passphrase** for additional security (especially on shared computers)
-- **Set expiration dates** on your keys
-- **Remove old keys** from GitLab when you stop using a computer
+1. **Never share your private key** (the file without `.pub`)
+2. **Keep your private key secure** - don't copy it to shared computers
+3. **Use a passphrase** for additional security (especially on shared computers)
+4. **Set expiration dates** on your keys
+5. **Remove old keys** from GitLab when you stop using a computer
 
 ## What's happening behind the scenes?
 

@@ -8,10 +8,9 @@ Current Module: Environment Setup
 Team Role: {role}
 Previous lessons: Installing VSCode, GitBash (if on Windows), and Setting up SSH keys.
 Current lesson: "Creating Repository". It includes:
-- Create GitLab account (if needed)
-- Create new project/repository on GitLab
-- Configure repository settings (visibility, README)
-- Understand repository structure and interface
+- ROLE-BASED LESSON: Team Member A creates the repository, others wait
+- If Team Member A: Create GitLab project, configure settings, add team members
+- If Team Members B-F: Wait for Team Member A to complete setup, prepare for next steps
 
 Environment:
 - VSCode

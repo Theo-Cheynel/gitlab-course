@@ -13,8 +13,8 @@ ls -la ~/.ssh
 ```
 
 Look for files named:
-- `id_rsa` and `id_rsa.pub` (RSA keys)
-- `id_ed25519` and `id_ed25519.pub` (Ed25519 keys - newer and recommended)
+1. `id_rsa` and `id_rsa.pub` (RSA keys)
+2. `id_ed25519` and `id_ed25519.pub` (Ed25519 keys - newer and recommended)
 
 If you see these files, you already have SSH keys! Skip to **Step 3**.
 
@@ -30,8 +30,8 @@ ssh-keygen
 
 1. **File location**: Press Enter to accept the default location (`/home/your-username/.ssh/id_ed25519`)
 2. **Passphrase**: You can either:
-   + Press Enter for no passphrase (less secure, but easier to use)
-   + Enter a passphrase (more secure, but you'll need to enter it every time) -- your passphrase won't show up on screen, it's normal!
+   - Press Enter for no passphrase (less secure, but easier to use)
+   - Enter a passphrase (more secure, but you'll need to enter it every time) -- your passphrase won't show up on screen, it's normal!
 
 You should see output like:
 ```
@@ -101,8 +101,8 @@ Welcome to GitLab, @your-username!
 
 ### Key already exists
 If you get "already exists", either:
-- Use the existing key (recommended)
-- Delete the old key and create a new one: `rm ~/.ssh/id_ed25519*`
+1. Use the existing key (recommended)
+2. Delete the old key and create a new one: `rm ~/.ssh/id_ed25519*`
 
 ### Different key types
 If you used RSA instead of Ed25519, replace `id_ed25519` with `id_rsa` in all commands.

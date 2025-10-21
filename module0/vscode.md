@@ -55,7 +55,7 @@ To install extensions:
 Before we continue, let's configure Git with your identity:
 
 1. Open VSCode
-2. Open the integrated terminal (`Ctrl+` ` or `View → Terminal`)
+2. Open the integrated terminal (`View → Terminal`)
 3. Run these commands (replace with your information):
 
 ```bash

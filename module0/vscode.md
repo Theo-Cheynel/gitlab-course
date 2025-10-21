@@ -1,13 +1,5 @@
 
-Visual Studio Code (VSCode) is a free, open-source code editor that works great with Git and GitLab. It provides syntax highlighting, Git integration, debugging tools, and many useful extensions.
-
-## Why VSCode?
-
-- **Built-in Git integration**: See changes, commit, push, and pull without leaving the editor
-- **GitLab extension**: Direct integration with GitLab merge requests and issues
-- **Cross-platform**: Works on Windows, macOS, and Linux
-- **Free and open-source**: No license required
-- **Large ecosystem**: Thousands of extensions for different programming languages and tools
+If you do not have VSCode installed yet, follow these steps to install it and configure it.s
 
 ## Installation Instructions
 

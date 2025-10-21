@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git & GitLab for Team Projects - Engineering Course</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <span class="logo">🚀</span>
+                <h1>Git & GitLab Course</h1>
+            </div>
+            <div class="nav-links">
+                <a href="#overview" class="nav-link">Overview</a>
+                <a href="#modules" class="nav-link">Modules</a>
+                <a href="#resources" class="nav-link">Resources</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="hero" id="overview">
+            <div class="hero-content">
+                <h2 class="hero-title">Master Git & GitLab for Team Development</h2>
+                <p class="hero-subtitle">
+                    A comprehensive course for engineering students to learn collaborative software development 
+                    using Git, GitLab, and modern development practices through building a Python hangman game.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">5</span>
+                        <span class="stat-label">Modules</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">6</span>
+                        <span class="stat-label">Team Members</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">150</span>
+                        <span class="stat-label">Groups</span>
+                    </div>
+                </div>
+                <a href="#modules" class="cta-button">Start Learning</a>
+            </div>
+            <div class="hero-visual">
+                <div class="code-window">
+                    <div class="code-header">
+                        <div class="code-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <span class="code-title">terminal</span>
+                    </div>
+                    <div class="code-content">
+                        <div class="code-line">
+                            <span class="prompt">$</span>
+                            <span class="command">git clone git@gitlab.com:team/hangman.git</span>
+                        </div>
+                        <div class="code-line">
+                            <span class="output">Cloning into 'hangman'...</span>
+                        </div>
+                        <div class="code-line">
+                            <span class="prompt">$</span>
+                            <span class="command">git checkout -b feature/word-validation</span>
+                        </div>
+                        <div class="code-line">
+                            <span class="output">Switched to a new branch 'feature/word-validation'</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="course-info">
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-icon">🎯</div>
+                    <h3>Learning Objectives</h3>
+                    <ul>
+                        <li>Master Git branching and merging strategies</li>
+                        <li>Learn GitLab workflows and merge requests</li>
+                        <li>Practice conflict resolution and code reviews</li>
+                        <li>Implement CI/CD pipelines</li>
+                        <li>Apply Python best practices</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">🛠️</div>
+                    <h3>Prerequisites</h3>
+                    <ul>
+                        <li>Basic Git knowledge (commits, branches)</li>
+                        <li>Python programming fundamentals</li>
+                        <li>Command line familiarity</li>
+                        <li>Text editor experience</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">🏗️</div>
+                    <h3>Project Structure</h3>
+                    <ul>
+                        <li>Team-based hangman game development</li>
+                        <li>Feature branch workflow</li>
+                        <li>Unit testing and code quality</li>
+                        <li>Continuous integration</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="modules" id="modules">
+            <div class="modules-header">
+                <h2>Course Modules</h2>
+                <p>Follow these modules in order to build your Git and GitLab expertise</p>
+            </div>
+            
+            <div class="modules-grid">
+                <div class="module-card" data-module="0">
+                    <div class="module-header">
+                        <span class="module-number">00</span>
+                        <div class="module-status">
+                            <span class="status-indicator pending"></span>
+                            <span class="status-text">Start Here</span>
+                        </div>
+                    </div>
+                    <h3 class="module-title">Setting Up the Environment</h3>
+                    <p class="module-description">
+                        Install VSCode, configure SSH keys, and prepare your development environment for team collaboration.
+                    </p>
+                    <div class="module-topics">
+                        <span class="topic">VSCode Installation</span>
+                        <span class="topic">SSH Key Setup</span>
+                        <span class="topic">Repository Creation</span>
+                        <span class="topic">Basic Git Config</span>
+                    </div>
+                    <div class="module-footer">
+                        <span class="module-duration">⏱️ 45 minutes</span>
+                        <a href="./module0/" class="module-link">Start Module →</a>
+                    </div>
+                </div>
+
+                <div class="module-card" data-module="1">
+                    <div class="module-header">
+                        <span class="module-number">01</span>
+                        <div class="module-status">
+                            <span class="status-indicator locked"></span>
+                            <span class="status-text">Locked</span>
+                        </div>
+                    </div>
+                    <h3 class="module-title">Setting Up a GitLab Project</h3>
+                    <p class="module-description">
+                        Create your team's GitLab repository, invite collaborators, and set up the initial project structure.
+                    </p>
+                    <div class="module-topics">
+                        <span class="topic">Project Creation</span>
+                        <span class="topic">Team Invitations</span>
+                        <span class="topic">Repository Cloning</span>
+                        <span class="topic">Branch Strategy</span>
+                    </div>
+                    <div class="module-footer">
+                        <span class="module-duration">⏱️ 60 minutes</span>
+                        <a href="#" class="module-link disabled">Complete Module 0 First</a>
+                    </div>
+                </div>
+
+                <div class="module-card" data-module="2">
+                    <div class="module-header">
+                        <span class="module-number">02</span>
+                        <div class="module-status">
+                            <span class="status-indicator locked"></span>
+                            <span class="status-text">Locked</span>
+                        </div>
+                    </div>
+                    <h3 class="module-title">Working in Parallel</h3>
+                    <p class="module-description">
+                        Learn to work simultaneously on different features using branches, pull requests, and code reviews.
+                    </p>
+                    <div class="module-topics">
+                        <span class="topic">Feature Branches</span>
+                        <span class="topic">Unit Testing</span>
+                        <span class="topic">Merge Requests</span>
+                        <span class="topic">Code Reviews</span>
+                    </div>
+                    <div class="module-footer">
+                        <span class="module-duration">⏱️ 90 minutes</span>
+                        <a href="#" class="module-link disabled">Complete Module 1 First</a>
+                    </div>
+                </div>
+
+                <div class="module-card" data-module="3">
+                    <div class="module-header">
+                        <span class="module-number">03</span>
+                        <div class="module-status">
+                            <span class="status-indicator locked"></span>
+                            <span class="status-text">Locked</span>
+                        </div>
+                    </div>
+                    <h3 class="module-title">Handling Conflicts</h3>
+                    <p class="module-description">
+                        Master merge conflicts resolution, rebasing, and maintaining a clean project history.
+                    </p>
+                    <div class="module-topics">
+                        <span class="topic">Merge Conflicts</span>
+                        <span class="topic">Git Rebase</span>
+                        <span class="topic">Issue Tracking</span>
+                        <span class="topic">Conflict Resolution</span>
+                    </div>
+                    <div class="module-footer">
+                        <span class="module-duration">⏱️ 75 minutes</span>
+                        <a href="#" class="module-link disabled">Complete Module 2 First</a>
+                    </div>
+                </div>
+
+                <div class="module-card" data-module="4">
+                    <div class="module-header">
+                        <span class="module-number">04</span>
+                        <div class="module-status">
+                            <span class="status-indicator locked"></span>
+                            <span class="status-text">Locked</span>
+                        </div>
+                    </div>
+                    <h3 class="module-title">Git & Python Best Practices</h3>
+                    <p class="module-description">
+                        Implement professional development practices including .gitignore, pre-commit hooks, and package structure.
+                    </p>
+                    <div class="module-topics">
+                        <span class="topic">.gitignore</span>
+                        <span class="topic">Pre-commit Hooks</span>
+                        <span class="topic">Python Packages</span>
+                        <span class="topic">Documentation</span>
+                    </div>
+                    <div class="module-footer">
+                        <span class="module-duration">⏱️ 60 minutes</span>
+                        <a href="#" class="module-link disabled">Complete Module 3 First</a>
+                    </div>
+                </div>
+
+                <div class="module-card" data-module="5">
+                    <div class="module-header">
+                        <span class="module-number">05</span>
+                        <div class="module-status">
+                            <span class="status-indicator locked"></span>
+                            <span class="status-text">Locked</span>
+                        </div>
+                    </div>
+                    <h3 class="module-title">CI/CD Pipeline</h3>
+                    <p class="module-description">
+                        Set up automated testing and deployment pipelines using GitLab CI/CD for professional workflows.
+                    </p>
+                    <div class="module-topics">
+                        <span class="topic">GitLab CI/CD</span>
+                        <span class="topic">Automated Testing</span>
+                        <span class="topic">Pipeline Configuration</span>
+                        <span class="topic">Deployment</span>
+                    </div>
+                    <div class="module-footer">
+                        <span class="module-duration">⏱️ 45 minutes</span>
+                        <a href="#" class="module-link disabled">Complete Module 4 First</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="resources" id="resources">
+            <div class="resources-header">
+                <h2>Additional Resources</h2>
+                <p>Helpful links and references for your Git & GitLab journey</p>
+            </div>
+            
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">📚</div>
+                    <h3>Git Documentation</h3>
+                    <p>Official Git documentation and tutorials</p>
+                    <a href="https://git-scm.com/doc" target="_blank" class="resource-link">Visit Documentation →</a>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">🦊</div>
+                    <h3>GitLab Docs</h3>
+                    <p>Complete GitLab user and admin documentation</p>
+                    <a href="https://docs.gitlab.com/" target="_blank" class="resource-link">View GitLab Docs →</a>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">🔧</div>
+                    <h3>Git Cheat Sheet</h3>
+                    <p>Quick reference for common Git commands</p>
+                    <a href="https://education.github.com/git-cheat-sheet-education.pdf" target="_blank" class="resource-link">Download PDF →</a>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">🎮</div>
+                    <h3>Learn Git Branching</h3>
+                    <p>Interactive Git tutorial and visualization</p>
+                    <a href="https://learngitbranching.js.org/" target="_blank" class="resource-link">Play Game →</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Course Information</h4>
+                <p>Engineering Team Project Course</p>
+                <p>Git & GitLab Tutorial</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#overview">Course Overview</a></li>
+                    <li><a href="#modules">Modules</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <p>For technical issues, please contact your instructor</p>
+                <p>Course materials available on GitLab</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Engineering Course - Git & GitLab Tutorial</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>

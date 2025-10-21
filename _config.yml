@@ -1,0 +1,83 @@
+# GitHub Pages Configuration for GitLab Course
+
+# Site settings
+title: "Git & GitLab for Team Projects"
+description: "A comprehensive course for engineering students to learn collaborative software development using Git, GitLab, and modern development practices."
+url: ""
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: null
+
+# GitHub Pages specific settings
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Exclude from processing
+exclude:
+  - README.md
+  - PLAN.txt
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .git
+  - .gitignore
+
+# Include files
+include:
+  - _pages
+
+# Collections
+collections:
+  modules:
+    output: true
+    permalink: /:collection/:name/
+
+# Default layouts
+defaults:
+  - scope:
+      path: ""
+      type: "modules"
+    values:
+      layout: "module"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+
+# Sass settings
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# SEO settings
+author: "Engineering Course Team"
+twitter:
+  username: 
+facebook:
+  app_id: 
+  publisher: 
+
+# Analytics (optional)
+google_analytics: 
+
+# Social links
+social:
+  links:
+    - https://gitlab.com
+
+# Course specific settings
+course:
+  total_modules: 6
+  estimated_hours: 6
+  difficulty: "Beginner to Intermediate"
+  prerequisites:
+    - "Basic Git knowledge"
+    - "Python fundamentals"
+    - "Command line familiarity"

@@ -1,0 +1,29 @@
+MODULE 0 - setting up the environment
+* installing VSCode
+* creating ssh keys
+* adding ssh keys to gitlab
+MODULE I - setting up a gitlab project
+* have one group member create the project on gitlab
+* have them invite over the other group members
+* have them all git clone the project on their machines
+* have one of them create a dev branch, and add a hangman.py and a test_hangman.py (pre-filled templates with functions + docstrings but no implem)
+* have them commit, push, and have the others pull 
+MODULE II - working in parallel
+* have each of them create a branch from dev, and fill one function
+* have them run the unit test for their function, until it works
+* have each of them make a PR
+* have them review the PR and merge into dev from the GitLab interface
+* have them push to main and tag the version
+* protect the main branch and have them try to push to main
+MODULE III - conflicts
+* as a group, create 6 issues and assign each of them to one person
+* have each of them modify a function (in such a way that each of them will have conflicts with another one)
+* have them solve the conflicts as they happen (teaching them rebase)
+MODULE IV - git and python best practices
+* gitignore
+* pre-commit (black for formatting)
+* change it into a Python package (multi-file, with requirements.txt,  package.json or pyproject.toml)
+* documentation
+MODULE V - CI/CD
+* create a .gitlab-ci.yml to run the unit tests before each pull request
+* Make a pull request to check the new unit tests

@@ -60,9 +60,6 @@ Before we continue, let's configure Git with your identity:
 
 ```bash
 git config --global user.name "Your Name"
-```
-
-```bash
 git config --global user.email "your.email@example.com"
 ```
 

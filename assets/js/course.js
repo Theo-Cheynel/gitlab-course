@@ -470,7 +470,6 @@ class CourseApp {
 
     updateLessonUI(lessonData) {
         document.getElementById('lessonTitle').textContent = lessonData.title;
-        document.getElementById('lessonModule').textContent = lessonData.module;
         document.getElementById('lessonDuration').textContent = lessonData.duration;
     }
 

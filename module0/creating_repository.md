@@ -46,6 +46,7 @@ Your GitLab repository interface contains:
 ## Repository Setup in Progress
 
 Team Member A is currently setting up the GitLab repository for your team.
+
 **You are Team Member {role}** - wait until Team Member A is finished.
 
 For your curiosity, here is what Team Member A is doing:

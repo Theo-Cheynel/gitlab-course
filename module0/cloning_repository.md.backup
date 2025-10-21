@@ -132,7 +132,7 @@ If you get "destination path already exists":
 
 ### Next Steps
 
-<Â‰ **Congratulations!** You now have a local copy of your team's repository.
+<‰ **Congratulations!** You now have a local copy of your team's repository.
 
 In the next lesson, you'll learn how to set up a Python virtual environment for your hangman project, ensuring everyone on your team uses the same Python packages and dependencies.
 

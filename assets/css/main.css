@@ -1179,6 +1179,22 @@ body.dark-theme .os-header:hover {
     transform: translateY(-2px);
 }
 
+.nav-btn.complete.completed {
+    background: var(--warning-color);
+    color: var(--text-white);
+}
+
+.nav-btn.complete.completed:hover {
+    background: #d97706;
+    transform: translateY(-2px);
+}
+
+.nav-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
 /* =================
    Modal
    ================= */

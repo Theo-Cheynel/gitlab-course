@@ -203,6 +203,23 @@ class CourseApp {
         return false;
     }
 
+    setCookie(name, value, days) {
+        const expires = new Date();
+        expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
+        document.cookie = `${name}=${value}; expires=${expires.toUTCString()}; path=/`;
+    }
+
+    getCookie(name) {
+        const nameEQ = name + "=";
+        const ca = document.cookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+    }
+
     // =================
     // Interface Management
     // =================
@@ -237,8 +254,9 @@ class CourseApp {
         
         document.querySelector('.app-container').classList.remove('no-banner');
         
-        // Always load first lesson when showing interface
-        this.loadLesson('vscode');
+        // Load last lesson from cookie or default to first lesson
+        const lastLesson = this.getCookie('currentLesson') || 'vscode';
+        this.loadLesson(lastLesson);
     }
 
     updateRoleBanner() {
@@ -468,6 +486,9 @@ class CourseApp {
 
         this.currentLesson = lessonId;
         
+        // Save current lesson to cookie
+        this.setCookie('currentLesson', lessonId, 30);
+        
         // Update UI state
         this.updateLessonUI(lessonData);
         this.updateActiveLesson(lessonId);
@@ -489,6 +510,9 @@ class CourseApp {
         
         // Update navigation buttons
         this.updateNavigationButtons();
+        
+        // Update lesson status (including mark complete button)
+        this.updateLessonStatus(lessonId);
     }
 
     updateLessonUI(lessonData) {
@@ -582,7 +606,8 @@ class CourseApp {
         // Remove front matter if present
         html = html.replace(/^---[\s\S]*?---\n/, '');
         
-        // Headers
+        // Headers (process h4 first to avoid conflicts)
+        html = html.replace(/^#### (.*$)/gim, '<h4>$1</h4>');
         html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
         html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
         html = html.replace(/^# (.*$)/gim, '<h1>$1</h1>');
@@ -624,33 +649,65 @@ class CourseApp {
     }
 
     markLessonComplete(lessonId) {
-        if (lessonId && !this.completedLessons.has(lessonId)) {
-            this.completedLessons.add(lessonId);
+        if (lessonId) {
+            if (this.completedLessons.has(lessonId)) {
+                // Uncheck lesson
+                this.completedLessons.delete(lessonId);
+                this.showUncheckFeedback();
+            } else {
+                // Check lesson
+                this.completedLessons.add(lessonId);
+                this.showCompletionFeedback();
+            }
             this.saveUserData();
             this.updateProgress();
             this.updateLessonStatus(lessonId);
-            
-            // Show completion feedback
-            this.showCompletionFeedback();
         }
     }
 
     updateLessonStatus(lessonId) {
         const lessonElement = document.querySelector(`[data-lesson="${lessonId}"]`);
         if (lessonElement) {
-            lessonElement.classList.add('completed');
+            if (this.completedLessons.has(lessonId)) {
+                lessonElement.classList.add('completed');
+            } else {
+                lessonElement.classList.remove('completed');
+            }
+        }
+        
+        // Update mark complete button
+        const markCompleteBtn = document.getElementById('markComplete');
+        if (markCompleteBtn && this.currentLesson === lessonId) {
+            if (this.completedLessons.has(lessonId)) {
+                markCompleteBtn.innerHTML = '<i class="fas fa-times"></i> Unmark Complete';
+                markCompleteBtn.classList.add('completed');
+            } else {
+                markCompleteBtn.innerHTML = '<i class="fas fa-check"></i> Mark Complete';
+                markCompleteBtn.classList.remove('completed');
+            }
         }
     }
 
     showCompletionFeedback() {
         const button = document.getElementById('markComplete');
-        const originalText = button.innerHTML;
         
         button.innerHTML = '<i class="fas fa-check"></i> Completed!';
         button.style.background = 'var(--success-color)';
         
         setTimeout(() => {
-            button.innerHTML = originalText;
+            this.updateLessonStatus(this.currentLesson);
+            button.style.background = '';
+        }, 2000);
+    }
+    
+    showUncheckFeedback() {
+        const button = document.getElementById('markComplete');
+        
+        button.innerHTML = '<i class="fas fa-undo"></i> Unchecked!';
+        button.style.background = 'var(--warning-color)';
+        
+        setTimeout(() => {
+            this.updateLessonStatus(this.currentLesson);
             button.style.background = '';
         }, 2000);
     }

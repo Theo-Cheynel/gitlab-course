@@ -1,0 +1,33 @@
+Course: Git & GitLab Team Project Course for Engineering Students
+Current Lesson: Setting up SSH Keys (Module 0 - Environment Setup)  
+Team Role: {role}
+Operating System: {os}
+
+CONTEXT:
+You are learning Git and GitLab collaboration as part of a team project where you'll build a Python hangman game. SSH keys provide secure authentication with GitLab.
+
+CURRENT TASK:
+Setting up SSH keys for GitLab - creating a secure "password" that your computer and GitLab share.
+
+WHAT YOU'VE COMPLETED:
+- Course introduction and role selection
+- VSCode installation
+- Git Bash installation (Windows users)
+
+WHAT'S NEXT:
+- Create GitLab repository
+- Clone repository to your computer
+
+TECHNICAL DETAILS:
+- SSH keys consist of a private key (stays on your computer) and public key (shared with GitLab)
+- Ed25519 keys are recommended over RSA
+- Public key ends with .pub extension
+- Private key has no extension and must be kept secret
+
+COMMON ISSUES:
+- "ssh-keygen: command not found" - missing Git/OpenSSH installation
+- "Permission denied (publickey)" - wrong key uploaded or GitLab configuration issue
+- Copying private key instead of public key (.pub file)
+- Key already exists error - can use existing key or delete and recreate
+
+If you're stuck, mention your operating system, which step you're on (checking existing keys, generating new keys, copying public key, adding to GitLab, or testing connection), and any specific error messages.

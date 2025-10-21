@@ -277,6 +277,20 @@ class CourseApp {
             this.toggleTheme();
         });
 
+        // Help button
+        document.getElementById('helpBtn').addEventListener('click', () => {
+            this.showHelpModal();
+        });
+
+        // Help modal controls
+        document.getElementById('closeHelpModal').addEventListener('click', () => {
+            this.hideHelpModal();
+        });
+
+        document.getElementById('copyContextBtn').addEventListener('click', () => {
+            this.copyContextToClipboard();
+        });
+
         // Module expansion
         document.addEventListener('click', (e) => {
             if (e.target.closest('.module-header')) {
@@ -302,6 +316,9 @@ class CourseApp {
             if (e.target.id === 'roleModal') {
                 this.hideRoleModal();
             }
+            if (e.target.id === 'helpModal') {
+                this.hideHelpModal();
+            }
         });
 
         // Lesson navigation buttons
@@ -313,6 +330,7 @@ class CourseApp {
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 this.hideRoleModal();
+                this.hideHelpModal();
             }
         });
     }
@@ -696,6 +714,140 @@ class CourseApp {
             setTimeout(() => {
                 button.innerHTML = originalContent;
                 button.style.background = '';
+            }, 2000);
+        }
+    }
+
+    // =================
+    // Help System
+    // =================
+
+    detectOperatingSystem() {
+        const userAgent = navigator.userAgent.toLowerCase();
+        
+        if (userAgent.includes('windows nt')) {
+            return 'Windows';
+        } else if (userAgent.includes('mac os') || userAgent.includes('macos')) {
+            return 'macOS';
+        } else if (userAgent.includes('linux')) {
+            return 'Linux';
+        } else if (userAgent.includes('android')) {
+            return 'Android';
+        } else if (userAgent.includes('iphone') || userAgent.includes('ipad')) {
+            return 'iOS';
+        } else {
+            return 'Unknown';
+        }
+    }
+
+    showHelpModal() {
+        document.getElementById('helpModal').classList.remove('hidden');
+        
+        // Update detected OS
+        const detectedOS = this.detectOperatingSystem();
+        document.getElementById('detectedOS').textContent = detectedOS;
+        
+        // Load context for current lesson
+        this.loadCurrentContext();
+    }
+
+    hideHelpModal() {
+        document.getElementById('helpModal').classList.add('hidden');
+    }
+
+    async loadCurrentContext() {
+        if (!this.currentLesson) {
+            document.getElementById('contextText').value = 'No lesson selected yet. Please start the course first.';
+            return;
+        }
+
+        try {
+            const lessonData = this.courseData.lessons[this.currentLesson];
+            const contextFile = lessonData.file.replace('.md', '.context');
+            
+            const response = await fetch(contextFile);
+            if (!response.ok) {
+                throw new Error(`Context file not found: ${response.status}`);
+            }
+            
+            let context = await response.text();
+            
+            // Replace placeholders
+            const roleData = this.courseData.roleDescriptions[this.currentRole];
+            const roleName = roleData ? roleData.title : 'Unknown';
+            const detectedOS = this.detectOperatingSystem();
+            
+            context = context.replace(/{role}/g, roleName);
+            context = context.replace(/{os}/g, detectedOS);
+            
+            document.getElementById('contextText').value = context;
+            
+        } catch (error) {
+            console.error('Error loading context:', error);
+            
+            // Fallback context
+            const fallbackContext = this.generateFallbackContext();
+            document.getElementById('contextText').value = fallbackContext;
+        }
+    }
+
+    generateFallbackContext() {
+        const lessonData = this.courseData.lessons[this.currentLesson] || {};
+        const roleData = this.courseData.roleDescriptions[this.currentRole] || {};
+        const detectedOS = this.detectOperatingSystem();
+        
+        return `Course: Git & GitLab Team Project Course for Engineering Students
+Current Lesson: ${lessonData.title || 'Unknown'} (${lessonData.module || 'Unknown Module'})
+Team Role: ${roleData.title || 'Unknown'}
+Operating System: ${detectedOS}
+
+CONTEXT:
+You are learning Git and GitLab collaboration as part of a team project where you'll build a Python hangman game.
+
+CURRENT TASK:
+${lessonData.title || 'Unknown lesson'}
+
+If you're stuck, describe what operating system you're using, what step you're on, and any error messages you see.`;
+    }
+
+    async copyContextToClipboard() {
+        const contextText = document.getElementById('contextText').value;
+        const copyBtn = document.getElementById('copyContextBtn');
+        
+        try {
+            if (navigator.clipboard && window.isSecureContext) {
+                await navigator.clipboard.writeText(contextText);
+            } else {
+                // Fallback
+                const textArea = document.createElement('textarea');
+                textArea.value = contextText;
+                textArea.style.position = 'fixed';
+                textArea.style.left = '-999999px';
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+            }
+            
+            // Show success feedback
+            const originalContent = copyBtn.innerHTML;
+            copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            copyBtn.classList.add('copied');
+            
+            setTimeout(() => {
+                copyBtn.innerHTML = originalContent;
+                copyBtn.classList.remove('copied');
+            }, 2000);
+            
+        } catch (error) {
+            console.error('Failed to copy context:', error);
+            
+            const originalContent = copyBtn.innerHTML;
+            copyBtn.innerHTML = '<i class="fas fa-exclamation"></i> Failed';
+            
+            setTimeout(() => {
+                copyBtn.innerHTML = originalContent;
             }, 2000);
         }
     }

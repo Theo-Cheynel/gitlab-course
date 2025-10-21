@@ -1,0 +1,35 @@
+Course: Git & GitLab Team Project Course for Engineering Students
+Current Lesson: Your Team Role Task - Member 1 (Module 2 - Parallel Work)
+Team Role: {role}
+Operating System: {os}
+
+CONTEXT:
+You are learning Git and GitLab collaboration as part of a team project where you'll build a Python hangman game. You are specifically Team Member 1 with specialized tasks.
+
+CURRENT TASK:
+Working on your specific role in the hangman game development as Team Member 1.
+
+WHAT YOU'VE COMPLETED:
+- Environment setup (VSCode, Git Bash, SSH keys)
+- Repository creation and cloning
+- Team formation and project structure understanding
+
+WHAT'S NEXT:
+- Unit testing
+- Merge requests and code review
+- Conflict resolution
+
+TECHNICAL DETAILS:
+- You're working on specific components assigned to Team Member 1
+- Using Git branching for parallel development
+- Following team collaboration workflows
+- Implementing Python code for hangman game
+
+COMMON ISSUES:
+- Git branch confusion (creating, switching, merging)
+- Python syntax or logic errors
+- File path or import issues
+- Git merge conflicts
+- Testing framework setup problems
+
+If you're stuck, describe your role (Team Member 1), what specific task you're working on, your operating system, and any error messages. Include relevant code snippets if you have programming issues.

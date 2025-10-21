@@ -31,7 +31,7 @@ ssh-keygen
 1. **File location**: Press Enter to accept the default location (`/home/your-username/.ssh/id_ed25519`)
 2. **Passphrase**: You can either:
    - Press Enter for no passphrase (less secure, but easier to use)
-   - Enter a passphrase (more secure, but you'll need to enter it every time)
+   - Enter a passphrase (more secure, but you'll need to enter it every time) -- your passphrase won't show up on screen, it's normal!
 
 You should see output like:
 ```
@@ -45,29 +45,19 @@ Your public key has been saved in /home/username/.ssh/id_ed25519.pub
 
 ## Step 3: Copy your public key
 
-Now we need to get your **public** key to add it to GitLab. The public key is the `.pub` file.
+Now we need to get your **public** key to add it to GitLab. The public key is the `.pub` file that was generated.
+(If your key uses another protocol than ed25519, replace the name of the key in the commands below)
 
-### Linux/macOS:
 ```bash
 cat ~/.ssh/id_ed25519.pub
-```
-
-### Windows (Git Bash):
-```bash
-cat ~/.ssh/id_ed25519.pub
-```
-
-### Windows (PowerShell):
-```powershell
-Get-Content ~/.ssh/id_ed25519.pub
 ```
 
 This will display your public key. It should look something like:
 ```
-ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGbPhiQgg... your.email@example.com
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGbPhiQgg... NameOfYourLaptop
 ```
 
-**Copy the entire output** (select all and copy).
+**Copy the entire output** (even ssh-ed25519 and NameOfYourLaptop).
 
 ## Step 4: Add the key to GitLab
 

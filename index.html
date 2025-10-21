@@ -19,6 +19,10 @@
                 <span>You are: <strong id="currentRoleText">Team Member A</strong></span>
             </div>
             <div class="banner-controls">
+                <button id="helpBtn" class="help-btn" title="Get help with LLM context">
+                    <i class="fas fa-question-circle"></i>
+                    Help!
+                </button>
                 <button id="themeToggle" class="theme-toggle-btn" title="Toggle theme">
                     <i class="fas fa-sun"></i>
                 </button>
@@ -386,6 +390,46 @@
                         <div class="role-info">
                             <h3>Team Member F</h3>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Help Modal -->
+    <div id="helpModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-question-circle"></i> Need Help?</h2>
+                <button id="closeHelpModal" class="close-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="help-content">
+                    <p>If ever you are lost, face an unexpected issue, or don't know what to do -- you can ask your LLM of choice for help (we recommend <a href="https://chat.mistral.ai/chat" target="_blank">LeChat</a> 🇫🇷🐔).</p>
+                    
+                    <p><strong>LLMs work best when you provide them <em>context</em></strong>, so you can copy/paste the context below:</p>
+                    
+                    <div class="context-section">
+                        <div class="context-header">
+                            <span>Current Context</span>
+                            <button id="copyContextBtn" class="context-copy-btn">
+                                <i class="fas fa-copy"></i>
+                                Copy
+                            </button>
+                        </div>
+                        <textarea id="contextText" class="context-textarea" readonly></textarea>
+                    </div>
+                    
+                    <div class="help-tips">
+                        <h4><i class="fas fa-lightbulb"></i> Tips for getting better help:</h4>
+                        <ul>
+                            <li>Include your operating system (<span id="detectedOS">Detecting...</span>)</li>
+                            <li>Describe what you were trying to do</li>
+                            <li>Copy/paste any error messages you see</li>
+                            <li>Mention which step you're on in the tutorial</li>
+                        </ul>
                     </div>
                 </div>
             </div>

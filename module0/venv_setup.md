@@ -14,12 +14,12 @@ This creates a folder called `venv` containing your isolated Python environment.
 
 ### Step 2: Activate Virtual Environment
 
-#### Windows (Git Bash):
+Windows (Git Bash):
 ```bash
 source venv/Scripts/activate
 ```
 
-#### macOS/Linux:
+macOS/Linux:
 ```bash
 source venv/bin/activate
 ```

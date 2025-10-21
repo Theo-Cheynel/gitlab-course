@@ -27,6 +27,14 @@ class CourseApp {
 
     initializeCourseData() {
         return {
+            lessonOrder: [
+                'vscode', 'gitbash', 'ssh', 'repository', 'cloning', 'venv-setup', 'commits',
+                'team-setup', 'project-structure',
+                'member-task', 'testing', 'merge-requests',
+                'conflict-resolution', 'rebasing',
+                'gitignore', 'pre-commit', 'python-package',
+                'gitlab-ci', 'pipeline'
+            ],
             lessons: {
                 'vscode': {
                     title: 'Installing VSCode',
@@ -332,6 +340,14 @@ class CourseApp {
             this.markLessonComplete(this.currentLesson);
         });
 
+        document.getElementById('prevLesson').addEventListener('click', () => {
+            this.navigateToPreviousLesson();
+        });
+
+        document.getElementById('nextLesson').addEventListener('click', () => {
+            this.navigateToNextLesson();
+        });
+
         // Keyboard shortcuts
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
@@ -470,6 +486,9 @@ class CourseApp {
         if (window.innerWidth <= 768) {
             document.getElementById('sidebar').classList.add('hidden');
         }
+        
+        // Update navigation buttons
+        this.updateNavigationButtons();
     }
 
     updateLessonUI(lessonData) {
@@ -634,6 +653,50 @@ class CourseApp {
             button.innerHTML = originalText;
             button.style.background = '';
         }, 2000);
+    }
+
+    // =================
+    // Navigation Management
+    // =================
+
+    navigateToNextLesson() {
+        const currentIndex = this.courseData.lessonOrder.indexOf(this.currentLesson);
+        if (currentIndex < this.courseData.lessonOrder.length - 1) {
+            const nextLesson = this.courseData.lessonOrder[currentIndex + 1];
+            this.loadLesson(nextLesson);
+        }
+    }
+
+    navigateToPreviousLesson() {
+        const currentIndex = this.courseData.lessonOrder.indexOf(this.currentLesson);
+        if (currentIndex > 0) {
+            const prevLesson = this.courseData.lessonOrder[currentIndex - 1];
+            this.loadLesson(prevLesson);
+        }
+    }
+
+    updateNavigationButtons() {
+        const currentIndex = this.courseData.lessonOrder.indexOf(this.currentLesson);
+        const prevBtn = document.getElementById('prevLesson');
+        const nextBtn = document.getElementById('nextLesson');
+        
+        // Update previous button
+        if (currentIndex <= 0) {
+            prevBtn.disabled = true;
+            prevBtn.style.opacity = '0.5';
+        } else {
+            prevBtn.disabled = false;
+            prevBtn.style.opacity = '1';
+        }
+        
+        // Update next button
+        if (currentIndex >= this.courseData.lessonOrder.length - 1) {
+            nextBtn.disabled = true;
+            nextBtn.style.opacity = '0.5';
+        } else {
+            nextBtn.disabled = false;
+            nextBtn.style.opacity = '1';
+        }
     }
 
     // =================

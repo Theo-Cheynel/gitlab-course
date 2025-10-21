@@ -118,7 +118,7 @@ While your teammates are working, create a `.gitignore` file to exclude the virt
    git push origin main
    ```
 
-** You're done!** Let your team know they can start adding their names.
+**You're done!** Let your team know they can start adding their names.
 <!-- /ROLE: A -->
 
 <!-- ROLE: B -->
@@ -170,7 +170,7 @@ git commit -m "Add Team Member B to project members list"
 git push origin main
 ```
 
-** You're done!** Let Team Member C know they can add their name.
+**You're done!** Let Team Member C know they can add their name.
 <!-- /ROLE: B -->
 
 <!-- ROLE: C -->
@@ -216,7 +216,7 @@ git commit -m "Add Team Member C to project members list"
 git push origin main
 ```
 
-** You're done!** Let Team Member D know they can add their name.
+**You're done!** Let Team Member D know they can add their name.
 <!-- /ROLE: C -->
 
 <!-- ROLE: D -->
@@ -256,7 +256,7 @@ git commit -m "Add Team Member D to project members list"
 git push origin main
 ```
 
-** You're done!** Let Team Member E know they can add their name.
+**You're done!** Let Team Member E know they can add their name.
 <!-- /ROLE: D -->
 
 <!-- ROLE: E -->
@@ -297,7 +297,7 @@ git commit -m "Add Team Member E to project members list"
 git push origin main
 ```
 
-** You're done!** If you have a Team Member F, let them know they can add their name.
+**You're done!** If you have a Team Member F, let them know they can add their name.
 <!-- /ROLE: E -->
 
 <!-- ROLE: F -->
@@ -339,7 +339,7 @@ git commit -m "Add Team Member F to project members list"
 git push origin main
 ```
 
-** You're done!** The team setup is complete.
+**You're done!** The team setup is complete.
 <!-- /ROLE: F -->
 
 ---
@@ -376,4 +376,4 @@ You should see all team members listed in the README.md file.
 - **Enables collaboration**: Multiple people can work on the same project safely
 - **Tracks progress**: Commit messages create a log of what was done and when
 
-<‰ **Congratulations!** You've completed your first collaborative Git workflow. You're now ready to work on more complex features as a team!
+**Congratulations!** You've completed your first collaborative Git workflow. You're now ready to work on more complex features as a team!

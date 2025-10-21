@@ -215,10 +215,8 @@ class CourseApp {
         
         document.querySelector('.app-container').classList.remove('no-banner');
         
-        // Load first lesson if none selected
-        if (!this.currentLesson) {
-            this.loadLesson('vscode');
-        }
+        // Always load first lesson when showing interface
+        this.loadLesson('vscode');
     }
 
     updateRoleBanner() {
@@ -419,11 +417,15 @@ class CourseApp {
         await this.loadLessonContent(lessonData);
         
         // Show lesson content
+        document.getElementById('welcomeScreen').classList.add('hidden');
         document.getElementById('lessonContent').classList.remove('hidden');
+        
+        // Scroll to top of content
+        window.scrollTo(0, 0);
         
         // Hide sidebar on mobile
         if (window.innerWidth <= 768) {
-            this.toggleSidebar();
+            document.getElementById('sidebar').classList.add('hidden');
         }
     }
 
@@ -450,7 +452,17 @@ class CourseApp {
             
             // Handle role-specific content
             if (lessonData.roleSpecific && this.currentRole) {
-                filePath = filePath.replace('{role}', this.currentRole.toLowerCase());
+                // Map role letters to numbers for file names
+                const roleMap = {
+                    'A': '1',
+                    'B': '2', 
+                    'C': '3',
+                    'D': '4',
+                    'E': '5',
+                    'F': '6'
+                };
+                const roleNumber = roleMap[this.currentRole];
+                filePath = filePath.replace('{role}', roleNumber);
             }
             
             const response = await fetch(filePath);
@@ -470,12 +482,24 @@ class CourseApp {
             
         } catch (error) {
             console.error('Error loading lesson content:', error);
+            console.error('Attempted file path:', filePath);
+            
+            // Create a styled error message
             document.getElementById('lessonBody').innerHTML = `
-                <div class="error-message">
-                    <h3>Content Not Available</h3>
-                    <p>Sorry, this lesson content is not yet available. Please check back later or contact your instructor.</p>
-                    <p><strong>Lesson:</strong> ${lessonData.title}</p>
-                    <p><strong>Expected file:</strong> ${lessonData.file}</p>
+                <div style="background: #fee; padding: 20px; border-radius: 8px; border: 1px solid #fcc;">
+                    <h3 style="color: #d00; margin-bottom: 10px;">⚠️ Content Loading Error</h3>
+                    <p style="margin-bottom: 10px;">Sorry, we couldn't load this lesson content.</p>
+                    <details style="margin-top: 10px;">
+                        <summary style="cursor: pointer; color: #666;">Technical Details</summary>
+                        <p style="margin-top: 10px; font-family: monospace; font-size: 0.9em;">
+                            <strong>Lesson:</strong> ${lessonData.title}<br>
+                            <strong>Expected file:</strong> ${filePath}<br>
+                            <strong>Error:</strong> ${error.message}
+                        </p>
+                    </details>
+                    <p style="margin-top: 15px; color: #666;">
+                        <strong>Try:</strong> Refreshing the page or selecting a different lesson from the sidebar.
+                    </p>
                 </div>
             `;
         }

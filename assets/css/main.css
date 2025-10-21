@@ -160,6 +160,7 @@ body {
     top: var(--header-height);
     bottom: 0;
     overflow-y: auto;
+    overflow-x: visible;
     transform: translateX(0);
     transition: transform 0.3s ease;
     z-index: 900;
@@ -202,7 +203,6 @@ body {
     align-items: center;
     padding: var(--space-lg);
     border-bottom: 1px solid var(--border-dark);
-    position: relative;
 }
 
 .sidebar-header h2 {
@@ -215,10 +215,9 @@ body {
 
 /* Sidebar Toggle Button - positioned on outer edge */
 .sidebar-toggle {
-    position: absolute;
-    right: -40px;
-    top: 50%;
-    transform: translateY(-50%);
+    position: fixed;
+    left: var(--sidebar-width);
+    top: calc(var(--header-height) + var(--space-lg));
     width: 32px;
     height: 40px;
     background: var(--bg-sidebar);
@@ -226,7 +225,7 @@ body {
     color: var(--text-sidebar);
     cursor: pointer;
     border-radius: 0 var(--radius-md) var(--radius-md) 0;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -234,9 +233,18 @@ body {
     z-index: 901;
 }
 
+/* Show/hide toggle buttons based on sidebar state */
+.sidebar.hidden ~ .main-content .sidebar-toggle {
+    display: none;
+}
+
+.sidebar:not(.hidden) ~ .main-content .sidebar-toggle-show {
+    display: none;
+}
+
 .sidebar-toggle:hover {
     background: var(--primary-color);
-    transform: translateY(-50%) translateX(2px);
+    transform: translateX(2px);
 }
 
 .sidebar-toggle i {

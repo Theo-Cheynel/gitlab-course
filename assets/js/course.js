@@ -203,6 +203,7 @@ class CourseApp {
         document.getElementById('sidebar').classList.add('hidden');
         document.getElementById('roleBanner').classList.add('hidden');
         document.getElementById('mobileMenuBtn').classList.add('hidden');
+        document.getElementById('sidebarToggleShow').classList.add('hidden');
         
         document.querySelector('.app-container').classList.add('no-banner');
     }
@@ -212,6 +213,7 @@ class CourseApp {
         document.getElementById('sidebar').classList.remove('hidden');
         document.getElementById('roleBanner').classList.remove('hidden');
         document.getElementById('mobileMenuBtn').classList.remove('hidden');
+        document.getElementById('sidebarToggleShow').classList.remove('hidden');
         
         document.querySelector('.app-container').classList.remove('no-banner');
         
@@ -256,8 +258,13 @@ class CourseApp {
             this.showRoleModal();
         });
 
-        // Sidebar toggle
+        // Sidebar toggle (hide)
         document.getElementById('sidebarToggle').addEventListener('click', () => {
+            this.toggleSidebar();
+        });
+
+        // Sidebar toggle (show)
+        document.getElementById('sidebarToggleShow').addEventListener('click', () => {
             this.toggleSidebar();
         });
 

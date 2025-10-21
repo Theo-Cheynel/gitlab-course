@@ -170,12 +170,39 @@ body {
     transform: translateX(-100%);
 }
 
+/* Custom Scrollbar for Sidebar */
+.sidebar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-md);
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-md);
+    transition: background 0.2s ease;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Firefox scrollbar */
+.sidebar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) rgba(255, 255, 255, 0.05);
+}
+
 .sidebar-header {
     display: flex;
-    justify-content: between;
+    justify-content: center;
     align-items: center;
     padding: var(--space-lg);
     border-bottom: 1px solid var(--border-dark);
+    position: relative;
 }
 
 .sidebar-header h2 {
@@ -184,21 +211,67 @@ body {
     display: flex;
     align-items: center;
     gap: var(--space-sm);
-    flex: 1;
 }
 
+/* Sidebar Toggle Button - positioned on outer edge */
 .sidebar-toggle {
-    background: none;
+    position: absolute;
+    right: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 40px;
+    background: var(--bg-sidebar);
     border: none;
     color: var(--text-sidebar);
     cursor: pointer;
-    padding: var(--space-sm);
-    border-radius: var(--radius-md);
-    transition: background-color 0.2s ease;
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    z-index: 901;
 }
 
 .sidebar-toggle:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--primary-color);
+    transform: translateY(-50%) translateX(2px);
+}
+
+.sidebar-toggle i {
+    font-size: 0.875rem;
+    transition: transform 0.2s ease;
+}
+
+/* Show toggle button - initially hidden */
+.sidebar-toggle-show {
+    position: fixed;
+    left: 0;
+    top: calc(var(--header-height) + var(--space-lg));
+    width: 32px;
+    height: 40px;
+    background: var(--bg-sidebar);
+    border: none;
+    color: var(--text-sidebar);
+    cursor: pointer;
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    transition: all 0.2s ease;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    z-index: 901;
+    display: none;
+}
+
+.sidebar-toggle-show:hover {
+    background: var(--primary-color);
+    transform: translateX(2px);
+}
+
+/* Show the toggle button when sidebar is hidden */
+.sidebar.hidden ~ .main-content .sidebar-toggle-show {
+    display: flex;
 }
 
 .sidebar-content {
@@ -900,6 +973,12 @@ body {
     
     .mobile-menu-btn {
         display: block;
+    }
+    
+    /* Hide desktop toggle buttons on mobile */
+    .sidebar-toggle,
+    .sidebar-toggle-show {
+        display: none !important;
     }
     
     .role-banner {

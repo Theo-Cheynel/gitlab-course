@@ -490,6 +490,9 @@ class CourseApp {
             
             document.getElementById('lessonBody').innerHTML = htmlContent;
             
+            // Add copy buttons to code blocks
+            this.addCopyButtons();
+            
             // Highlight code blocks if Prism is available
             if (window.Prism) {
                 window.Prism.highlightAll();
@@ -536,8 +539,12 @@ class CourseApp {
         html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
         html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
         
-        // Code blocks
-        html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, '<pre><code class="language-$1">$2</code></pre>');
+        // Code blocks with language detection
+        html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, lang, code) => {
+            const language = lang || '';
+            const className = language ? `language-${language}` : '';
+            return `<pre class="${className}"><code class="${className}">${code.trim()}</code></pre>`;
+        });
         html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
         
         // Links
@@ -612,6 +619,85 @@ class CourseApp {
         this.completedLessons.forEach(lessonId => {
             this.updateLessonStatus(lessonId);
         });
+    }
+
+    // =================
+    // Code Block Enhancement
+    // =================
+
+    addCopyButtons() {
+        // Find all code blocks
+        const codeBlocks = document.querySelectorAll('pre code');
+        
+        codeBlocks.forEach((codeBlock, index) => {
+            const pre = codeBlock.parentElement;
+            
+            // Only add copy button if it doesn't already exist
+            if (pre.querySelector('.code-copy-btn')) {
+                return;
+            }
+            
+            // Create copy button
+            const copyBtn = document.createElement('button');
+            copyBtn.className = 'code-copy-btn';
+            copyBtn.innerHTML = '<i class="fas fa-copy"></i> Copy';
+            copyBtn.setAttribute('data-code-index', index);
+            
+            // Add click handler
+            copyBtn.addEventListener('click', () => {
+                this.copyCodeToClipboard(codeBlock, copyBtn);
+            });
+            
+            // Add button to pre element
+            pre.appendChild(copyBtn);
+        });
+    }
+
+    async copyCodeToClipboard(codeBlock, button) {
+        const code = codeBlock.textContent.trim();
+        
+        try {
+            // Try using the modern Clipboard API
+            if (navigator.clipboard && window.isSecureContext) {
+                await navigator.clipboard.writeText(code);
+            } else {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = code;
+                textArea.style.position = 'fixed';
+                textArea.style.left = '-999999px';
+                textArea.style.top = '-999999px';
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+            }
+            
+            // Show success feedback
+            const originalContent = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            button.classList.add('copied');
+            
+            // Reset button after 2 seconds
+            setTimeout(() => {
+                button.innerHTML = originalContent;
+                button.classList.remove('copied');
+            }, 2000);
+            
+        } catch (error) {
+            console.error('Failed to copy code:', error);
+            
+            // Show error feedback
+            const originalContent = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-exclamation"></i> Failed';
+            button.style.background = 'rgba(239, 68, 68, 0.2)';
+            
+            setTimeout(() => {
+                button.innerHTML = originalContent;
+                button.style.background = '';
+            }, 2000);
+        }
     }
 
     // =================

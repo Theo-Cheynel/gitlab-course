@@ -61,21 +61,21 @@ ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGbPhiQgg... NameOfYourLaptop
 
 ## Step 4: Add the key to GitLab
 
-1. Go to [GitLab](https://gitlab.com) and sign in
-2. Click on your avatar in the top-right corner
-3. Select **"Preferences"** or **"Settings"**
+1. Go to your GitLab server and sign in
+2. Click on your avatar (colored circle) in the top-right corner of the left menu
+3. Select **"Preferences"**
 4. In the left sidebar, click **"SSH Keys"**
 5. In the "Key" field, paste your public key (the one you just copied)
-6. Give your key a title (e.g., "My Laptop", "University Computer")
-7. Set an expiration date (optional but recommended - maybe end of semester)
+6. Give your key a title (e.g., "My Laptop")
+7. Set an expiration date (optional)
 8. Click **"Add key"**
 
 ## Step 5: Test your SSH connection
 
-Let's verify that everything is working:
+Let's verify that everything is working (replace with the address of your gitlab server, like `gitlab.com`):
 
 ```bash
-ssh -T git@gitlab.com
+ssh -T git@[address of the gitlab server]
 ```
 
 You might see a message like:
@@ -94,13 +94,8 @@ Welcome to GitLab, @your-username!
 
 ## Troubleshooting
 
-### "Permission denied (publickey)" error
-- Make sure you copied the **public** key (`.pub` file), not the private key
-- Verify the key was added correctly to GitLab
-- Try regenerating the keys if the problem persists
-
 ### "ssh-keygen: command not found"
-- **Windows**: Install Git for Windows or use WSL
+- **Windows**: Make sure you have opened GitBash.
 - **macOS**: Install Xcode Command Line Tools: `xcode-select --install`
 - **Linux**: Install OpenSSH: `sudo apt install openssh-client`
 
@@ -113,7 +108,6 @@ If you get "already exists", either:
 If you used RSA instead of Ed25519, replace `id_ed25519` with `id_rsa` in all commands.
 
 ## Security Best Practices
-
 - **Never share your private key** (the file without `.pub`)
 - **Keep your private key secure** - don't copy it to shared computers
 - **Use a passphrase** for additional security (especially on shared computers)

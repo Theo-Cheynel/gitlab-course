@@ -1,157 +1,395 @@
----
-layout: default
-title: "Git & GitLab for Team Projects"
-description: "Engineering team project course: learn collaborative software development"
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git & GitLab Team Project Course</title>
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Role Banner -->
+    <div id="roleBanner" class="role-banner hidden">
+        <div class="banner-content">
+            <div class="role-info">
+                <i class="fas fa-user-tag"></i>
+                <span>You are: <strong id="currentRoleText">Team Member A</strong></span>
+            </div>
+            <button id="changeRoleBtn" class="change-role-btn">
+                <i class="fas fa-exchange-alt"></i>
+                Change Role
+            </button>
+        </div>
+    </div>
 
-# Git & GitLab for Team Projects
+    <!-- Main Container -->
+    <div class="app-container">
+        <!-- Sidebar -->
+        <nav id="sidebar" class="sidebar hidden">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-code-branch"></i> Git & GitLab Course</h2>
+                <button id="sidebarToggle" class="sidebar-toggle">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="sidebar-content">
+                <div class="course-progress">
+                    <div class="progress-header">
+                        <span class="progress-text">Course Progress</span>
+                        <span class="progress-percentage">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                </div>
 
-**Engineering Team Project Course**
+                <div class="course-outline">
+                    <div class="module-section">
+                        <div class="module-header" data-module="0">
+                            <i class="fas fa-cog"></i>
+                            <span>Module 0: Environment Setup</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="lesson-list">
+                            <a href="#" class="lesson-item" data-lesson="vscode">
+                                <i class="fas fa-code"></i>
+                                Installing VSCode
+                            </a>
+                            <a href="#" class="lesson-item" data-lesson="ssh">
+                                <i class="fas fa-key"></i>
+                                Setting up SSH Keys
+                            </a>
+                            <a href="#" class="lesson-item" data-lesson="repository">
+                                <i class="fas fa-folder-plus"></i>
+                                Creating Repository
+                            </a>
+                            <a href="#" class="lesson-item" data-lesson="cloning">
+                                <i class="fas fa-download"></i>
+                                Cloning Repository
+                            </a>
+                            <a href="#" class="lesson-item" data-lesson="commits">
+                                <i class="fas fa-save"></i>
+                                First Commits
+                            </a>
+                        </div>
+                    </div>
 
-## Course Overview
+                    <div class="module-section">
+                        <div class="module-header" data-module="1">
+                            <i class="fas fa-users"></i>
+                            <span>Module 1: Team Setup</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="lesson-list">
+                            <a href="#" class="lesson-item" data-lesson="team-setup">
+                                <i class="fas fa-user-plus"></i>
+                                Team Formation
+                            </a>
+                            <a href="#" class="lesson-item" data-lesson="project-structure">
+                                <i class="fas fa-sitemap"></i>
+                                Project Structure
+                            </a>
+                        </div>
+                    </div>
 
-This course teaches collaborative software development using Git and GitLab through a practical team project. You will work in groups of 6 students to build a Python hangman game while learning essential team development skills.
+                    <div class="module-section">
+                        <div class="module-header" data-module="2">
+                            <i class="fas fa-code-branch"></i>
+                            <span>Module 2: Parallel Work</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="lesson-list">
+                            <a href="#" class="lesson-item role-specific" data-lesson="member-task">
+                                <i class="fas fa-tasks"></i>
+                                <span class="role-text">Your Team Role Task</span>
+                            </a>
+                            <a href="#" class="lesson-item" data-lesson="testing">
+                                <i class="fas fa-vial"></i>
+                                Unit Testing
+                            </a>
+                            <a href="#" class="lesson-item" data-lesson="merge-requests">
+                                <i class="fas fa-code-merge"></i>
+                                Merge Requests
+                            </a>
+                        </div>
+                    </div>
 
-### Project Details
-- **Project**: Python Hangman Game
-- **Team Size**: 6 students per group
-- **Total Time**: ~6 hours across 6 modules
-- **Format**: Hands-on tutorials with step-by-step instructions
+                    <div class="module-section">
+                        <div class="module-header" data-module="3">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <span>Module 3: Conflicts</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="lesson-list">
+                            <a href="#" class="lesson-item" data-lesson="conflict-resolution">
+                                <i class="fas fa-tools"></i>
+                                Resolving Conflicts
+                            </a>
+                            <a href="#" class="lesson-item" data-lesson="rebasing">
+                                <i class="fas fa-layer-group"></i>
+                                Git Rebase
+                            </a>
+                        </div>
+                    </div>
 
-## Prerequisites
+                    <div class="module-section">
+                        <div class="module-header" data-module="4">
+                            <i class="fas fa-star"></i>
+                            <span>Module 4: Best Practices</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="lesson-list">
+                            <a href="#" class="lesson-item" data-lesson="gitignore">
+                                <i class="fas fa-eye-slash"></i>
+                                .gitignore Setup
+                            </a>
+                            <a href="#" class="lesson-item" data-lesson="pre-commit">
+                                <i class="fas fa-check-circle"></i>
+                                Pre-commit Hooks
+                            </a>
+                            <a href="#" class="lesson-item" data-lesson="python-package">
+                                <i class="fas fa-cube"></i>
+                                Python Package
+                            </a>
+                        </div>
+                    </div>
 
-Before starting this course, you should have:
-- Basic Git knowledge (add, commit, push)
-- Python programming fundamentals
-- Command line navigation skills
-- A text editor (we'll use VSCode)
+                    <div class="module-section">
+                        <div class="module-header" data-module="5">
+                            <i class="fas fa-rocket"></i>
+                            <span>Module 5: CI/CD</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="lesson-list">
+                            <a href="#" class="lesson-item" data-lesson="gitlab-ci">
+                                <i class="fas fa-cogs"></i>
+                                GitLab CI Setup
+                            </a>
+                            <a href="#" class="lesson-item" data-lesson="pipeline">
+                                <i class="fas fa-stream"></i>
+                                Pipeline Configuration
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
 
-## Learning Objectives
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Mobile Menu Button -->
+            <button id="mobileMenuBtn" class="mobile-menu-btn hidden">
+                <i class="fas fa-bars"></i>
+            </button>
 
-By completing this course, you will:
-1. Set up professional development environments
-2. Manage team repositories with GitLab
-3. Use branching strategies for parallel development
-4. Resolve merge conflicts effectively
-5. Conduct code reviews through merge requests
-6. Implement automated testing and CI/CD
-7. Apply Python development best practices
+            <!-- Welcome Screen -->
+            <div id="welcomeScreen" class="welcome-screen">
+                <div class="welcome-content">
+                    <div class="welcome-header">
+                        <h1><i class="fas fa-graduation-cap"></i> Git & GitLab Team Project Course</h1>
+                        <p class="welcome-subtitle">Learn collaborative software development through building a Python hangman game</p>
+                    </div>
 
-## Course Modules
+                    <div class="course-overview">
+                        <div class="overview-section">
+                            <h2><i class="fas fa-bullseye"></i> Course Objectives</h2>
+                            <div class="objectives-grid">
+                                <div class="objective-item">
+                                    <i class="fas fa-code-branch"></i>
+                                    <span>Master Git branching workflows</span>
+                                </div>
+                                <div class="objective-item">
+                                    <i class="fas fa-users-cog"></i>
+                                    <span>Learn team collaboration with GitLab</span>
+                                </div>
+                                <div class="objective-item">
+                                    <i class="fas fa-bug"></i>
+                                    <span>Resolve merge conflicts effectively</span>
+                                </div>
+                                <div class="objective-item">
+                                    <i class="fas fa-check-double"></i>
+                                    <span>Implement code reviews and testing</span>
+                                </div>
+                                <div class="objective-item">
+                                    <i class="fas fa-rocket"></i>
+                                    <span>Set up CI/CD pipelines</span>
+                                </div>
+                                <div class="objective-item">
+                                    <i class="fas fa-python"></i>
+                                    <span>Apply Python best practices</span>
+                                </div>
+                            </div>
+                        </div>
 
-{% for module in site.modules %}
-### [Module {{ module.number }}: {{ module.title }}]({{ module.url | relative_url }})
-{{ module.description }}
-- **Duration**: {{ module.duration }}
-- **Lessons**: {{ module.lessons }}
+                        <div class="overview-section">
+                            <h2><i class="fas fa-info-circle"></i> Course Details</h2>
+                            <div class="details-grid">
+                                <div class="detail-item">
+                                    <strong>Project:</strong> Python Hangman Game
+                                </div>
+                                <div class="detail-item">
+                                    <strong>Team Size:</strong> 6 students per group
+                                </div>
+                                <div class="detail-item">
+                                    <strong>Duration:</strong> ~6 hours across 6 modules
+                                </div>
+                                <div class="detail-item">
+                                    <strong>Format:</strong> Role-based collaborative learning
+                                </div>
+                            </div>
+                        </div>
 
-{% endfor %}
+                        <div class="overview-section">
+                            <h2><i class="fas fa-user-friends"></i> Choose Your Team Role</h2>
+                            <p class="role-explanation">Each team member will have specific tasks and responsibilities. Select your role to get personalized instructions.</p>
+                            
+                            <div class="role-selection">
+                                <div class="role-option" data-role="A">
+                                    <div class="role-icon">A</div>
+                                    <div class="role-info">
+                                        <h3>Team Member A</h3>
+                                        <p>Focus on core game logic and word validation</p>
+                                    </div>
+                                </div>
+                                <div class="role-option" data-role="B">
+                                    <div class="role-icon">B</div>
+                                    <div class="role-info">
+                                        <h3>Team Member B</h3>
+                                        <p>Handle user interface and input validation</p>
+                                    </div>
+                                </div>
+                                <div class="role-option" data-role="C">
+                                    <div class="role-icon">C</div>
+                                    <div class="role-info">
+                                        <h3>Team Member C</h3>
+                                        <p>Implement game state management</p>
+                                    </div>
+                                </div>
+                                <div class="role-option" data-role="D">
+                                    <div class="role-icon">D</div>
+                                    <div class="role-info">
+                                        <h3>Team Member D</h3>
+                                        <p>Create scoring and statistics system</p>
+                                    </div>
+                                </div>
+                                <div class="role-option" data-role="E">
+                                    <div class="role-icon">E</div>
+                                    <div class="role-info">
+                                        <h3>Team Member E</h3>
+                                        <p>Develop testing framework and utilities</p>
+                                    </div>
+                                </div>
+                                <div class="role-option" data-role="F">
+                                    <div class="role-icon">F</div>
+                                    <div class="role-info">
+                                        <h3>Team Member F</h3>
+                                        <p>Handle documentation and code quality</p>
+                                    </div>
+                                </div>
+                            </div>
 
-## Getting Started
+                            <button id="startCourseBtn" class="start-course-btn" disabled>
+                                <i class="fas fa-play"></i>
+                                Start Course
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-1. **Read the prerequisites** above to ensure you're ready
-2. **Form your team** of 6 students
-3. **Start with Module 0** - everyone does this individually first
-4. **Work together** on subsequent modules as a team
+            <!-- Lesson Content -->
+            <div id="lessonContent" class="lesson-content hidden">
+                <div class="lesson-header">
+                    <h1 id="lessonTitle">Lesson Title</h1>
+                    <div class="lesson-meta">
+                        <span id="lessonModule" class="lesson-module">Module 0</span>
+                        <span id="lessonDuration" class="lesson-duration">15 minutes</span>
+                    </div>
+                </div>
+                <div id="lessonBody" class="lesson-body">
+                    <!-- Lesson content will be loaded here -->
+                </div>
+                
+                <div class="lesson-navigation">
+                    <button id="prevLesson" class="nav-btn secondary">
+                        <i class="fas fa-chevron-left"></i>
+                        Previous
+                    </button>
+                    <button id="markComplete" class="nav-btn complete">
+                        <i class="fas fa-check"></i>
+                        Mark Complete
+                    </button>
+                    <button id="nextLesson" class="nav-btn primary">
+                        Next
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
 
-### Important Notes
+    <!-- Role Selection Modal -->
+    <div id="roleModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-user-friends"></i> Change Your Role</h2>
+                <button id="closeModal" class="close-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="role-selection">
+                    <div class="role-option modal-role" data-role="A">
+                        <div class="role-icon">A</div>
+                        <div class="role-info">
+                            <h3>Team Member A</h3>
+                            <p>Core game logic and word validation</p>
+                        </div>
+                    </div>
+                    <div class="role-option modal-role" data-role="B">
+                        <div class="role-icon">B</div>
+                        <div class="role-info">
+                            <h3>Team Member B</h3>
+                            <p>User interface and input validation</p>
+                        </div>
+                    </div>
+                    <div class="role-option modal-role" data-role="C">
+                        <div class="role-icon">C</div>
+                        <div class="role-info">
+                            <h3>Team Member C</h3>
+                            <p>Game state management</p>
+                        </div>
+                    </div>
+                    <div class="role-option modal-role" data-role="D">
+                        <div class="role-icon">D</div>
+                        <div class="role-info">
+                            <h3>Team Member D</h3>
+                            <p>Scoring and statistics system</p>
+                        </div>
+                    </div>
+                    <div class="role-option modal-role" data-role="E">
+                        <div class="role-icon">E</div>
+                        <div class="role-info">
+                            <h3>Team Member E</h3>
+                            <p>Testing framework and utilities</p>
+                        </div>
+                    </div>
+                    <div class="role-option modal-role" data-role="F">
+                        <div class="role-icon">F</div>
+                        <div class="role-info">
+                            <h3>Team Member F</h3>
+                            <p>Documentation and code quality</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-- **Complete modules in order** - each builds on the previous
-- **Follow instructions carefully** - they're designed for 150+ groups to work independently
-- **Ask for help when stuck** - but try troubleshooting steps first
-- **One repository per team** - you'll invite team members in Module 1
-
-## Support
-
-- **Technical issues**: Check troubleshooting sections in each module
-- **Git problems**: Refer to the Git cheat sheets provided
-- **Team conflicts**: Follow the conflict resolution procedures in Module 3
-- **Instructor help**: Contact your instructor if you're completely stuck
-
----
-
-**Ready to start?** Begin with [Module 0: Setting Up the Environment]({{ '/module0/' | relative_url }})
-
-<style>
-/* Academic styling for index page */
-.main {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: var(--space-lg);
-    line-height: 1.6;
-}
-
-h1 {
-    color: var(--text-primary);
-    border-bottom: 2px solid var(--primary-color);
-    padding-bottom: var(--space-md);
-    margin-bottom: var(--space-xl);
-}
-
-h2 {
-    color: var(--text-primary);
-    margin-top: var(--space-2xl);
-    margin-bottom: var(--space-lg);
-}
-
-h3 {
-    color: var(--primary-color);
-    margin-top: var(--space-xl);
-    margin-bottom: var(--space-md);
-}
-
-h3 a {
-    text-decoration: none;
-    color: inherit;
-}
-
-h3 a:hover {
-    text-decoration: underline;
-}
-
-p, li {
-    color: var(--text-secondary);
-    margin-bottom: var(--space-md);
-}
-
-ul, ol {
-    padding-left: var(--space-xl);
-    margin-bottom: var(--space-lg);
-}
-
-strong {
-    color: var(--text-primary);
-}
-
-hr {
-    border: none;
-    border-top: 1px solid var(--border-color);
-    margin: var(--space-2xl) 0;
-}
-
-/* Course info styling */
-.course-info {
-    background: var(--bg-secondary);
-    padding: var(--space-lg);
-    border-radius: var(--radius-lg);
-    margin: var(--space-xl) 0;
-}
-
-.course-info p {
-    margin-bottom: var(--space-sm);
-}
-
-@media (max-width: 768px) {
-    .main {
-        padding: var(--space-md);
-    }
-    
-    h1 {
-        font-size: 1.75rem;
-    }
-    
-    h2 {
-        font-size: 1.5rem;
-    }
-}
-</style>
+    <script src="./assets/js/course.js"></script>
+</body>
+</html>

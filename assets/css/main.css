@@ -427,6 +427,10 @@ body.dark-theme .module-header:hover {
 .lesson-list {
     margin-top: var(--space-sm);
     margin-left: var(--space-lg);
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
 }
 
 .lesson-item {

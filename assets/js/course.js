@@ -392,11 +392,14 @@ class CourseApp {
         const isExpanded = moduleHeader.classList.contains('expanded');
         
         if (isExpanded) {
+            // Collapse
             moduleHeader.classList.remove('expanded');
             lessonList.style.maxHeight = '0';
             lessonList.style.opacity = '0';
         } else {
+            // Expand
             moduleHeader.classList.add('expanded');
+            // Calculate the actual height needed
             lessonList.style.maxHeight = lessonList.scrollHeight + 'px';
             lessonList.style.opacity = '1';
         }

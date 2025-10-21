@@ -58,6 +58,12 @@ class CourseApp {
                     duration: '7 minutes',
                     file: 'module0/cloning_repository.md'
                 },
+                'venv-setup': {
+                    title: 'Python Virtual Environment',
+                    module: 'Module 0',
+                    duration: '15 minutes',
+                    file: 'module0/venv_setup.md'
+                },
                 'commits': {
                     title: 'First Commits',
                     module: 'Module 0',

@@ -8,14 +8,14 @@ Current Module: Environment Setup
 Team Role: {role}
 Previous lessons: Installing VSCode, GitBash (if on Windows), and Setting up SSH keys.
 Current lesson: "Creating Repository". It includes:
-- ROLE-BASED LESSON: Team Member A creates the repository, others wait
-- If Team Member A: Create GitLab project, configure settings, add team members
-- If Team Members B-F: Wait for Team Member A to complete setup, prepare for next steps
+- If Team Member A: Create GitLab project, configure settings, add team members, and take a first look at the interface
+- If Team Members B-F: Wait for Team Member A to complete setup, and take a first look at the interface
+What can happen in this lesson, is that some students did not sign up on the same gitlab sever (there might be several gitlab servers in place to split the load). They need to all be logged into the same one to be able to collaborate.
 
 Environment:
 - VSCode
 - bash (GitBash for Windows users)
-- GitLab account with SSH keys configured
+- venv with Python 3.13
 - OS: {os}
 
 Here is the issue I am facing: 

@@ -6,17 +6,20 @@ Full course transcript for LLMs can be found here: https://theo-cheynel.github.i
 
 Current Module: Environment Setup
 Team Role: {role}
-Previous lessons: Installing VSCode, GitBash (if on Windows), Setting up SSH keys, and Creating Repository.
-Current lesson: "Cloning Repository". It includes:
-- Get repository SSH URL from GitLab
-- Use git clone command to download repository
-- Navigate to cloned directory
-- Understand local vs remote repository concept
+Previous lessons: Installing VSCode, GitBash (if on Windows), Setting up SSH keys, Creating Repository, and Cloning Repository.
+Current lesson: "Setting up Python Virtual Environment". It includes:
+- Create virtual environment using python -m venv
+- Activate virtual environment (different commands for Windows vs macOS/Linux)
+- Configure VSCode to use the virtual environment
+- Create .gitignore to exclude venv folder
+- Understanding requirements.txt for dependency management
 
 Environment:
 - VSCode
 - bash (GitBash for Windows users)
-- venv with Python 3.13
+- Local repository cloned from GitLab
+- Python 3.13 (system installation)
+- venv (Python virtual environment)
 - OS: {os}
 
 Here is the issue I am facing: 

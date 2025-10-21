@@ -419,21 +419,42 @@ body {
     flex-shrink: 0;
 }
 
-/* Details Grid */
-.details-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--space-lg);
+/* Course Description */
+.course-description {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-.detail-item {
+.course-description p {
+    margin-bottom: var(--space-lg);
+    color: var(--text-secondary);
+    font-size: 1.125rem;
+    line-height: 1.7;
+    text-align: left;
+}
+
+.course-description strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.course-stats {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-xl);
+    margin-top: var(--space-xl);
     padding: var(--space-lg);
     background: var(--bg-secondary);
     border-radius: var(--radius-lg);
-    text-align: center;
+    flex-wrap: wrap;
 }
 
-.detail-item strong {
+.course-stats span {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.course-stats strong {
     color: var(--primary-color);
 }
 
@@ -918,8 +939,10 @@ body {
         gap: var(--space-md);
     }
     
-    .details-grid {
-        grid-template-columns: 1fr;
+    .course-stats {
+        flex-direction: column;
+        gap: var(--space-sm);
+        text-align: center;
     }
 }
 

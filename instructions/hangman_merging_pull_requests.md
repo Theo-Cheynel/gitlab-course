@@ -1,4 +1,3 @@
-# Reviewing and accpeting merge requests
 ## What now ?
 
 Each group member has created one merge request. Thhe goal of merge request is to propose code changes, allow other members to review it, suggest modifications or ask for clarification, and (if all goes well) merge the proposed changes into the target branch.

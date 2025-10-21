@@ -1,6 +1,4 @@
 
-# Setting up SSH Keys for GitLab
-
 SSH (Secure Shell) keys provide a secure way to authenticate with GitLab without having to enter your username and password every time you push or pull code. Think of it as a secure "password" that your computer and GitLab share.
 
 ## Why Use SSH Keys?
@@ -157,5 +155,3 @@ When you use SSH:
 4. If it matches, you're authenticated!
 
 This is why you can safely share the public key but must keep the private key secret.
-
-## Next: [Creating a GitLab Repository](./creating_repository.md)

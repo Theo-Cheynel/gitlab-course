@@ -24,5 +24,3 @@ Set those two branches and click on "Compare branches and continue". You should 
 > Here, you can provide a description of your merge request, to help the reviewer understand what changes you have made. You can assign a reviewer (and other project management items: labels, milestones etc.)
 > Do not assign a reviewer for now, simply add a title and description, and click on "Create Merge Request". We will ask one of your teammates to review it later, once every merge request is created.
 
-### What next ?
-Wait for everyone to finish their part. Once you have six pull requests created (and not before !), follow [these instructions](./hangman_merging_pull_requests.md) on how to merge them.

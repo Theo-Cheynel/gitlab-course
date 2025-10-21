@@ -1,6 +1,4 @@
 
-# Creating a repository
-
 ## Setting things up
 
 To create the repository, only one group member has to work. The others should still read this, so that they know how to do it for their future projects.
@@ -28,5 +26,3 @@ So far, you are the only person able to see the repository, as it is private by 
 > If they already have an account on this Gitlab server, they will be added directly. If they haven't created an account yet, it should send them a registration email.
 > 3. Check that everyone now has access to the repository.
 
-
-## Next part [here](./ssh.md)

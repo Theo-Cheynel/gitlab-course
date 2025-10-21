@@ -34,6 +34,12 @@ class CourseApp {
                     duration: '15 minutes',
                     file: 'module0/vscode.md'
                 },
+                'gitbash': {
+                    title: 'Installing Git Bash (Windows)',
+                    module: 'Module 0',
+                    duration: '10 minutes',
+                    file: 'module0/gitbash.md'
+                },
                 'ssh': {
                     title: 'Setting up SSH Keys',
                     module: 'Module 0', 

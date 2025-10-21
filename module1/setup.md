@@ -1,1 +1,0 @@
-## Next part [here](./parallel_tasks.md)

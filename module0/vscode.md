@@ -1,6 +1,4 @@
 
-# Installing VSCode
-
 Visual Studio Code (VSCode) is a free, open-source code editor that works great with Git and GitLab. It provides syntax highlighting, Git integration, debugging tools, and many useful extensions.
 
 ## Why VSCode?
@@ -122,5 +120,3 @@ git config --global user.email "your.email@example.com"
 - Check your internet connection
 - Try restarting VSCode
 - Manually download from [VSCode Marketplace](https://marketplace.visualstudio.com/vscode)
-
-## Next: [Setting up SSH Keys](./ssh.md)

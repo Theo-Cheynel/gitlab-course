@@ -458,17 +458,32 @@ body {
     color: var(--primary-color);
 }
 
-/* Role Selection */
-.role-explanation {
-    text-align: center;
+/* Role Instructions */
+.role-instructions {
+    background: var(--bg-secondary);
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
     margin-bottom: var(--space-xl);
+    border-left: 4px solid var(--primary-color);
+}
+
+.role-instructions p {
+    margin-bottom: var(--space-md);
     color: var(--text-secondary);
-    font-size: 1.125rem;
+    line-height: 1.6;
+}
+
+.role-instructions p:last-child {
+    margin-bottom: 0;
+}
+
+.role-instructions strong {
+    color: var(--primary-color);
 }
 
 .role-selection {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: var(--space-lg);
     margin-bottom: var(--space-3xl);
 }
@@ -545,14 +560,6 @@ body {
     font-size: 1.125rem;
 }
 
-.role-info p {
-    color: var(--text-muted);
-    font-size: 0.875rem;
-}
-
-.role-option.selected .role-info p {
-    color: rgba(255, 255, 255, 0.8);
-}
 
 .start-course-btn {
     display: flex;

@@ -30,10 +30,7 @@ class CourseApp {
             lessonOrder: [
                 'vscode', 'gitbash', 'ssh', 'repository', 'cloning', 'venv-setup', 'commits',
                 'project-structure',
-                'member-task', 'testing', 'merge-requests',
-                'conflict-resolution', 'rebasing',
-                'gitignore', 'pre-commit', 'python-package',
-                'gitlab-ci', 'pipeline'
+                'member-task', 'merge-requests', 'conflict',
             ],
             lessons: {
                 'vscode': {
@@ -85,65 +82,47 @@ class CourseApp {
                     file: 'module1/project_structure.md'
                 },
                 'member-task': {
-                    title: 'Your Team Role Task',
+                    title: 'Splitting Tasks',
                     module: 'Module 1',
-                    duration: '30 minutes',
+                    duration: '20 minutes',
                     file: 'module1/member_task.md'
-                },
-                'testing': {
-                    title: 'Unit Testing',
-                    module: 'Module 1',
-                    duration: '25 minutes',
-                    file: 'module1/parallel_tasks.md'
                 },
                 'merge-requests': {
                     title: 'Merge Requests',
                     module: 'Module 1',
-                    duration: '20 minutes',
-                    file: 'module1/merge_requests.md'
-                },
-                'conflict-resolution': {
-                    title: 'Resolving Conflicts',
-                    module: 'Module 2',
                     duration: '25 minutes',
-                    file: 'conflicts/README.md'
-                },
-                'rebasing': {
-                    title: 'Git Rebase',
-                    module: 'Module 2',
-                    duration: '20 minutes',
                     file: 'module1/merge_requests.md'
+                },
+                'conflict': {
+                    title: 'Conflicts',
+                    module: 'Module 1',
+                    duration: '30 minutes',
+                    file: 'module1/conflict.md'
                 }
             },
             roleDescriptions: {
                 'A': {
                     title: 'Team Member A',
-                    description: 'Focus on core game logic and word validation',
                     color: '#ef4444'
                 },
                 'B': {
                     title: 'Team Member B', 
-                    description: 'Handle user interface and input validation',
                     color: '#f97316'
                 },
                 'C': {
                     title: 'Team Member C',
-                    description: 'Implement game state management',
                     color: '#eab308'
                 },
                 'D': {
                     title: 'Team Member D',
-                    description: 'Create scoring and statistics system',
                     color: '#22c55e'
                 },
                 'E': {
                     title: 'Team Member E',
-                    description: 'Develop testing framework and utilities',
                     color: '#3b82f6'
                 },
                 'F': {
                     title: 'Team Member F',
-                    description: 'Handle documentation and code quality',
                     color: '#8b5cf6'
                 }
             }

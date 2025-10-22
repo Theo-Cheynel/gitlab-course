@@ -1,4 +1,4 @@
-## Your Team Role Task
+<!-- ROLE: A -->
 
 Now that the project structure is set up, each team member has a specific function to implement in the hangman game. This lesson teaches you about **parallel development** - working on different features simultaneously without conflicts.
 
@@ -10,16 +10,8 @@ Each team member will:
 3. **Create a merge request** to integrate their work
 4. **Review** other team members' code
 
-This workflow allows everyone to work simultaneously without interfering with each other's code.
-
----
-
-## Role-Based Instructions
-
-<!-- ROLE: A -->
 ## Team Member A: Implement `pick_random_word`
 
-**Your function**: Word selection from the word list
 
 ### What You'll Build
 The `pick_random_word` function randomly selects a word from the `words.txt` file for the hangman game.
@@ -28,14 +20,14 @@ The `pick_random_word` function randomly selects a word from the `words.txt` fil
 
 1. **Switch to development branch**:
    ```bash
-   git checkout dev
-   git pull
+git checkout dev
+git pull
    ```
 
 2. **Create your feature branch**:
    ```bash
-   git branch pick_random_word
-   git checkout pick_random_word
+git branch pick_random_word
+git checkout pick_random_word
    ```
 
 3. **Implement the function**:
@@ -47,15 +39,15 @@ The `pick_random_word` function randomly selects a word from the `words.txt` fil
 
 4. **Test your implementation**:
    ```bash
-   python -m pip install pytest
-   pytest test_hangman.py -k test_pick_random_word
+python -m pip install pytest
+pytest test_hangman.py -k test_pick_random_word
    ```
 
 5. **Commit and push your work**:
    ```bash
-   git add hangman.py
-   git commit -m "Implement pick_random_word function"
-   git push --set-upstream origin pick_random_word
+git add hangman.py
+git commit -m "Implement pick_random_word function"
+git push --set-upstream origin pick_random_word
    ```
 
 6. **Create a merge request**:
@@ -71,9 +63,18 @@ The `pick_random_word` function randomly selects a word from the `words.txt` fil
 <!-- /ROLE: A -->
 
 <!-- ROLE: B -->
-## Team Member B: Implement `format_hidden_word`
 
-**Your function**: Display word with guessed letters revealed
+Now that the project structure is set up, each team member has a specific function to implement in the hangman game. This lesson teaches you about **parallel development** - working on different features simultaneously without conflicts.
+
+### Understanding Parallel Development
+
+Each team member will:
+1. **Create their own branch** for their specific function
+2. **Implement and test** their assigned function
+3. **Create a merge request** to integrate their work
+4. **Review** other team members' code
+
+## Team Member B: Implement `format_hidden_word`
 
 ### What You'll Build
 The `format_hidden_word` function shows the current state of the word with guessed letters visible and unknown letters as underscores.
@@ -82,14 +83,14 @@ The `format_hidden_word` function shows the current state of the word with guess
 
 1. **Switch to development branch**:
    ```bash
-   git checkout dev
-   git pull
+git checkout dev
+git pull
    ```
 
 2. **Create your feature branch**:
    ```bash
-   git branch format_hidden_word
-   git checkout format_hidden_word
+git branch format_hidden_word
+git checkout format_hidden_word
    ```
 
 3. **Implement the function**:
@@ -101,15 +102,15 @@ The `format_hidden_word` function shows the current state of the word with guess
 
 4. **Test your implementation**:
    ```bash
-   python -m pip install pytest
-   pytest test_hangman.py -k test_format_hidden_word
+python -m pip install pytest
+pytest test_hangman.py -k test_format_hidden_word
    ```
 
 5. **Commit and push your work**:
    ```bash
-   git add hangman.py
-   git commit -m "Implement format_hidden_word function"
-   git push --set-upstream origin format_hidden_word
+git add hangman.py
+git commit -m "Implement format_hidden_word function"
+git push --set-upstream origin format_hidden_word
    ```
 
 6. **Create a merge request**:
@@ -125,9 +126,18 @@ The `format_hidden_word` function shows the current state of the word with guess
 <!-- /ROLE: B -->
 
 <!-- ROLE: C -->
-## Team Member C: Implement `all_letters_guessed`
 
-**Your function**: Check if the entire word has been guessed
+Now that the project structure is set up, each team member has a specific function to implement in the hangman game. This lesson teaches you about **parallel development** - working on different features simultaneously without conflicts.
+
+### Understanding Parallel Development
+
+Each team member will:
+1. **Create their own branch** for their specific function
+2. **Implement and test** their assigned function
+3. **Create a merge request** to integrate their work
+4. **Review** other team members' code
+
+## Team Member C: Implement `all_letters_guessed`
 
 ### What You'll Build
 The `all_letters_guessed` function determines if the player has successfully guessed all letters in the word.
@@ -136,14 +146,14 @@ The `all_letters_guessed` function determines if the player has successfully gue
 
 1. **Switch to development branch**:
    ```bash
-   git checkout dev
-   git pull
+git checkout dev
+git pull
    ```
 
 2. **Create your feature branch**:
    ```bash
-   git branch all_letters_guessed
-   git checkout all_letters_guessed
+git branch all_letters_guessed
+git checkout all_letters_guessed
    ```
 
 3. **Implement the function**:
@@ -154,15 +164,15 @@ The `all_letters_guessed` function determines if the player has successfully gue
 
 4. **Test your implementation**:
    ```bash
-   python -m pip install pytest
-   pytest test_hangman.py -k test_all_letters_guessed
+python -m pip install pytest
+pytest test_hangman.py -k test_all_letters_guessed
    ```
 
 5. **Commit and push your work**:
    ```bash
-   git add hangman.py
-   git commit -m "Implement all_letters_guessed function"
-   git push --set-upstream origin all_letters_guessed
+git add hangman.py
+git commit -m "Implement all_letters_guessed function"
+git push --set-upstream origin all_letters_guessed
    ```
 
 6. **Create a merge request**:
@@ -178,9 +188,18 @@ The `all_letters_guessed` function determines if the player has successfully gue
 <!-- /ROLE: C -->
 
 <!-- ROLE: D -->
-## Team Member D: Implement `ask_for_valid_input`
 
-**Your function**: Get and validate user input
+Now that the project structure is set up, each team member has a specific function to implement in the hangman game. This lesson teaches you about **parallel development** - working on different features simultaneously without conflicts.
+
+### Understanding Parallel Development
+
+Each team member will:
+1. **Create their own branch** for their specific function
+2. **Implement and test** their assigned function
+3. **Create a merge request** to integrate their work
+4. **Review** other team members' code
+
+## Team Member D: Implement `ask_for_valid_input`
 
 ### What You'll Build
 The `ask_for_valid_input` function prompts the user for a letter and validates the input according to game rules.
@@ -189,14 +208,14 @@ The `ask_for_valid_input` function prompts the user for a letter and validates t
 
 1. **Switch to development branch**:
    ```bash
-   git checkout dev
-   git pull
+git checkout dev
+git pull
    ```
 
 2. **Create your feature branch**:
    ```bash
-   git branch ask_for_valid_input
-   git checkout ask_for_valid_input
+git branch ask_for_valid_input
+git checkout ask_for_valid_input
    ```
 
 3. **Implement the function**:
@@ -235,9 +254,18 @@ The `ask_for_valid_input` function prompts the user for a letter and validates t
 <!-- /ROLE: D -->
 
 <!-- ROLE: E -->
-## Team Member E: Implement `update_game`
 
-**Your function**: Update game state after each guess
+Now that the project structure is set up, each team member has a specific function to implement in the hangman game. This lesson teaches you about **parallel development** - working on different features simultaneously without conflicts.
+
+### Understanding Parallel Development
+
+Each team member will:
+1. **Create their own branch** for their specific function
+2. **Implement and test** their assigned function
+3. **Create a merge request** to integrate their work
+4. **Review** other team members' code
+
+## Team Member E: Implement `update_game`
 
 ### What You'll Build
 The `update_game` function processes a player's guess and updates the game state accordingly.
@@ -246,14 +274,14 @@ The `update_game` function processes a player's guess and updates the game state
 
 1. **Switch to development branch**:
    ```bash
-   git checkout dev
-   git pull
+git checkout dev
+git pull
    ```
 
 2. **Create your feature branch**:
    ```bash
-   git branch update_game
-   git checkout update_game
+git branch update_game
+git checkout update_game
    ```
 
 3. **Implement the function**:
@@ -266,15 +294,15 @@ The `update_game` function processes a player's guess and updates the game state
 
 4. **Test your implementation**:
    ```bash
-   python -m pip install pytest
-   pytest test_hangman.py -k test_update_game
+python -m pip install pytest
+pytest test_hangman.py -k test_update_game
    ```
 
 5. **Commit and push your work**:
    ```bash
-   git add hangman.py
-   git commit -m "Implement update_game function"
-   git push --set-upstream origin update_game
+git add hangman.py
+git commit -m "Implement update_game function"
+git push --set-upstream origin update_game
    ```
 
 6. **Create a merge request**:
@@ -290,9 +318,18 @@ The `update_game` function processes a player's guess and updates the game state
 <!-- /ROLE: E -->
 
 <!-- ROLE: F -->
-## Team Member F: Implement `game`
 
-**Your function**: Main game loop orchestrating all other functions
+Now that the project structure is set up, each team member has a specific function to implement in the hangman game. This lesson teaches you about **parallel development** - working on different features simultaneously without conflicts.
+
+### Understanding Parallel Development
+
+Each team member will:
+1. **Create their own branch** for their specific function
+2. **Implement and test** their assigned function
+3. **Create a merge request** to integrate their work
+4. **Review** other team members' code
+
+## Team Member F: Implement `game`
 
 ### What You'll Build
 The `game` function coordinates all other functions to create the complete hangman game experience.
@@ -301,14 +338,14 @@ The `game` function coordinates all other functions to create the complete hangm
 
 1. **Switch to development branch**:
    ```bash
-   git checkout dev
-   git pull
+git checkout dev
+git pull
    ```
 
 2. **Create your feature branch**:
    ```bash
-   git branch game
-   git checkout game
+git branch game
+git checkout game
    ```
 
 3. **Implement the function**:
@@ -330,9 +367,9 @@ The `game` function coordinates all other functions to create the complete hangm
 
 5. **Commit and push your work**:
    ```bash
-   git add hangman.py
-   git commit -m "Implement game function"
-   git push --set-upstream origin game
+git add hangman.py
+git commit -m "Implement game function"
+git push --set-upstream origin game
    ```
 
 6. **Create a merge request**:
@@ -346,14 +383,3 @@ The `game` function coordinates all other functions to create the complete hangm
 
 **✅ Your task is complete!** Your code will be reviewed and merged later.
 <!-- /ROLE: F -->
-
----
-
-## Next Steps
-
-Once everyone has created their merge requests, you'll learn how to:
-- **Review** each other's code
-- **Test** the integrated functionality
-- **Merge** approved changes into the development branch
-
-This collaborative workflow is fundamental to professional software development!

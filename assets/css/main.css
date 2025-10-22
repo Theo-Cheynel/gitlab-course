@@ -1139,6 +1139,66 @@ body.dark-theme .os-header:hover {
     border-left: 4px solid #ff6b35;
 }
 
+/* =================
+   Troubleshooting Sections
+   ================= */
+   
+.troubleshooting-section {
+    margin: var(--space-md) 0;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.troubleshooting-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-md) var(--space-lg);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.troubleshooting-header:hover {
+    background: var(--bg-tertiary);
+}
+
+.troubleshooting-header h4 {
+    margin: 0;
+    color: var(--warning-color);
+    font-size: 1rem;
+}
+
+.troubleshooting-header i {
+    color: var(--text-secondary);
+    transition: transform 0.3s ease;
+}
+
+.troubleshooting-header.expanded i {
+    transform: rotate(180deg);
+}
+
+.troubleshooting-content {
+    padding: 0 var(--space-lg);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.2s ease, padding 0.3s ease;
+}
+
+.troubleshooting-header.expanded + .troubleshooting-content {
+    padding: 0 var(--space-lg) var(--space-lg);
+    opacity: 1;
+}
+
+body.dark-theme .troubleshooting-section {
+    background: var(--bg-secondary);
+}
+
+body.dark-theme .troubleshooting-header:hover {
+    background: var(--bg-tertiary);
+}
+
 .lesson-navigation {
     display: flex;
     justify-content: space-between;

@@ -628,23 +628,55 @@ class CourseApp {
         html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');
         
         // Lists - handle nested lists properly
-        // First, handle indented items (nested)
-        html = html.replace(/^   - (.+)$/gim, '<nested-li>$1</nested-li>');
-        html = html.replace(/^   \* (.+)$/gim, '<nested-li>$1</nested-li>');
+        // Split into lines for better processing
+        const lines = html.split('\n');
+        let inList = false;
+        let listStack = [];
+        let processedLines = [];
         
-        // Then handle top-level items
-        html = html.replace(/^\* (.+)$/gim, '<li>$1</li>');
-        html = html.replace(/^- (.+)$/gim, '<li>$1</li>');
-        html = html.replace(/^\d+\. (.+)$/gim, '<li>$1</li>');
+        for (let i = 0; i < lines.length; i++) {
+            const line = lines[i];
+            const trimmedLine = line.trim();
+            
+            // Check if it's a list item
+            const bulletMatch = line.match(/^(\s*)([-*]|\d+\.)\s+(.+)$/);
+            
+            if (bulletMatch) {
+                const indent = bulletMatch[1].length;
+                const marker = bulletMatch[2];
+                const content = bulletMatch[3];
+                const listType = marker.match(/\d+\./) ? 'ol' : 'ul';
+                const depth = Math.floor(indent / 3); // 3 spaces per level
+                
+                // Close deeper lists
+                while (listStack.length > depth) {
+                    processedLines.push(`</${listStack.pop().type}>`);
+                }
+                
+                // Open new lists as needed
+                if (listStack.length === 0 || depth > listStack.length - 1) {
+                    processedLines.push(`<${listType}>`);
+                    listStack.push({type: listType, depth: depth});
+                }
+                
+                processedLines.push(`<li>${content}</li>`);
+                inList = true;
+            } else {
+                // Not a list item - close all open lists
+                while (listStack.length > 0) {
+                    processedLines.push(`</${listStack.pop().type}>`);
+                }
+                processedLines.push(line);
+                inList = false;
+            }
+        }
         
-        // Convert nested items to proper nested lists
-        html = html.replace(/(<li>.*?)(<nested-li>.*?<\/nested-li>)/gs, (match, parentLi, nestedItems) => {
-            const nestedList = nestedItems.replace(/<nested-li>/g, '<li>').replace(/<\/nested-li>/g, '</li>');
-            return parentLi + '<ul>' + nestedList + '</ul>';
-        });
+        // Close any remaining open lists
+        while (listStack.length > 0) {
+            processedLines.push(`</${listStack.pop().type}>`);
+        }
         
-        // Wrap consecutive list items in ul/ol tags
-        html = html.replace(/(<li>(?:(?!<li>|<ul>|<\/ul>)[\s\S])*?<\/li>(?:\s*<li>(?:(?!<li>|<ul>|<\/ul>)[\s\S])*?<\/li>)*)/g, '<ul>$1</ul>');
+        html = processedLines.join('\n');
         
         // Paragraphs
         html = html.replace(/\n\n/g, '</p><p>');
@@ -898,6 +930,86 @@ class CourseApp {
                 
                 // Create collapsible section
                 this.makeOSSectionCollapsible(header, shouldExpand);
+            }
+        });
+        
+        // Also add collapsible sections for troubleshooting
+        this.addTroubleshootingCollapsibleSections();
+    }
+    
+    addTroubleshootingCollapsibleSections() {
+        const lessonBody = document.getElementById('lessonBody');
+        if (!lessonBody) return;
+        
+        // Find all headers
+        const allHeaders = lessonBody.querySelectorAll('h2, h3, h4');
+        let inTroubleshooting = false;
+        
+        allHeaders.forEach(header => {
+            const headerText = header.textContent.toLowerCase();
+            
+            // Check if we're entering a troubleshooting section
+            if (header.tagName === 'H2' || header.tagName === 'H3') {
+                if (headerText.includes('troubleshoot') || headerText.includes('common issues') || headerText.includes('problems')) {
+                    inTroubleshooting = true;
+                } else if (!headerText.includes('solution') && !headerText.includes('fix') && !headerText.includes('error')) {
+                    inTroubleshooting = false;
+                }
+            }
+            
+            // If we're in troubleshooting and this is an h4, make it collapsible
+            if (inTroubleshooting && header.tagName === 'H4') {
+                this.makeTroubleshootingSectionCollapsible(header, false); // Collapsed by default
+            }
+        });
+    }
+    
+    makeTroubleshootingSectionCollapsible(header, expanded = false) {
+        // Create wrapper for the collapsible content
+        const wrapper = document.createElement('div');
+        wrapper.className = 'troubleshooting-section';
+        
+        // Create clickable header
+        const clickableHeader = document.createElement('div');
+        clickableHeader.className = `troubleshooting-header ${expanded ? 'expanded' : ''}`;
+        clickableHeader.innerHTML = `
+            <h4>${header.textContent}</h4>
+            <i class="fas fa-chevron-down"></i>
+        `;
+        
+        // Create content container
+        const contentContainer = document.createElement('div');
+        contentContainer.className = 'troubleshooting-content';
+        if (!expanded) {
+            contentContainer.style.maxHeight = '0';
+            contentContainer.style.opacity = '0';
+        }
+        
+        // Move all siblings until next header into content container
+        let nextElement = header.nextElementSibling;
+        while (nextElement && !['H1', 'H2', 'H3', 'H4'].includes(nextElement.tagName)) {
+            const elementToMove = nextElement;
+            nextElement = nextElement.nextElementSibling;
+            contentContainer.appendChild(elementToMove);
+        }
+        
+        // Replace header with wrapper
+        header.parentNode.replaceChild(wrapper, header);
+        wrapper.appendChild(clickableHeader);
+        wrapper.appendChild(contentContainer);
+        
+        // Add click handler
+        clickableHeader.addEventListener('click', () => {
+            const isExpanded = clickableHeader.classList.contains('expanded');
+            
+            if (isExpanded) {
+                clickableHeader.classList.remove('expanded');
+                contentContainer.style.maxHeight = '0';
+                contentContainer.style.opacity = '0';
+            } else {
+                clickableHeader.classList.add('expanded');
+                contentContainer.style.maxHeight = contentContainer.scrollHeight + 'px';
+                contentContainer.style.opacity = '1';
             }
         });
     }

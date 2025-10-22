@@ -1044,7 +1044,7 @@ body.dark-theme .lesson-body pre {
 .lesson-body pre code {
     background: none;
     padding: 0;
-    color: inherit;
+    color: var(--text-white) !important;
     display: block;
     padding-right: 60px; /* Make room for copy button */
 }

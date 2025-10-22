@@ -712,6 +712,12 @@ class CourseApp {
         html = html.replace(/<p>(<pre>)/g, '$1');
         html = html.replace(/(<\/pre>)<\/p>/g, '$1');
         
+        // Remove paragraph tags inside pre blocks
+        html = html.replace(/(<pre[^>]*>)([\s\S]*?)(<\/pre>)/g, (match, opening, content, closing) => {
+            const cleanContent = content.replace(/<\/?p>/g, '');
+            return opening + cleanContent + closing;
+        });
+        
         return html;
     }
 

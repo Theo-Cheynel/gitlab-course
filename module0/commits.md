@@ -93,8 +93,12 @@ venv/
 __pycache__/
 *.pyc
 *.pyo
+
+# IDE files
 .vscode/
 .idea/
+
+# OS files
 .DS_Store
 Thumbs.db
 ```

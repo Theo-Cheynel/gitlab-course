@@ -982,23 +982,17 @@ body.dark-theme .module-header:hover {
 }
 
 .lesson-body pre {
-    background: var(--bg-dark);
+    background: #1e3a8a;
     color: var(--text-white);
     padding: var(--space-lg);
     border-radius: var(--radius-lg);
     overflow-x: auto;
     margin: var(--space-lg) 0;
-    border-left: 4px solid var(--primary-color);
+    border-left: 4px solid #3b82f6;
     position: relative;
 }
 
-/* Special styling for bash code blocks */
-.lesson-body pre.language-bash {
-    background: #1e3a8a;
-    border-left: 4px solid #3b82f6;
-}
-
-body.dark-theme .lesson-body pre.language-bash {
+body.dark-theme .lesson-body pre {
     background: #1e40af;
     border-left: 4px solid #60a5fa;
 }

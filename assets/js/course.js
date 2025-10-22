@@ -600,6 +600,31 @@ class CourseApp {
         // Remove front matter if present
         html = html.replace(/^---[\s\S]*?---\n/, '');
         
+        // Code blocks FIRST to prevent markdown parsing inside them
+        html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, lang, code) => {
+            const language = lang || '';
+            const className = language ? `language-${language}` : '';
+            // Escape HTML to prevent any parsing/rendering
+            const escapedCode = code.trim()
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+            return `<pre class="${className}"><code class="${className}">${escapedCode}</code></pre>`;
+        });
+        
+        // Inline code (also before other parsing)
+        html = html.replace(/`([^`]+)`/g, (match, code) => {
+            const escapedCode = code
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+            return `<code>${escapedCode}</code>`;
+        });
+        
         // Headers (process h4 first to avoid conflicts)
         html = html.replace(/^#### (.*$)/gim, '<h4>$1</h4>');
         html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
@@ -609,14 +634,6 @@ class CourseApp {
         // Bold and italic
         html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
         html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
-        
-        // Code blocks with language detection
-        html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, lang, code) => {
-            const language = lang || '';
-            const className = language ? `language-${language}` : '';
-            return `<pre class="${className}"><code class="${className}">${code.trim()}</code></pre>`;
-        });
-        html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
         
         // Links
         html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');

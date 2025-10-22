@@ -40,10 +40,6 @@ source venv/bin/activate
 source venv/bin/activate
 ```
 
-**Note**: On some Linux distributions, you might need to install the `python3-venv` package first:
-```bash
-sudo apt-get install python3-venv  # For Ubuntu/Debian
-```
 
 **Success indicator**: Your terminal prompt should now show `(venv)` at the beginning:
 ```

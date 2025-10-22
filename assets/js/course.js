@@ -656,7 +656,7 @@ class CourseApp {
                 const indent = bulletMatch[1].length;
                 const marker = bulletMatch[2];
                 const content = bulletMatch[3];
-                const listType = marker.match(/\d+\./) ? 'ol' : 'ul';
+                const listType = 'ul'; // Always use unordered lists
                 const depth = Math.floor(indent / 3); // 3 spaces per level
                 
                 // Close deeper lists

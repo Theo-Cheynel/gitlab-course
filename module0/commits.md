@@ -33,7 +33,7 @@ When working in a team, you must follow this sequence:
    ```markdown
 # Hangman Game Project
    
-## Project Members:
+Project Members:
 - [Your Full Name] (Team Member A)
 ```
 
@@ -93,12 +93,8 @@ venv/
 __pycache__/
 *.pyc
 *.pyo
-
-# IDE files
 .vscode/
 .idea/
-
-# OS files
 .DS_Store
 Thumbs.db
 ```
@@ -139,7 +135,7 @@ You should see the updated README.md file.
    ```markdown
 # Hangman Game Project
 
-## Project Members:
+Project Members:
 - [Team Member A's Name] (Team Member A)
 - [Your Full Name] (Team Member B)
 ```
@@ -179,7 +175,7 @@ You should see the updated README.md file.
    ```markdown
 # Hangman Game Project
 
-## Project Members:
+Project Members:
 - [Team Member A's Name] (Team Member A)
 - [Team Member B's Name] (Team Member B)
 - [Your Full Name] (Team Member C)
@@ -220,7 +216,7 @@ You should see the updated README.md file.
    ```markdown
 # Hangman Game Project
 
-## Project Members:
+Project Members:
 - [Team Member A's Name] (Team Member A)
 - [Team Member B's Name] (Team Member B)
 - [Team Member C's Name] (Team Member C)
@@ -262,7 +258,7 @@ You should see the updated README.md file.
    ```markdown
 # Hangman Game Project
 
-## Project Members:
+Project Members:
 - [Team Member A's Name] (Team Member A)
 - [Team Member B's Name] (Team Member B)
 - [Team Member C's Name] (Team Member C)
@@ -305,7 +301,7 @@ You should see the updated README.md file.
    ```markdown
 # Hangman Game Project
 
-## Project Members:
+Project Members:
 - [Team Member A's Name] (Team Member A)
 - [Team Member B's Name] (Team Member B)
 - [Team Member C's Name] (Team Member C)

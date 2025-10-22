@@ -31,17 +31,17 @@ When working in a team, you must follow this sequence:
 
 2. **Delete all existing content** and replace it with:
    ```markdown
-   # Hangman Game Project
+# Hangman Game Project
    
-   ## Project Members:
-   - [Your Full Name] (Team Member A)
-   ```
+## Project Members:
+- [Your Full Name] (Team Member A)
+```
 
 3. Save the file
 
 ### Step 2: Check Git Status
 
-See what Git detected:
+See the changes detected by Git:
 ```bash
 git status
 ```

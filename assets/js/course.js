@@ -921,6 +921,9 @@ class CourseApp {
             const isMacOS = headerText.includes('macos') || headerText.includes('mac os');
             const isLinux = headerText.includes('linux') || headerText.includes('ubuntu') || headerText.includes('debian');
             
+            // Also check for activation sections
+            const isActivation = headerText.includes('activation');
+            
             if (isWindows || isMacOS || isLinux) {
                 // Determine if this section should be expanded by default
                 let shouldExpand = false;

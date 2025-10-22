@@ -86,32 +86,32 @@ class CourseApp {
                 },
                 'member-task': {
                     title: 'Your Team Role Task',
-                    module: 'Module 2',
+                    module: 'Module 1',
                     duration: '30 minutes',
                     file: 'instructions/hangman_member_{role}.md',
                     roleSpecific: true
                 },
                 'testing': {
                     title: 'Unit Testing',
-                    module: 'Module 2',
+                    module: 'Module 1',
                     duration: '25 minutes',
                     file: 'module1/parallel_tasks.md'
                 },
                 'merge-requests': {
                     title: 'Merge Requests',
-                    module: 'Module 2',
+                    module: 'Module 1',
                     duration: '20 minutes',
-                    file: 'instructions/hangman_merging_pull_requests.md'
+                    file: 'module1/merge_requests.md'
                 },
                 'conflict-resolution': {
                     title: 'Resolving Conflicts',
-                    module: 'Module 3',
+                    module: 'Module 2',
                     duration: '25 minutes',
                     file: 'conflicts/README.md'
                 },
                 'rebasing': {
                     title: 'Git Rebase',
-                    module: 'Module 3',
+                    module: 'Module 2',
                     duration: '20 minutes',
                     file: 'module1/merge_requests.md'
                 }

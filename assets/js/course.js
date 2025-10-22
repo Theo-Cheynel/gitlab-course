@@ -88,8 +88,7 @@ class CourseApp {
                     title: 'Your Team Role Task',
                     module: 'Module 1',
                     duration: '30 minutes',
-                    file: 'instructions/hangman_member_{role}.md',
-                    roleSpecific: true
+                    file: 'module1/member_task.md'
                 },
                 'testing': {
                     title: 'Unit Testing',

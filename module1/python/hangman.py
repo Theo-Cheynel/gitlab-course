@@ -1,142 +1,91 @@
-#!/usr/bin/env python3
-"""
-Hangman Game Template
-
-This file contains empty function templates for a hangman game.
-Each team member will implement one or more of these functions.
-"""
-
 import random
-import string
 
 
-def load_words(filename="words.txt"):
+def pick_random_word():
     """
-    Load words from a text file and return them as a list.
+    Picks a random word from the word list. The word list is the provided words.txt file.
+
+    Returns:
+        str : random word picked
+    """
+    return 
+
+
+def format_hidden_word(word_to_guess, letters_guessed):
+    """
+    Formats the word to guess by replacing all non-guessed letters by "_"
+
+    Args:
+        word_to_guess (str) : word that the user has to guess
+        letters_already_guessed (str) : string containing all the letters already guessed by the user.
+
+    Returns:
+        str : word to display, where all of the letters not in letters_guessed are replaced by the "_" symbol
+    """
+    return 
+
+
+def all_letters_guessed(word_to_guess, letters_guessed):
+    """
+    Checks whether all letters of word_to_guess are in letters_guessed.
+
+    Args:
+        word_to_guess (str) : word that the user has to guess
+        letters_already_guessed (str) : string containing all the letters already guessed by the user.
+
+    Returns:
+        bool : True if all letters have been guessed, False otherwise
+    """
+    return
+
+
+def ask_for_valid_input(letters_guessed):
+    """
+    Asks the user to pick a letter, using input("Enter a letter [a-z]: "). 
+    Checks that the input is a single character (len(i) == 1) and that it is a lowercase letter 
+    (97 <= ord(a) <= 122), and that it is not already in letters_guessed (a not in letters_guessed).
+    If not, prompts the user to pick a letter again (using a while loop until all criteria are respected)
     
     Args:
-        filename (str): Path to the words file
-        
-    Returns:
-        list: List of words loaded from the file
-        
-    TODO: Implement this function
-    - Open and read the words file
-    - Split words and clean them (remove whitespace)
-    - Return list of valid words
-    """
-    pass
-
-
-def choose_random_word(word_list):
-    """
-    Choose a random word from the word list.
+        letters_guessed (str) : string containing all the letters already guessed by the user
     
+    Returns:
+        str : one-character string containing the letter picked by the user
+    """
+    return
+
+
+def update_game(word_to_guess, letters_guessed, new_guess, remaining_attempts):
+    """
+    Based on the new_guess, updates the letters_guessed (letters_guessed.append(new_guess))
+    and remaining_attempts variables (remaining_attempts decreases by one if new_guess not in word_to_guess).
+
     Args:
-        word_list (list): List of available words
-        
+        word_to_guess (str) : word that the user has to guess
+        letters_guessed (str) : string containing all the letters already guessed by the user
+        new_guess (str) : one-character string containing the letter picked by the user
+        remaining_attempts (int) : number of attempts remaining
+
     Returns:
-        str: A randomly selected word in uppercase
-        
-    TODO: Implement this function
-    - Use random.choice() to select a word
-    - Convert to uppercase for consistency
+        str : new string containing all letters guessed 
+        int : new number of attempts remaining 
     """
-    pass
+    return
 
 
-def display_hangman(wrong_guesses):
+def game():
     """
-    Display ASCII art hangman based on number of wrong guesses.
-    
-    Args:
-        wrong_guesses (int): Number of incorrect guesses (0-6)
-        
-    Returns:
-        str: ASCII art representation of hangman
-        
-    TODO: Implement this function
-    - Create ASCII art for each stage (0-6 wrong guesses)
-    - Return appropriate art based on wrong_guesses count
+    Allows the user to play one game of hangman:
+        - picks a random word using pick_random_word()
+        - sets remaining_attempts to 8, and letters_guessed to ''
+        - while there remaining_attempts > 0 AND not all_letters_guessed() , do:
+            - print the word, formatted using format_hidden_word()
+            - print the number of remaining attempts
+            - ask for a valid input from the user using ask_for_valid_input()
+            - call update_game(), and update letters_guessed and remaining_attempts based on the returned values
+        - once exiting the loop, if remaining_attempts > 0, print("You won"), otherwise, print("You lost")
     """
-    pass
-
-
-def get_user_guess():
-    """
-    Get a valid letter guess from the user.
-    
-    Returns:
-        str: A single uppercase letter
-        
-    TODO: Implement this function
-    - Prompt user for input
-    - Validate input (single letter, alphabetic)
-    - Convert to uppercase
-    - Handle invalid input with appropriate messages
-    """
-    pass
-
-
-def update_word_display(word, guessed_letters):
-    """
-    Create display string showing guessed letters and blanks.
-    
-    Args:
-        word (str): The secret word
-        guessed_letters (set): Set of letters that have been guessed
-        
-    Returns:
-        str: Display string with letters and underscores
-        
-    TODO: Implement this function
-    - Show guessed letters in their positions
-    - Show underscores for unguessed letters
-    - Add spaces between characters for readability
-    """
-    pass
-
-
-def is_word_guessed(word, guessed_letters):
-    """
-    Check if the entire word has been guessed.
-    
-    Args:
-        word (str): The secret word
-        guessed_letters (set): Set of letters that have been guessed
-        
-    Returns:
-        bool: True if word is completely guessed, False otherwise
-        
-    TODO: Implement this function
-    - Check if all letters in word are in guessed_letters
-    - Return boolean result
-    """
-    pass
-
-
-def play_hangman():
-    """
-    Main game loop for hangman.
-    
-    TODO: Implement this function
-    - Load words and choose random word
-    - Initialize game state (guessed letters, wrong guesses)
-    - Game loop:
-      - Display current state
-      - Get user guess
-      - Update game state
-      - Check win/loss conditions
-    - Display final result
-    """
-    pass
-
+    return
 
 if __name__ == "__main__":
-    # This will run when the file is executed directly
-    print("Welcome to Hangman!")
-    print("Each team member should implement assigned functions.")
-    print("Run the tests with: python -m pytest test_hangman.py")
-    
-    # Uncomment the line below once play_hangman() is implemented
-    # play_hangman()
+    game()

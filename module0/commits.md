@@ -59,66 +59,62 @@ git add README.md
 
 Create a commit with a descriptive message:
 ```bash
-git commit -m "Initialize project with team member list
+git commit -m "Initialize project with team member list"
+```
 
-- Add project title and structure to README
-- Add Team Member A to project members list"
+You should see the following message:
+```
+[main 80166e5] Initialize project with team member list
+ 1 file changed, 4 insertions(+), 93 deletions(-)
 ```
 
 ### Step 5: Push to Remote Repository
 
 Upload your changes to GitLab:
 ```bash
-git push origin main
+git push
 ```
 
 ### Step 6: Create .gitignore File
 
-While your teammates are working, create a `.gitignore` file to exclude the virtual environment:
+Your teammates will now add their names to the README.md, one by one (tell Team Member B to start).
+While your teammates are working, create a `.gitignore` file, which tells Git which files it should NEVER include in commits:
 
 1. Create the file:
    ```bash
-   touch .gitignore
-   ```
+touch .gitignore
+```
 
-2. Edit it:
-   ```bash
-   code .gitignore
-   ```
-
+2. Open it (for instance with VSCode):
 3. Add this content:
    ```
-   # Virtual Environment
-   venv/
-   __pycache__/
-   *.pyc
-   *.pyo
-   
-   # IDE files
-   .vscode/
-   .idea/
-   
-   # OS files
-   .DS_Store
-   Thumbs.db
-   ```
+# Virtual Environment
+venv/
+__pycache__/
+*.pyc
+*.pyo
 
-4. Stage and commit:
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+```
+
+4. Add and commit the changes:
    ```bash
-   git add .gitignore
-   git commit -m "Add .gitignore file
-
-- Exclude virtual environment folder
-- Exclude Python cache files
-- Exclude IDE and OS specific files"
-   ```
+git add .gitignore
+git commit -m "Add .gitignore file"
+```
 
 5. Push the changes:
    ```bash
-   git push origin main
-   ```
+git push
+```
 
-**You're done!** Let your team know they can start adding their names.
+**You're done!**
 <!-- /ROLE: A -->
 
 <!-- ROLE: B -->
@@ -130,44 +126,32 @@ While your teammates are working, create a `.gitignore` file to exclude the virt
 
 **Important**: Always pull before making changes:
 ```bash
-git pull origin main
+git pull
 ```
 
 You should see the updated README.md file.
 
-### Step 2: Verify You Have the Updates
+### Step 2: Edit the README.md
 
-Check the README content:
-```bash
-cat README.md
-```
-
-You should see Team Member A's name in the list.
-
-### Step 3: Edit the README.md
-
-1. Open the README.md file:
-   ```bash
-   code README.md
-   ```
+1. Open the README.md file, for instance with VSCode.
 
 2. Add your name to the project members list:
    ```markdown
-   # Hangman Game Project
-   
-   ## Project Members:
-   - [Team Member A's Name] (Team Member A)
-   - [Your Full Name] (Team Member B)
-   ```
+# Hangman Game Project
+
+## Project Members:
+- [Team Member A's Name] (Team Member A)
+- [Your Full Name] (Team Member B)
+```
 
 3. Save the file
 
-### Step 4: Commit and Push Your Changes
+### Step 3: Commit and Push Your Changes
 
 ```bash
 git add README.md
 git commit -m "Add Team Member B to project members list"
-git push origin main
+git push
 ```
 
 **You're done!** Let Team Member C know they can add their name.
@@ -180,40 +164,35 @@ git push origin main
 
 ### Step 1: Pull the Latest Changes
 
+**Important**: Always pull before making changes:
 ```bash
-git pull origin main
+git pull
 ```
 
-### Step 2: Verify You Have the Updates
+You should see the updated README.md file.
 
-Check that both A and B are in the README:
-```bash
-cat README.md
-```
+### Step 2: Edit the README.md
 
-### Step 3: Add Your Name
+1. Open the README.md file, for instance with VSCode.
 
-1. Open README.md:
-   ```bash
-   code README.md
-   ```
-
-2. Add your name to the list:
+2. Add your name to the project members list:
    ```markdown
-   # Hangman Game Project
-   
-   ## Project Members:
-   - [Team Member A's Name] (Team Member A)
-   - [Team Member B's Name] (Team Member B)
-   - [Your Full Name] (Team Member C)
-   ```
+# Hangman Game Project
 
-### Step 4: Commit and Push
+## Project Members:
+- [Team Member A's Name] (Team Member A)
+- [Team Member B's Name] (Team Member B)
+- [Your Full Name] (Team Member C)
+```
+
+3. Save the file
+
+### Step 3: Commit and Push Your Changes
 
 ```bash
 git add README.md
 git commit -m "Add Team Member C to project members list"
-git push origin main
+git push
 ```
 
 **You're done!** Let Team Member D know they can add their name.
@@ -226,34 +205,36 @@ git push origin main
 
 ### Step 1: Pull the Latest Changes
 
+**Important**: Always pull before making changes:
 ```bash
-git pull origin main
+git pull
 ```
 
-### Step 2: Add Your Name
+You should see the updated README.md file.
 
-1. Open README.md:
-   ```bash
-   code README.md
-   ```
+### Step 2: Edit the README.md
 
-2. Add your name:
+1. Open the README.md file, for instance with VSCode.
+
+2. Add your name to the project members list:
    ```markdown
-   # Hangman Game Project
-   
-   ## Project Members:
-   - [Team Member A's Name] (Team Member A)
-   - [Team Member B's Name] (Team Member B)
-   - [Team Member C's Name] (Team Member C)
-   - [Your Full Name] (Team Member D)
-   ```
+# Hangman Game Project
 
-### Step 3: Commit and Push
+## Project Members:
+- [Team Member A's Name] (Team Member A)
+- [Team Member B's Name] (Team Member B)
+- [Team Member C's Name] (Team Member C)
+- [Your Full Name] (Team Member D)
+```
+
+3. Save the file
+
+### Step 3: Commit and Push Your Changes
 
 ```bash
 git add README.md
 git commit -m "Add Team Member D to project members list"
-git push origin main
+git push
 ```
 
 **You're done!** Let Team Member E know they can add their name.
@@ -266,38 +247,40 @@ git push origin main
 
 ### Step 1: Pull the Latest Changes
 
+**Important**: Always pull before making changes:
 ```bash
-git pull origin main
+git pull
 ```
 
-### Step 2: Add Your Name
+You should see the updated README.md file.
 
-1. Open README.md:
-   ```bash
-   code README.md
-   ```
+### Step 2: Edit the README.md
 
-2. Add your name:
+1. Open the README.md file, for instance with VSCode.
+
+2. Add your name to the project members list:
    ```markdown
-   # Hangman Game Project
-   
-   ## Project Members:
-   - [Team Member A's Name] (Team Member A)
-   - [Team Member B's Name] (Team Member B)
-   - [Team Member C's Name] (Team Member C)
-   - [Team Member D's Name] (Team Member D)
-   - [Your Full Name] (Team Member E)
-   ```
+# Hangman Game Project
 
-### Step 3: Commit and Push
+## Project Members:
+- [Team Member A's Name] (Team Member A)
+- [Team Member B's Name] (Team Member B)
+- [Team Member C's Name] (Team Member C)
+- [Team Member D's Name] (Team Member D)
+- [Your Full Name] (Team Member E)
+```
+
+3. Save the file
+
+### Step 3: Commit and Push Your Changes
 
 ```bash
 git add README.md
 git commit -m "Add Team Member E to project members list"
-git push origin main
+git push
 ```
 
-**You're done!** If you have a Team Member F, let them know they can add their name.
+**You're done!** Let Team Member F know they can add their name.
 <!-- /ROLE: E -->
 
 <!-- ROLE: F -->
@@ -307,73 +290,39 @@ git push origin main
 
 ### Step 1: Pull the Latest Changes
 
+**Important**: Always pull before making changes:
 ```bash
-git pull origin main
+git pull
 ```
 
-### Step 2: Add Your Name
+You should see the updated README.md file.
 
-1. Open README.md:
-   ```bash
-   code README.md
-   ```
+### Step 2: Edit the README.md
 
-2. Add your name:
+1. Open the README.md file, for instance with VSCode.
+
+2. Add your name to the project members list:
    ```markdown
-   # Hangman Game Project
-   
-   ## Project Members:
-   - [Team Member A's Name] (Team Member A)
-   - [Team Member B's Name] (Team Member B)
-   - [Team Member C's Name] (Team Member C)
-   - [Team Member D's Name] (Team Member D)
-   - [Team Member E's Name] (Team Member E)
-   - [Your Full Name] (Team Member F)
-   ```
+# Hangman Game Project
 
-### Step 3: Commit and Push
+## Project Members:
+- [Team Member A's Name] (Team Member A)
+- [Team Member B's Name] (Team Member B)
+- [Team Member C's Name] (Team Member C)
+- [Team Member D's Name] (Team Member D)
+- [Team Member E's Name] (Team Member E)
+- [Your Full Name] (Team Member F)
+```
+
+3. Save the file
+
+### Step 3: Commit and Push Your Changes
 
 ```bash
 git add README.md
 git commit -m "Add Team Member F to project members list"
-git push origin main
+git push
 ```
 
-**You're done!** The team setup is complete.
+**You're done!** Let everyone know that you can all proceed to the next module.
 <!-- /ROLE: F -->
-
----
-
-## Final Verification
-
-Once everyone has added their name, **everyone should pull the final version**:
-
-```bash
-git pull origin main
-cat README.md
-```
-
-You should see all team members listed in the README.md file.
-
-## What You've Learned
-
-### Key Git Concepts:
-- **git pull**: Downloads the latest changes from the remote repository
-- **git add**: Stages files for commit
-- **git commit**: Creates a snapshot of your changes with a descriptive message
-- **git push**: Uploads your commits to the remote repository
-- **git status**: Shows the current state of your working directory
-
-### Best Practices:
-- **Always pull before making changes** in a team environment
-- **Write descriptive commit messages** that explain what and why
-- **Work sequentially** when editing the same file to avoid conflicts
-- **Use .gitignore** to exclude files that shouldn't be tracked
-
-### Why This Workflow Matters:
-- **Prevents conflicts**: By pulling first, you get the latest changes
-- **Maintains history**: Each commit creates a checkpoint you can return to
-- **Enables collaboration**: Multiple people can work on the same project safely
-- **Tracks progress**: Commit messages create a log of what was done and when
-
-**Congratulations!** You've completed your first collaborative Git workflow. You're now ready to work on more complex features as a team!

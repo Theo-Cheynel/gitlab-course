@@ -29,7 +29,7 @@ class CourseApp {
         return {
             lessonOrder: [
                 'vscode', 'gitbash', 'ssh', 'repository', 'cloning', 'venv-setup', 'commits',
-                'team-setup', 'project-structure',
+                'project-structure',
                 'member-task', 'testing', 'merge-requests',
                 'conflict-resolution', 'rebasing',
                 'gitignore', 'pre-commit', 'python-package',
@@ -78,17 +78,11 @@ class CourseApp {
                     duration: '5 minutes',
                     file: 'module0/commits.md'
                 },
-                'team-setup': {
-                    title: 'Team Formation',
-                    module: 'Module 1',
-                    duration: '20 minutes',
-                    file: 'module1/setup.md'
-                },
                 'project-structure': {
                     title: 'Project Structure',
                     module: 'Module 1',
                     duration: '15 minutes',
-                    file: 'module1/README.md'
+                    file: 'module1/project_structure.md'
                 },
                 'member-task': {
                     title: 'Your Team Role Task',

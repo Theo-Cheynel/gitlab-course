@@ -992,13 +992,17 @@ body.dark-theme .module-header:hover {
 
 .lesson-body pre {
     background: #1e3a8a;
-    color: var(--text-white);
+    color: #ffffff !important;
     padding: var(--space-lg);
     border-radius: var(--radius-lg);
     overflow-x: auto;
     margin: var(--space-lg) 0;
     border-left: 4px solid #3b82f6;
     position: relative;
+}
+
+.lesson-body pre * {
+    color: #ffffff !important;
 }
 
 body.dark-theme .lesson-body pre {

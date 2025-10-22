@@ -600,7 +600,11 @@ class CourseApp {
         // Remove front matter if present
         html = html.replace(/^---[\s\S]*?---\n/, '');
         
-        // Code blocks FIRST to prevent markdown parsing inside them
+        // Store code blocks with placeholders to protect from other parsing
+        const codeBlocks = [];
+        let codeBlockIndex = 0;
+        
+        // Extract and store code blocks
         html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, lang, code) => {
             const language = lang || '';
             const className = language ? `language-${language}` : '';
@@ -611,7 +615,9 @@ class CourseApp {
                 .replace(/>/g, '&gt;')
                 .replace(/"/g, '&quot;')
                 .replace(/'/g, '&#039;');
-            return `<pre class="${className}"><code class="${className}">${escapedCode}</code></pre>`;
+            const codeBlock = `<pre class="${className}"><code class="${className}">${escapedCode}</code></pre>`;
+            codeBlocks.push(codeBlock);
+            return `<!--CODE_BLOCK_${codeBlockIndex++}-->`;
         });
         
         // Inline code (also before other parsing)
@@ -716,6 +722,11 @@ class CourseApp {
         html = html.replace(/(<pre[^>]*>)([\s\S]*?)(<\/pre>)/g, (match, opening, content, closing) => {
             const cleanContent = content.replace(/<\/?p>/g, '');
             return opening + cleanContent + closing;
+        });
+        
+        // Restore code blocks
+        codeBlocks.forEach((block, index) => {
+            html = html.replace(`<!--CODE_BLOCK_${index}-->`, block);
         });
         
         return html;

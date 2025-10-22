@@ -14,17 +14,11 @@ This creates a folder called `venv` containing your isolated Python environment.
 
 ### Step 2: Activate Virtual Environment
 
-The activation command varies by operating system. Click your OS below:
-
 ### Windows (Git Bash)
 
 ```bash
 source venv/Scripts/activate
 ```
-
-**Note**: If you're using Command Prompt or PowerShell instead of Git Bash, the command is different:
-- Command Prompt: `venv\Scripts\activate.bat`
-- PowerShell: `venv\Scripts\Activate.ps1`
 
 ### macOS
 
@@ -40,13 +34,12 @@ source venv/bin/activate
 source venv/bin/activate
 ```
 
+### Step 3: Verify Virtual Environment
 
-**Success indicator**: Your terminal prompt should now show `(venv)` at the beginning:
+Your terminal prompt should now show `(venv)` at the beginning:
 ```
 (venv) user@computer:~/hangman-repository$
 ```
-
-### Step 3: Verify Virtual Environment
 
 Check that you're using the python binaries located inside the virtual environment:
 
@@ -72,23 +65,7 @@ pip install --upgrade pip
 Do this **every time you work on this project:**
 
 1. Navigate to your repository directory
-2. Activate the virtual environment (click your OS below):
-
-### Windows Activation
-```bash
-source venv/Scripts/activate
-```
-
-### macOS Activation
-```bash
-source venv/bin/activate
-```
-
-### Linux Activation
-```bash
-source venv/bin/activate
-```
-
+2. Activate the virtual environment `source venv/Scripts/activate` (Windows) / `source venv/bin/activate` (macOS / Linux)
 3. Work on your project
 4. When done, deactivate if needed: `deactivate`
 

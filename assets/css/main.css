@@ -956,6 +956,22 @@ body.dark-theme .module-header:hover {
     padding-left: var(--space-xl);
 }
 
+.lesson-body ol {
+    list-style-type: decimal;
+}
+
+.lesson-body ol ol {
+    list-style-type: lower-alpha;
+}
+
+.lesson-body ul {
+    list-style-type: disc;
+}
+
+.lesson-body ul ul {
+    list-style-type: circle;
+}
+
 .lesson-body li {
     margin-bottom: var(--space-sm);
     color: var(--text-secondary);

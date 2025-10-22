@@ -664,8 +664,16 @@ class CourseApp {
                     processedLines.push(`</${listStack.pop().type}>`);
                 }
                 
-                // Open new lists as needed
-                if (listStack.length === 0 || depth > listStack.length - 1) {
+                // Check if we need to change list type at current depth
+                if (listStack.length > 0 && depth < listStack.length && listStack[depth]) {
+                    if (listStack[depth].type !== listType) {
+                        // Close current list and open new one with different type
+                        processedLines.push(`</${listStack[depth].type}>`);
+                        processedLines.push(`<${listType}>`);
+                        listStack[depth].type = listType;
+                    }
+                } else if (listStack.length === 0 || depth > listStack.length - 1) {
+                    // Open new lists as needed
                     processedLines.push(`<${listType}>`);
                     listStack.push({type: listType, depth: depth});
                 }

@@ -120,7 +120,9 @@ git push
 <!-- ROLE: B -->
 ## Team Member B: Add Your Name Second
 
-**Wait for Team Member A to finish and push their changes** before you start.
+[!WAIT member="A" action="needs to finish and push their changes"]
+Please wait before you start.
+[/!WAIT]
 
 ### Step 1: Pull the Latest Changes
 
@@ -160,7 +162,9 @@ git push
 <!-- ROLE: C -->
 ## Team Member C: Add Your Name Third
 
-**Wait for Team Member B to finish and push their changes** before you start.
+[!WAIT member="B" action="needs to finish and push their changes"]
+Please wait before you start.
+[/!WAIT]
 
 ### Step 1: Pull the Latest Changes
 
@@ -201,7 +205,9 @@ git push
 <!-- ROLE: D -->
 ## Team Member D: Add Your Name Fourth
 
-**Wait for Team Member C to finish and push their changes** before you start.
+[!WAIT member="C" action="needs to finish and push their changes"]
+Please wait before you start.
+[/!WAIT]
 
 ### Step 1: Pull the Latest Changes
 
@@ -243,7 +249,9 @@ git push
 <!-- ROLE: E -->
 ## Team Member E: Add Your Name Fifth
 
-**Wait for Team Member D to finish and push their changes** before you start.
+[!WAIT member="D" action="needs to finish and push their changes"]
+Please wait before you start.
+[/!WAIT]
 
 ### Step 1: Pull the Latest Changes
 
@@ -286,7 +294,9 @@ git push
 <!-- ROLE: F -->
 ## Team Member F: Add Your Name Last
 
-**Wait for Team Member E to finish and push their changes** before you start.
+[!WAIT member="E" action="needs to finish and push their changes"]
+Please wait before you start.
+[/!WAIT]
 
 ### Step 1: Pull the Latest Changes
 

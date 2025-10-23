@@ -91,14 +91,17 @@ So far, we have only been working on the `main` branch. However, think about wha
 To address those issues, we have to use the collaborative tools of Git and GitLab. To illustrate, we are going to build a small hangman game in Python, where the user has to guess a word letter by letter.
 
 ## What to do
+
+[!WAIT member="A" action="is setting up the project structure"]
 **Team Member A** is currently performing the following tasks:
 1. **Development branch**: Creating a separate branch for collaborative work
 2. **Hangman game file**: Adding a python file that we will use for the team project
 3. **Test file**: Adding a unit tests which will allow us to individually test the game functions
 
-**You are Team Member {role}**. You simply ave to:
-1. **Wait** for Team Member A to complete the setup
-2. **Pull the latest changes** once they're done:
+**You are Team Member {role}**. Once the setup is complete, you'll need to:
+[/!WAIT]
+
+1. **Pull the latest changes** once they're done:
    ```bash
    git pull
    git checkout dev

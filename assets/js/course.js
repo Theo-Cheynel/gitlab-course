@@ -30,7 +30,7 @@ class CourseApp {
             lessonOrder: [
                 'vscode', 'gitbash', 'ssh', 'repository', 'cloning', 'venv-setup', 'commits',
                 'project-structure',
-                'member-task', 'merge-requests', 'conflict',
+                'member-task', 'branch-protection', 'merge-requests-detailed', 'code-review', 'conflict',
             ],
             lessons: {
                 'vscode': {
@@ -87,11 +87,23 @@ class CourseApp {
                     duration: '20 minutes',
                     file: 'module1/member_task.md'
                 },
-                'merge-requests': {
-                    title: 'Merge Requests',
+                'branch-protection': {
+                    title: 'Branch Protection & Deployment',
+                    module: 'Module 1',
+                    duration: '30 minutes',
+                    file: 'module1/branch_protection.md'
+                },
+                'merge-requests-detailed': {
+                    title: 'Creating Merge Requests',
                     module: 'Module 1',
                     duration: '25 minutes',
-                    file: 'module1/merge_requests.md'
+                    file: 'module1/merge_requests_detailed.md'
+                },
+                'code-review': {
+                    title: 'Code Review Process',
+                    module: 'Module 1',
+                    duration: '35 minutes',
+                    file: 'module1/code_review.md'
                 },
                 'conflict': {
                     title: 'Conflicts',

@@ -38,19 +38,22 @@ First, we are going to create another branch, called "dev", and add some default
 Using VSCode, create the following files in your project directory:
 
 #### File 1: hangman.py
-Create a new file called `hangman.py` and paste the content from [this file](python/hangman.py). This is a template containing empty functions for the hangman game, which each team member will implement.
+Create a new file called `hangman.py` and paste the content from [this file](../python/hangman.py.html). This is a template containing empty functions for the hangman game, which each team member will implement.
 
 #### File 2: test_hangman.py
-Create a new file called `test_hangman.py` and paste the content from [this file](python/test_hangman.py). This file contains tests for the functions that your team will implement in hangman.py.
+Create a new file called `test_hangman.py` and paste the content from [this file](../python/test_hangman.py.html). This file contains tests for the functions that your team will implement in hangman.py.
 
 #### File 3: words.txt
-Create a new file called `words.txt` and paste the content from [this file](python/words.txt). This text file contains many words that will be used to pick a random word for the hangman game.
+Create a new file called `words.txt` and paste the content from [this file](../python/words.txt.html). This text file contains many words that will be used to pick a random word for the hangman game.
+
+#### File 4: .gitignore
+Create a new file called `.gitignore` and paste the content from [this file](../python/.gitignore.html). This file tells Git to ignore certain files that shouldn't be committed (like the virtual environment folder).
 
 ### Step 3: Commit and Push
 
 1. Add all the new files:
    ```bash
-   git add hangman.py test_hangman.py words.txt
+   git add hangman.py test_hangman.py words.txt .gitignore
    ```
 
 2. Commit the files:
@@ -93,7 +96,7 @@ To address those issues, we have to use the collaborative tools of Git and GitLa
 2. **Hangman game file**: Adding a python file that we will use for the team project
 3. **Test file**: Adding a unit tests which will allow us to individually test the game functions
 
-**You are Team Member {role}**. You hsimply ave to:
+**You are Team Member {role}**. You simply ave to:
 1. **Wait** for Team Member A to complete the setup
 2. **Pull the latest changes** once they're done:
    ```bash

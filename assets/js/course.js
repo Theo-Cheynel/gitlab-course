@@ -109,7 +109,7 @@ class CourseApp {
                     title: 'Conflicts',
                     module: 'Module 1',
                     duration: '30 minutes',
-                    file: 'module1/conflict.md'
+                    file: 'module1/conflicts.md'
                 }
             },
             roleDescriptions: {

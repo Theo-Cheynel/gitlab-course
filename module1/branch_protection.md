@@ -11,11 +11,11 @@ In a real-world development environment, the `main` branch should be protected t
 
 1. In your GitLab project, click on **Settings** in the left sidebar
 2. Click on **Repository** from the settings menu
-3. Scroll down to find the **Push Rules** section and expand it
+3. Scroll down to find the **Branch Rules** section and expand it
 
-### Step 2: Configure Push Rules
+### Step 2: Configure Branch Rules
 
-1. Look for the **Branch protection** or **Push Rules** section
+1. Look for the **Branch protection** or **Branch Rules** section
 2. Find the option for **Restrict pushes to main branch**
 3. Enable the following settings:
    - ☑️ **Prevent committing secrets to Git**

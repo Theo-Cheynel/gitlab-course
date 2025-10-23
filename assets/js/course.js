@@ -590,6 +590,9 @@ class CourseApp {
         // Remove front matter if present
         html = html.replace(/^---[\s\S]*?---\n/, '');
         
+        // Process waiting indicators (before other parsing)
+        html = this.processWaitingIndicators(html);
+        
         // Store code blocks with placeholders to protect from other parsing
         const codeBlocks = [];
         let codeBlockIndex = 0;
@@ -719,6 +722,77 @@ class CourseApp {
             html = html.replace(`<!--CODE_BLOCK_${index}-->`, block);
         });
         
+        return html;
+    }
+
+    processWaitingIndicators(html) {
+        // Convert waiting patterns into styled waiting boxes
+        const waitingPatterns = [
+            // Pattern: **Wait for Team Member X to...** 
+            /\*\*Wait for Team Member ([A-F]) to ([^*]+)\*\* before you start\./gi,
+            // Pattern: **Wait for Team Member X to...** before proceeding
+            /\*\*Wait for Team Member ([A-F]) to ([^*]+)\*\* before proceeding\./gi,
+            // Pattern: Wait until **Team Member X** has...
+            /Wait until \*\*Team Member ([A-F])\*\* has ([^.]+)\./gi,
+            // Pattern: **Team Member X** is currently...
+            /\*\*Team Member ([A-F])\*\* is currently ([^.]+)\./gi,
+            // Pattern: Team Member X is setting up...
+            /Team Member ([A-F]) is ([^.]+)\./gi
+        ];
+
+        waitingPatterns.forEach((pattern, index) => {
+            html = html.replace(pattern, (match, teamMember, action) => {
+                let waitingText = '';
+                let waitingTitle = '';
+                
+                if (index === 0 || index === 1) {
+                    waitingTitle = `⏳ Waiting for Team Member ${teamMember}`;
+                    waitingText = `Please wait for **Team Member ${teamMember}** to ${action} before you start.`;
+                } else if (index === 2) {
+                    waitingTitle = `⏳ Waiting for Team Member ${teamMember}`;
+                    waitingText = `Wait until **Team Member ${teamMember}** has ${action}.`;
+                } else if (index === 3) {
+                    waitingTitle = `⏳ Team Member ${teamMember} is Working`;
+                    waitingText = `**Team Member ${teamMember}** is currently ${action}.`;
+                } else if (index === 4) {
+                    waitingTitle = `⏳ Team Member ${teamMember} is Working`;
+                    waitingText = `Team Member ${teamMember} is ${action}.`;
+                }
+
+                return `
+<div class="waiting-box">
+    <div class="waiting-header">
+        <i class="fas fa-clock waiting-icon"></i>
+        <span>${waitingTitle}</span>
+    </div>
+    <div class="waiting-content">
+        <p>${waitingText}</p>
+    </div>
+</div>`;
+            });
+        });
+
+        // Handle specific multi-line waiting sections
+        // Pattern: "## Team Member X is Setting Up..." followed by explanatory text
+        html = html.replace(
+            /## Team Member ([A-F]) is Setting Up ([^\n]+)\n\n\*\*Team Member ([A-F])\*\* is currently ([^.]+)\.\n\n([^#]+)\n\n\*\*Wait for Team Member ([A-F]) to complete ([^*]+)\*\*/gi,
+            (match, member1, setupType, member2, currentAction, details, member3, completeAction) => {
+                const cleanDetails = details.replace(/^\d+\.\s+/gm, '• ').trim();
+                return `
+<div class="waiting-box">
+    <div class="waiting-header">
+        <i class="fas fa-clock waiting-icon"></i>
+        <span>⏳ Team Member ${member1} is Setting Up ${setupType}</span>
+    </div>
+    <div class="waiting-content">
+        <p><strong>Team Member ${member2}</strong> is currently ${currentAction}. This includes:</p>
+        <p>${cleanDetails}</p>
+        <p><strong>Wait for Team Member ${member3} to complete ${completeAction} before proceeding.</strong></p>
+    </div>
+</div>`;
+            }
+        );
+
         return html;
     }
 

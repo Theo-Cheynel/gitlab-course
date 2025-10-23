@@ -1206,6 +1206,76 @@ body.dark-theme .troubleshooting-header:hover {
     background: var(--bg-tertiary);
 }
 
+/* =================
+   Waiting Box
+   ================= */
+
+.waiting-box {
+    background: linear-gradient(135deg, #ff8c00, #ff7300);
+    border: 2px solid #ff6b00;
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    margin: var(--space-xl) 0;
+    color: white;
+    box-shadow: 0 4px 12px rgba(255, 140, 0, 0.3);
+    animation: waitingPulse 2s ease-in-out infinite;
+}
+
+.waiting-box .waiting-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.waiting-box .waiting-icon {
+    font-size: 1.5rem;
+    animation: waitingRotate 2s linear infinite;
+}
+
+.waiting-box .waiting-content {
+    line-height: 1.6;
+}
+
+.waiting-box .waiting-content p {
+    margin: 0;
+    color: white;
+}
+
+.waiting-box .waiting-content strong {
+    color: #fff3cd;
+}
+
+@keyframes waitingPulse {
+    0%, 100% {
+        box-shadow: 0 4px 12px rgba(255, 140, 0, 0.3);
+    }
+    50% {
+        box-shadow: 0 4px 20px rgba(255, 140, 0, 0.5);
+    }
+}
+
+@keyframes waitingRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+body.dark-theme .waiting-box {
+    background: linear-gradient(135deg, #e67e00, #d96b00);
+    border-color: #cc6600;
+    box-shadow: 0 4px 12px rgba(230, 126, 0, 0.4);
+}
+
+body.dark-theme .waiting-box .waiting-content strong {
+    color: #fff8e1;
+}
+
 .lesson-navigation {
     display: flex;
     justify-content: space-between;

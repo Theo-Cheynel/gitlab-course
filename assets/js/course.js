@@ -726,27 +726,6 @@ class CourseApp {
     }
 
     processWaitingIndicators(html) {
-        // Process custom waiting tags: [!WAIT member="A" action="..."]content[/!WAIT]
-        html = html.replace(
-            /\[!WAIT member="([A-F])" action="([^"]+)"\]([\s\S]*?)\[\/!WAIT\]/gi,
-            (match, member, action, content) => {
-                // Clean up the content (remove extra whitespace, convert markdown)
-                const cleanContent = content.trim();
-                
-                return `
-<div class="waiting-box">
-    <div class="waiting-header">
-        <i class="fas fa-clock waiting-icon"></i>
-        <span>⏳ Waiting for Team Member ${member}</span>
-    </div>
-    <div class="waiting-content">
-        <p><strong>Team Member ${member}</strong> ${action}</p>
-        ${cleanContent ? `<p>${cleanContent}</p>` : ''}
-    </div>
-</div>`;
-            }
-        );
-
         // Process simple waiting tags: [!WAIT]content[/!WAIT]
         html = html.replace(
             /\[!WAIT\]([\s\S]*?)\[\/!WAIT\]/gi,
@@ -757,10 +736,9 @@ class CourseApp {
 <div class="waiting-box">
     <div class="waiting-header">
         <i class="fas fa-clock waiting-icon"></i>
-        <span>⏳ Please Wait</span>
     </div>
     <div class="waiting-content">
-        <p>${cleanContent}</p>
+        ${cleanContent}
     </div>
 </div>`;
             }

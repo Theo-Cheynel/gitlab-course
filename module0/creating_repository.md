@@ -45,7 +45,9 @@ Your GitLab repository interface contains:
 <!-- ROLE: B,C,D,E,F -->
 ## Repository Setup in Progress
 
-[!WAIT member="A" action="is setting up the GitLab repository"]
+[!WAIT]
+**Team Member A is setting up the GitLab repository**
+
 **You are Team Member {role}** - please wait until Team Member A is finished.
 
 For your curiosity, here is what Team Member A is doing:

@@ -92,7 +92,9 @@ To address those issues, we have to use the collaborative tools of Git and GitLa
 
 ## What to do
 
-[!WAIT member="A" action="is setting up the project structure"]
+[!WAIT]
+**Team Member A is setting up the project structure**
+
 **Team Member A** is currently performing the following tasks:
 1. **Development branch**: Creating a separate branch for collaborative work
 2. **Hangman game file**: Adding a python file that we will use for the team project

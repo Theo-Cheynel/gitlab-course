@@ -1297,6 +1297,76 @@ body.dark-theme .waiting-box .waiting-content strong {
     color: #fff8e1;
 }
 
+/* =================
+   Collapsible Sections
+   ================= */
+
+.collapsible-section {
+    margin: var(--space-md) 0;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.collapsible-header {
+    background: var(--bg-tertiary);
+    padding: var(--space-md) var(--space-lg);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+    user-select: none;
+}
+
+.collapsible-header:hover {
+    background: var(--bg-secondary);
+}
+
+.collapsible-header h4 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.collapsible-header i {
+    color: var(--text-secondary);
+    transition: transform 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.collapsible-header.expanded i {
+    transform: rotate(180deg);
+}
+
+.collapsible-content {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    padding: 0 var(--space-lg);
+    background: var(--bg-primary);
+    transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+}
+
+.collapsible-content.expanded {
+    opacity: 1;
+    padding: var(--space-lg);
+}
+
+/* Dark theme support */
+body.dark-theme .collapsible-section {
+    border-color: var(--border-color);
+}
+
+body.dark-theme .collapsible-header {
+    background: var(--bg-tertiary);
+}
+
+body.dark-theme .collapsible-header:hover {
+    background: var(--bg-secondary);
+}
+
 .lesson-navigation {
     display: flex;
     justify-content: space-between;

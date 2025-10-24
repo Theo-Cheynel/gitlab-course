@@ -553,6 +553,9 @@ class CourseApp {
             // Add copy buttons to code blocks
             this.addCopyButtons();
             
+            // Add collapsible section handlers
+            this.addCollapsibleHandlers();
+            
             // Highlight code blocks if Prism is available
             if (window.Prism) {
                 window.Prism.highlightAll();
@@ -592,6 +595,9 @@ class CourseApp {
         
         // Process waiting indicators (before other parsing)
         html = this.processWaitingIndicators(html);
+        
+        // Process collapsible sections (before other parsing)
+        html = this.processCollapsibleTags(html);
         
         // Store code blocks with placeholders to protect from other parsing
         const codeBlocks = [];
@@ -738,6 +744,50 @@ class CourseApp {
         <i class="fas fa-clock waiting-icon"></i>
     </div>
     <div class="waiting-content">
+        ${cleanContent}
+    </div>
+</div>`;
+            }
+        );
+
+        return html;
+    }
+
+    processCollapsibleTags(html) {
+        // Process collapsible tags: [!COLLAPSE title="..."]content[/!COLLAPSE]
+        html = html.replace(
+            /\[!COLLAPSE title="([^"]+)"\]([\s\S]*?)\[\/!COLLAPSE\]/gi,
+            (match, title, content) => {
+                const cleanContent = content.trim();
+                const uniqueId = 'collapse_' + Math.random().toString(36).substr(2, 9);
+                
+                return `
+<div class="collapsible-section">
+    <div class="collapsible-header" data-target="${uniqueId}">
+        <h4>${title}</h4>
+        <i class="fas fa-chevron-down"></i>
+    </div>
+    <div class="collapsible-content" id="${uniqueId}">
+        ${cleanContent}
+    </div>
+</div>`;
+            }
+        );
+
+        // Process simple collapsible tags: [!COLLAPSE]## Title\ncontent[/!COLLAPSE]
+        html = html.replace(
+            /\[!COLLAPSE\]\s*#{1,4}\s*([^\n]+)\n([\s\S]*?)\[\/!COLLAPSE\]/gi,
+            (match, title, content) => {
+                const cleanContent = content.trim();
+                const uniqueId = 'collapse_' + Math.random().toString(36).substr(2, 9);
+                
+                return `
+<div class="collapsible-section">
+    <div class="collapsible-header" data-target="${uniqueId}">
+        <h4>${title}</h4>
+        <i class="fas fa-chevron-down"></i>
+    </div>
+    <div class="collapsible-content" id="${uniqueId}">
         ${cleanContent}
     </div>
 </div>`;
@@ -950,6 +1000,32 @@ class CourseApp {
                 button.style.background = '';
             }, 2000);
         }
+    }
+
+    addCollapsibleHandlers() {
+        const collapsibleHeaders = document.querySelectorAll('.collapsible-header');
+        
+        collapsibleHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const targetId = header.getAttribute('data-target');
+                const content = document.getElementById(targetId);
+                const icon = header.querySelector('i');
+                
+                if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+                    // Collapse
+                    content.style.maxHeight = '0px';
+                    content.style.opacity = '0';
+                    icon.style.transform = 'rotate(0deg)';
+                    header.classList.remove('expanded');
+                } else {
+                    // Expand
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    content.style.opacity = '1';
+                    icon.style.transform = 'rotate(180deg)';
+                    header.classList.add('expanded');
+                }
+            });
+        });
     }
 
     // =================

@@ -1,26 +1,7 @@
-# Creating Merge Requests
-
+<!-- ROLE: A -->
 A merge request (MR) is a formal way to propose changes to a project. It allows team members to review code, discuss improvements, and ensure quality before changes are integrated into the main codebase.
 
-## Understanding Merge Requests
-
-### What is a Merge Request?
-
-A merge request is a request to merge changes from one branch into another. It includes:
-- **Source branch**: Where your changes are
-- **Target branch**: Where you want to merge your changes
-- **Description**: What changes you made and why
-- **Review process**: Others can examine and approve your changes
-
-### When to Create a Merge Request
-
-Create a merge request when you:
-- ✅ Have completed implementing a feature or fixing a bug
-- ✅ Want others to review your code before it's merged
-- ✅ Need to merge from a feature branch to dev or from dev to main
-- ✅ Have tested your changes and they work correctly
-
-## Step-by-Step: Creating a Merge Request
+## What to do
 
 ### Step 1: Navigate to Merge Requests
 
@@ -31,162 +12,429 @@ Create a merge request when you:
 
 **Choose your branches carefully:**
 
-1. **Source branch**: Select the branch containing your changes
-   - Example: `feature/implement-random-word` (your feature branch)
+1. **Source branch**: Select the branch containing your changes (`pick_random_word`)
    
-2. **Target branch**: Select where you want to merge
-   - For feature work: Usually `dev`
-   - For releases: Usually `main` (requires special permissions)
+2. **Target branch**: Select where you want to merge to (`dev`)
 
 3. Click **Compare branches and continue**
 
 ### Step 3: Fill Out Merge Request Details
 
 #### Title
-Write a clear, descriptive title:
-- ✅ Good: "Implement pick_random_word function for hangman game"
-- ❌ Bad: "Update file"
-- ✅ Good: "Fix format_hidden_word to handle empty letters correctly"
-- ❌ Bad: "Bug fix"
+Write a clear, descriptive title: something like "Implement pick_random_word function for hangman game"
 
 #### Description
-Include important details:
-
-```markdown
-## Summary
-Implements the `pick_random_word()` function in hangman.py that:
-- Reads words from words.txt file
-- Returns a random word for the game
-- Handles file errors gracefully
-
-## Changes Made
-- Added file reading logic in `pick_random_word()`
-- Added error handling for missing words.txt
-- All existing tests now pass
-
-## Testing
-- Ran `pytest test_hangman.py::test_pick_random_word`
-- Manually tested with different words.txt files
-- Verified function returns words within expected length range
-
-## Screenshots/Evidence
-(Include screenshots of test results if helpful)
-```
+Include important details that a reviewer should read before reading your code (summary of what was changed and why, etc). In our case, the changes are small, but in your next projects, Merge Requests might contain more complex code.
 
 #### Assignee
-- Usually assign to yourself initially
-- Can be reassigned during review process
+- You can assign yourself to the MR (meaning if someone requests changes, you're the one to implement those changes).
 
 #### Reviewer
-- Select 1-2 team members who should review your code
-- Choose people familiar with the area you're changing
+- Select Team Member F to review your code
 
 ### Step 4: Review Before Creating
 
 Before clicking "Create merge request":
 
 1. **Check the file changes**:
-   - Click on **Changes** tab to see your modifications
-   - Ensure only intended files are modified
-   - Look for any debugging code you forgot to remove
-
-2. **Verify the diff**:
-   - Green lines = additions
-   - Red lines = deletions
-   - Make sure changes look correct
+   - Click on **Changes** tab to see your modifications (green lines = additions, red lines = deletions)
+   - Check that the changes look correct, and that they are all relevant to this MR 
 
 3. **Set merge options**:
-   - ☑️ **Delete source branch when merge request is accepted** (for feature branches)
-   - ☑️ **Squash commits when merge request is accepted** (optional, keeps history clean)
+   - **Delete source branch when merge request is accepted** (for branches implementing one feature, you won't need the branch again once it is merged into `dev`)
+   - **Squash commits when merge request is accepted** (optional, keeps history clean if you did several commits on your branch)
 
 ### Step 5: Create the Merge Request
 
 Click **Create merge request** to submit it for review.
 
-## After Creating Your Merge Request
+## Reviewing your first MR
 
-### What Happens Next
+[!WAIT]
+Wait until **Team Member B** has created their Merge Request.
+[/!WAIT]
 
-1. **Notification**: Reviewers receive notifications about your MR
-2. **Review Process**: Team members examine your code
-3. **Discussion**: Comments and suggestions may be added
-4. **Approval**: Required approvals must be obtained
-5. **Merge**: Once approved, the MR can be merged
+You can then review the MR of **Team Member B** (`format_hidden_word` -> `dev`):
+1. **Overview**: You can read their description to get an idea of what the MR contains, in the "Overview" tab
+2. **Changes**: You can review the proposed changes to their code in the "Changes" tab
+3. **Discussion**: You can add comments and discussion, request changes, etc
+4. **Approval**: You must give your approval by clicking the "Approve" button in the "Overview" tab
+5. **Merge**: Once approved, the MR can be merged by clicking the "Merge" button
 
-### Your Responsibilities
+## Wait -- no conflicts?
+You'll see that all six merge requests can be merged without any conflicts.
 
-While your MR is under review:
+This is because by splitting the code into independent chunks, and having one MR for each chunk, no two people were editing the same part of the file!
 
-1. **Respond to comments**: Address feedback promptly
-2. **Make requested changes**: Push additional commits if needed
-3. **Test thoroughly**: Ensure your code works as expected
-4. **Be available**: Answer questions from reviewers
+Conflicts happen when several people edit the same part of the same file -- which, most of the time, can be prevented by properly planning the development phase.
+<!-- /ROLE: A -->
 
-## Merge Request Statuses
 
-Understanding MR status indicators:
 
-- 🟡 **Draft**: Work in progress, not ready for review
-- 🟢 **Open**: Ready for review and approval
-- 🔴 **Blocked**: Cannot be merged (conflicts, failed tests, missing approvals)
-- ✅ **Merged**: Successfully integrated
-- ❌ **Closed**: Rejected or cancelled
 
-## Best Practices
+<!-- ROLE: B -->
+A merge request (MR) is a formal way to propose changes to a project. It allows team members to review code, discuss improvements, and ensure quality before changes are integrated into the main codebase.
 
-### Writing Good Descriptions
-```markdown
-## Problem
-Describe what issue you're solving
+## What to do
 
-## Solution  
-Explain your approach
+### Step 1: Navigate to Merge Requests
 
-## Testing
-How you verified it works
+1. In your GitLab project, click **Merge requests** in the left sidebar
+2. Click the **New merge request** button
 
-## Notes
-Any special considerations
-```
+### Step 2: Select Source and Target Branches
 
-### Commit Messages in MRs
-Keep commits focused and well-described:
-- ✅ "Add error handling for missing words.txt file"
-- ❌ "fix stuff"
+**Choose your branches carefully:**
 
-### Size Matters
-- **Small MRs**: Easier to review, faster to merge
-- **Large MRs**: Hard to review, more likely to have issues
-- **Rule of thumb**: Under 400 lines of changes when possible
+1. **Source branch**: Select the branch containing your changes (`format_hidden_word`)
+   
+2. **Target branch**: Select where you want to merge to (`dev`)
 
-## Common Issues and Solutions
+3. Click **Compare branches and continue**
 
-### "Cannot merge due to conflicts"
-**Problem**: Your branch conflicts with the target branch
-**Solution**: 
-```bash
-git checkout your-feature-branch
-git pull origin dev
-# Resolve conflicts in your editor
-git add .
-git commit -m "Resolve merge conflicts"
-git push
-```
+### Step 3: Fill Out Merge Request Details
 
-### "Pipeline failed"
-**Problem**: Tests or checks are failing
-**Solution**: Check the pipeline logs, fix issues, and push corrections
+#### Title
+Write a clear, descriptive title: something like "Implement format_hidden_word function for hangman game"
 
-### "Missing required approvals"
-**Problem**: Not enough team members have approved
-**Solution**: Ask team members to review, address their feedback
+#### Description
+Include important details that a reviewer should read before reading your code (summary of what was changed and why, etc). In our case, the changes are small, but in your next projects, Merge Requests might contain more complex code.
 
-## Next Steps
+#### Assignee
+- You can assign yourself to the MR (meaning if someone requests changes, you're the one to implement those changes).
 
-Once you understand how to create merge requests, you'll learn:
-- How to review other people's merge requests
-- How to provide constructive feedback
-- How to handle merge conflicts
-- How to use merge requests for code quality
+#### Reviewer
+- Select Team Member A to review your code
 
-**Remember**: Merge requests are about collaboration and quality, not just moving code around!
+### Step 4: Review Before Creating
+
+Before clicking "Create merge request":
+
+1. **Check the file changes**:
+   - Click on **Changes** tab to see your modifications (green lines = additions, red lines = deletions)
+   - Check that the changes look correct, and that they are all relevant to this MR 
+
+3. **Set merge options**:
+   - **Delete source branch when merge request is accepted** (for branches implementing one feature, you won't need the branch again once it is merged into `dev`)
+   - **Squash commits when merge request is accepted** (optional, keeps history clean if you did several commits on your branch)
+
+### Step 5: Create the Merge Request
+
+Click **Create merge request** to submit it for review.
+
+## Reviewing your first MR
+
+[!WAIT]
+Wait until **Team Member C** has created their Merge Request.
+[/!WAIT]
+
+You can then review the MR of **Team Member C** (`all_letters_guessed` -> `dev`):
+1. **Overview**: You can read their description to get an idea of what the MR contains, in the "Overview" tab
+2. **Changes**: You can review the proposed changes to their code in the "Changes" tab
+3. **Discussion**: You can add comments and discussion, request changes, etc
+4. **Approval**: You must give your approval by clicking the "Approve" button in the "Overview" tab
+5. **Merge**: Once approved, the MR can be merged by clicking the "Merge" button
+
+## Wait -- no conflicts?
+You'll see that all six merge requests can be merged without any conflicts.
+
+This is because by splitting the code into independent chunks, and having one MR for each chunk, no two people were editing the same part of the file!
+
+Conflicts happen when several people edit the same part of the same file -- which, most of the time, can be prevented by properly planning the development phase.
+<!-- /ROLE: B -->
+
+
+
+
+<!-- ROLE: C -->
+A merge request (MR) is a formal way to propose changes to a project. It allows team members to review code, discuss improvements, and ensure quality before changes are integrated into the main codebase.
+
+## What to do
+
+### Step 1: Navigate to Merge Requests
+
+1. In your GitLab project, click **Merge requests** in the left sidebar
+2. Click the **New merge request** button
+
+### Step 2: Select Source and Target Branches
+
+**Choose your branches carefully:**
+
+1. **Source branch**: Select the branch containing your changes (`all_letters_guessed`)
+   
+2. **Target branch**: Select where you want to merge to (`dev`)
+
+3. Click **Compare branches and continue**
+
+### Step 3: Fill Out Merge Request Details
+
+#### Title
+Write a clear, descriptive title: something like "Implement all_letters_guessed function for hangman game"
+
+#### Description
+Include important details that a reviewer should read before reading your code (summary of what was changed and why, etc). In our case, the changes are small, but in your next projects, Merge Requests might contain more complex code.
+
+#### Assignee
+- You can assign yourself to the MR (meaning if someone requests changes, you're the one to implement those changes).
+
+#### Reviewer
+- Select Team Member B to review your code
+
+### Step 4: Review Before Creating
+
+Before clicking "Create merge request":
+
+1. **Check the file changes**:
+   - Click on **Changes** tab to see your modifications (green lines = additions, red lines = deletions)
+   - Check that the changes look correct, and that they are all relevant to this MR 
+
+3. **Set merge options**:
+   - **Delete source branch when merge request is accepted** (for branches implementing one feature, you won't need the branch again once it is merged into `dev`)
+   - **Squash commits when merge request is accepted** (optional, keeps history clean if you did several commits on your branch)
+
+### Step 5: Create the Merge Request
+
+Click **Create merge request** to submit it for review.
+
+## Reviewing your first MR
+
+[!WAIT]
+Wait until **Team Member D** has created their Merge Request.
+[/!WAIT]
+
+You can then review the MR of **Team Member D** (`ask_for_valid_input` -> `dev`):
+1. **Overview**: You can read their description to get an idea of what the MR contains, in the "Overview" tab
+2. **Changes**: You can review the proposed changes to their code in the "Changes" tab
+3. **Discussion**: You can add comments and discussion, request changes, etc
+4. **Approval**: You must give your approval by clicking the "Approve" button in the "Overview" tab
+5. **Merge**: Once approved, the MR can be merged by clicking the "Merge" button
+
+## Wait -- no conflicts?
+You'll see that all six merge requests can be merged without any conflicts.
+
+This is because by splitting the code into independent chunks, and having one MR for each chunk, no two people were editing the same part of the file!
+
+Conflicts happen when several people edit the same part of the same file -- which, most of the time, can be prevented by properly planning the development phase.
+<!-- /ROLE: C -->
+
+
+
+
+<!-- ROLE: D -->
+A merge request (MR) is a formal way to propose changes to a project. It allows team members to review code, discuss improvements, and ensure quality before changes are integrated into the main codebase.
+
+## What to do
+
+### Step 1: Navigate to Merge Requests
+
+1. In your GitLab project, click **Merge requests** in the left sidebar
+2. Click the **New merge request** button
+
+### Step 2: Select Source and Target Branches
+
+**Choose your branches carefully:**
+
+1. **Source branch**: Select the branch containing your changes (`ask_for_valid_input`)
+   
+2. **Target branch**: Select where you want to merge to (`dev`)
+
+3. Click **Compare branches and continue**
+
+### Step 3: Fill Out Merge Request Details
+
+#### Title
+Write a clear, descriptive title: something like "Implement ask_for_valid_input function for hangman game"
+
+#### Description
+Include important details that a reviewer should read before reading your code (summary of what was changed and why, etc). In our case, the changes are small, but in your next projects, Merge Requests might contain more complex code.
+
+#### Assignee
+- You can assign yourself to the MR (meaning if someone requests changes, you're the one to implement those changes).
+
+#### Reviewer
+- Select Team Member C to review your code
+
+### Step 4: Review Before Creating
+
+Before clicking "Create merge request":
+
+1. **Check the file changes**:
+   - Click on **Changes** tab to see your modifications (green lines = additions, red lines = deletions)
+   - Check that the changes look correct, and that they are all relevant to this MR 
+
+3. **Set merge options**:
+   - **Delete source branch when merge request is accepted** (for branches implementing one feature, you won't need the branch again once it is merged into `dev`)
+   - **Squash commits when merge request is accepted** (optional, keeps history clean if you did several commits on your branch)
+
+### Step 5: Create the Merge Request
+
+Click **Create merge request** to submit it for review.
+
+## Reviewing your first MR
+
+[!WAIT]
+Wait until **Team Member E** has created their Merge Request.
+[/!WAIT]
+
+You can then review the MR of **Team Member E** (`update_game` -> `dev`):
+1. **Overview**: You can read their description to get an idea of what the MR contains, in the "Overview" tab
+2. **Changes**: You can review the proposed changes to their code in the "Changes" tab
+3. **Discussion**: You can add comments and discussion, request changes, etc
+4. **Approval**: You must give your approval by clicking the "Approve" button in the "Overview" tab
+5. **Merge**: Once approved, the MR can be merged by clicking the "Merge" button
+
+## Wait -- no conflicts?
+You'll see that all six merge requests can be merged without any conflicts.
+
+This is because by splitting the code into independent chunks, and having one MR for each chunk, no two people were editing the same part of the file!
+
+Conflicts happen when several people edit the same part of the same file -- which, most of the time, can be prevented by properly planning the development phase.
+<!-- /ROLE: D -->
+
+
+
+
+<!-- ROLE: E -->
+A merge request (MR) is a formal way to propose changes to a project. It allows team members to review code, discuss improvements, and ensure quality before changes are integrated into the main codebase.
+
+## What to do
+
+### Step 1: Navigate to Merge Requests
+
+1. In your GitLab project, click **Merge requests** in the left sidebar
+2. Click the **New merge request** button
+
+### Step 2: Select Source and Target Branches
+
+**Choose your branches carefully:**
+
+1. **Source branch**: Select the branch containing your changes (`update_game`)
+   
+2. **Target branch**: Select where you want to merge to (`dev`)
+
+3. Click **Compare branches and continue**
+
+### Step 3: Fill Out Merge Request Details
+
+#### Title
+Write a clear, descriptive title: something like "Implement update_game function for hangman game"
+
+#### Description
+Include important details that a reviewer should read before reading your code (summary of what was changed and why, etc). In our case, the changes are small, but in your next projects, Merge Requests might contain more complex code.
+
+#### Assignee
+- You can assign yourself to the MR (meaning if someone requests changes, you're the one to implement those changes).
+
+#### Reviewer
+- Select Team Member D to review your code
+
+### Step 4: Review Before Creating
+
+Before clicking "Create merge request":
+
+1. **Check the file changes**:
+   - Click on **Changes** tab to see your modifications (green lines = additions, red lines = deletions)
+   - Check that the changes look correct, and that they are all relevant to this MR 
+
+3. **Set merge options**:
+   - **Delete source branch when merge request is accepted** (for branches implementing one feature, you won't need the branch again once it is merged into `dev`)
+   - **Squash commits when merge request is accepted** (optional, keeps history clean if you did several commits on your branch)
+
+### Step 5: Create the Merge Request
+
+Click **Create merge request** to submit it for review.
+
+## Reviewing your first MR
+
+[!WAIT]
+Wait until **Team Member F** has created their Merge Request.
+[/!WAIT]
+
+You can then review the MR of **Team Member F** (`game` -> `dev`):
+1. **Overview**: You can read their description to get an idea of what the MR contains, in the "Overview" tab
+2. **Changes**: You can review the proposed changes to their code in the "Changes" tab
+3. **Discussion**: You can add comments and discussion, request changes, etc
+4. **Approval**: You must give your approval by clicking the "Approve" button in the "Overview" tab
+5. **Merge**: Once approved, the MR can be merged by clicking the "Merge" button
+
+## Wait -- no conflicts?
+You'll see that all six merge requests can be merged without any conflicts.
+
+This is because by splitting the code into independent chunks, and having one MR for each chunk, no two people were editing the same part of the file!
+
+Conflicts happen when several people edit the same part of the same file -- which, most of the time, can be prevented by properly planning the development phase.
+<!-- /ROLE: E -->
+
+
+
+
+<!-- ROLE: F -->
+A merge request (MR) is a formal way to propose changes to a project. It allows team members to review code, discuss improvements, and ensure quality before changes are integrated into the main codebase.
+
+## What to do
+
+### Step 1: Navigate to Merge Requests
+
+1. In your GitLab project, click **Merge requests** in the left sidebar
+2. Click the **New merge request** button
+
+### Step 2: Select Source and Target Branches
+
+**Choose your branches carefully:**
+
+1. **Source branch**: Select the branch containing your changes (`game`)
+   
+2. **Target branch**: Select where you want to merge to (`dev`)
+
+3. Click **Compare branches and continue**
+
+### Step 3: Fill Out Merge Request Details
+
+#### Title
+Write a clear, descriptive title: something like "Implement game function for hangman game"
+
+#### Description
+Include important details that a reviewer should read before reading your code (summary of what was changed and why, etc). In our case, the changes are small, but in your next projects, Merge Requests might contain more complex code.
+
+#### Assignee
+- You can assign yourself to the MR (meaning if someone requests changes, you're the one to implement those changes).
+
+#### Reviewer
+- Select Team Member E to review your code
+
+### Step 4: Review Before Creating
+
+Before clicking "Create merge request":
+
+1. **Check the file changes**:
+   - Click on **Changes** tab to see your modifications (green lines = additions, red lines = deletions)
+   - Check that the changes look correct, and that they are all relevant to this MR 
+
+3. **Set merge options**:
+   - **Delete source branch when merge request is accepted** (for branches implementing one feature, you won't need the branch again once it is merged into `dev`)
+   - **Squash commits when merge request is accepted** (optional, keeps history clean if you did several commits on your branch)
+
+### Step 5: Create the Merge Request
+
+Click **Create merge request** to submit it for review.
+
+## Reviewing your first MR
+
+[!WAIT]
+Wait until **Team Member A** has created their Merge Request.
+[/!WAIT]
+
+You can then review the MR of **Team Member A** (`pick_random_word` -> `dev`):
+1. **Overview**: You can read their description to get an idea of what the MR contains, in the "Overview" tab
+2. **Changes**: You can review the proposed changes to their code in the "Changes" tab
+3. **Discussion**: You can add comments and discussion, request changes, etc
+4. **Approval**: You must give your approval by clicking the "Approve" button in the "Overview" tab
+5. **Merge**: Once approved, the MR can be merged by clicking the "Merge" button
+
+## Wait -- no conflicts?
+You'll see that all six merge requests can be merged without any conflicts.
+
+This is because by splitting the code into independent chunks, and having one MR for each chunk, no two people were editing the same part of the file!
+
+Conflicts happen when several people edit the same part of the same file -- which, most of the time, can be prevented by properly planning the development phase.
+<!-- /ROLE: F -->

@@ -258,6 +258,11 @@ class CourseApp {
         
         document.querySelector('.app-container').classList.remove('no-banner');
         
+        // Restore module states from cookies
+        setTimeout(() => {
+            this.restoreModuleStates();
+        }, 100); // Small delay to ensure DOM is ready
+        
         // Load last lesson from cookie or default to first lesson
         const lastLesson = this.getCookie('currentLesson') || 'vscode';
         this.loadLesson(lastLesson);
@@ -462,6 +467,7 @@ class CourseApp {
     toggleModule(moduleHeader) {
         const lessonList = moduleHeader.nextElementSibling;
         const isExpanded = moduleHeader.classList.contains('expanded');
+        const moduleNumber = moduleHeader.dataset.module;
         
         if (isExpanded) {
             // Collapse
@@ -475,6 +481,43 @@ class CourseApp {
             lessonList.style.maxHeight = lessonList.scrollHeight + 'px';
             lessonList.style.opacity = '1';
         }
+        
+        // Save module state to cookie
+        this.saveModuleState(moduleNumber, !isExpanded);
+    }
+
+    saveModuleState(moduleNumber, isExpanded) {
+        let moduleStates = this.getModuleStates();
+        moduleStates[moduleNumber] = isExpanded;
+        this.setCookie('moduleStates', JSON.stringify(moduleStates), 365);
+    }
+
+    getModuleStates() {
+        const statesString = this.getCookie('moduleStates');
+        return statesString ? JSON.parse(statesString) : {};
+    }
+
+    restoreModuleStates() {
+        const moduleStates = this.getModuleStates();
+        
+        document.querySelectorAll('.module-header').forEach(moduleHeader => {
+            const moduleNumber = moduleHeader.dataset.module;
+            const lessonList = moduleHeader.nextElementSibling;
+            const shouldExpand = moduleStates[moduleNumber];
+            
+            if (shouldExpand === true) {
+                // Expand this module
+                moduleHeader.classList.add('expanded');
+                lessonList.style.maxHeight = lessonList.scrollHeight + 'px';
+                lessonList.style.opacity = '1';
+            } else if (shouldExpand === false) {
+                // Explicitly collapse this module
+                moduleHeader.classList.remove('expanded');
+                lessonList.style.maxHeight = '0';
+                lessonList.style.opacity = '0';
+            }
+            // If shouldExpand is undefined, leave module in its default state
+        });
     }
 
     // =================
@@ -1480,13 +1523,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     
-    // Expand first module by default
+    // Expand first module by default only if no saved states exist
     setTimeout(() => {
-        const firstModule = document.querySelector('.module-header');
-        if (firstModule && window.courseApp.currentRole) {
-            window.courseApp.toggleModule(firstModule);
+        if (window.courseApp && window.courseApp.currentRole) {
+            const moduleStates = window.courseApp.getModuleStates();
+            const hasAnySavedStates = Object.keys(moduleStates).length > 0;
+            
+            if (!hasAnySavedStates) {
+                // Only expand first module if no preferences are saved
+                const firstModule = document.querySelector('.module-header');
+                if (firstModule) {
+                    window.courseApp.toggleModule(firstModule);
+                }
+            }
         }
-    }, 500);
+    }, 600); // Slightly later than restoreModuleStates
     
     // Add development helpers in dev mode
     if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {

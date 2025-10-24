@@ -94,18 +94,24 @@ Welcome to GitLab, @your-username!
 
 ## Troubleshooting
 
+[!COLLAPSE]
 ### "ssh-keygen: command not found"
 1. **Windows**: Make sure you have opened GitBash.
 2. **macOS**: Install Xcode Command Line Tools: `xcode-select --install`
 3. **Linux**: Install OpenSSH: `sudo apt install openssh-client`
+[/!COLLAPSE]
 
+[!COLLAPSE]
 ### Key already exists
 If you get "already exists", either:
 1. Use the existing key (recommended)
 2. Delete the old key and create a new one: `rm ~/.ssh/id_ed25519*`
+[/!COLLAPSE]
 
+[!COLLAPSE]
 ### Different key types
 If you used RSA instead of Ed25519, replace `id_ed25519` with `id_rsa` in all commands.
+[/!COLLAPSE]
 
 ## Security Best Practices
 1. **Never share your private key** (the file without `.pub`)

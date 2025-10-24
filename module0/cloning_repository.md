@@ -54,18 +54,24 @@ You should see a file named `README.md` (the file that was created during reposi
 
 ## Troubleshooting
 
+[!COLLAPSE]
 ### Permission Denied (SSH)
 If you get a "Permission denied" error:
 - Verify your SSH key is correctly set up in GitLab
 - Test SSH connection: `ssh -T git@your-gitlab-server`
 - Make sure you're using the SSH URL, not HTTPS
+[/!COLLAPSE]
 
+[!COLLAPSE]
 ### Repository Not Found
 - Double-check the repository URL
 - Ensure you have access to the repository
 - Verify the repository name and username are correct
+[/!COLLAPSE]
 
-#### Directory Already Exists
+[!COLLAPSE]
+### Directory Already Exists
 If you get "destination path already exists":
 - Either delete the existing folder: `rm -rf folder-name`
 - Or clone with a different name: `git clone <url> new-folder-name`
+[/!COLLAPSE]

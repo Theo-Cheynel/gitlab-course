@@ -66,16 +66,22 @@ git config --global user.email "your.email@example.com"
 
 ## Troubleshooting
 
+[!COLLAPSE]
 ### VSCode won't open on macOS
 1. Go to System Preferences → Security & Privacy
 2. Click "Open Anyway" for VSCode
+[/!COLLAPSE]
 
+[!COLLAPSE]
 ### Git commands not found in VSCode terminal
 1. **Windows**: Install Git from [https://git-scm.com/](https://git-scm.com/)
 2. **macOS**: Install Xcode Command Line Tools: `xcode-select --install`
 3. **Linux**: Install Git: `sudo apt install git`
+[/!COLLAPSE]
 
+[!COLLAPSE]
 ### Extensions won't install
 1. Check your internet connection
 2. Try restarting VSCode
 3. Manually download from [VSCode Marketplace](https://marketplace.visualstudio.com/vscode)
+[/!COLLAPSE]

@@ -83,16 +83,22 @@ code .
 
 ## Troubleshooting
 
+[!COLLAPSE]
 #### Virtual environment not activating on Windows
 - Make sure you're using Git Bash, not Command Prompt
 - Try: `venv/Scripts/activate` instead of `source venv/Scripts/activate`
+[/!COLLAPSE]
 
+[!COLLAPSE]
 #### "python: command not found"
 - Check Python installation: `python --version` or `python3 --version`
 - Use `python3` instead of `python` if needed
+[/!COLLAPSE]
 
+[!COLLAPSE]
 #### VSCode not recognizing virtual environment
 - Restart VSCode after creating the virtual environment
 - Manually select interpreter: `Ctrl+Shift+P` → "Python: Select Interpreter"
+[/!COLLAPSE]
 
 **Remember**: Always activate your virtual environment before working on the project!

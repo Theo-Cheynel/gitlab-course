@@ -58,7 +58,7 @@ git push --set-upstream origin pick_random_word
    - Add title and description
    - Click **"Create Merge Request"**
 
-**✅ Your task is complete!** Your code will be reviewed and merged later.
+**Your task is complete!** Your code will be reviewed and merged later.
 <!-- /ROLE: A -->
 
 <!-- ROLE: B -->
@@ -120,7 +120,7 @@ git push --set-upstream origin format_hidden_word
    - Add title and description
    - Click **"Create Merge Request"**
 
-**✅ Your task is complete!** Your code will be reviewed and merged later.
+**Your task is complete!** Your code will be reviewed and merged later.
 <!-- /ROLE: B -->
 
 <!-- ROLE: C -->
@@ -181,7 +181,7 @@ git push --set-upstream origin all_letters_guessed
    - Add title and description
    - Click **"Create Merge Request"**
 
-**✅ Your task is complete!** Your code will be reviewed and merged later.
+**Your task is complete!** Your code will be reviewed and merged later.
 <!-- /ROLE: C -->
 
 <!-- ROLE: D -->
@@ -246,7 +246,7 @@ git checkout ask_for_valid_input
    - Add title and description
    - Click **"Create Merge Request"**
 
-**✅ Your task is complete!** Your code will be reviewed and merged later.
+**Your task is complete!** Your code will be reviewed and merged later.
 <!-- /ROLE: D -->
 
 <!-- ROLE: E -->
@@ -309,7 +309,7 @@ git push --set-upstream origin update_game
    - Add title and description
    - Click **"Create Merge Request"**
 
-**✅ Your task is complete!** Your code will be reviewed and merged later.
+**Your task is complete!** Your code will be reviewed and merged later.
 <!-- /ROLE: E -->
 
 <!-- ROLE: F -->
@@ -375,5 +375,5 @@ git push --set-upstream origin game
    - Add title and description
    - Click **"Create Merge Request"**
 
-**✅ Your task is complete!** Your code will be reviewed and merged later.
+**Your task is complete!** Your code will be reviewed and merged later.
 <!-- /ROLE: F -->

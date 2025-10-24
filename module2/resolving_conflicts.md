@@ -1,260 +1,340 @@
-# Resolving Merge Conflicts
+<!-- ROLE: A -->
+Now that everyone has created their merge requests, we will try merging them.
+However, your commits and those of **Team Members B and C** modified the same functions.
+As a consequence, once you merge one of these Merge Requests, it will block the two others.
 
-After implementing overlapping features, you'll encounter **merge conflicts** - situations where Git cannot automatically merge changes because multiple developers modified the same parts of the code. This lesson teaches you how to identify, understand, and resolve these conflicts.
+## What to do
 
-## Understanding Merge Conflicts
+### Merging the first MR
+[!WAIT]
+Wait until **Team Member B** merges your merge request.
+[/!WAIT]
 
-### What Are Merge Conflicts?
+You're the lucky one -- your merge request gets merged first, so you do not have any conflicts to solve yourself. 
 
-A merge conflict occurs when:
-- Two branches modify the same lines of code
-- One branch deletes a file while another modifies it  
-- Git cannot determine which changes to keep
+### Merging the second MR
+Follow along with **Team Member B** the impact that this merge has on their merge request.
 
-### Conflict Markers
+### Merging the third MR 
+Then, follow along with **Team Member C** as they fix the conflicts with their branch.
 
-When Git encounters a conflict, it adds special markers to the file:
 
-```
-<<<<<<< HEAD
-# Your current branch's changes
-=======
-# The incoming branch's changes  
->>>>>>> feature-branch-name
-```
+Once all three MR are merged, you should see the following git tree:
 
-## Step-by-Step Conflict Resolution
+![Conflict markers](/gitlab-course/assets/images/git_tree_abc.png)
 
-### Step 1: Identify Conflicts
+History was rewritten to make it look like each MR was created after the previous one was merged -- even though **Project Member B** didn't **actually** have to wait for **Project Member A**'s `difficulty-level` feature to start working on `hints-system`, and **Project Member C** didn't **actually** have to wait for **Project Member B**'s `hints-system` feature to start working on `daily-word`.
 
-When a merge fails, Git will show:
+## What we learned
+
+1. When two people modify the same parts of the same file, it causes conflicts, which prevents merging both branch to the same destination (`dev`)
+2. To solve the conflicts, we have to perform a `git rebase` to modify the base of our branch, before being able to merge
+3. When conflicts cannot be prevented by prior planning, each member should work on their own branch, which allows for parallel work even when changes collide
+
+### Why didn't we use GitLab's conflict resolution ?
+
+GitLab has a built-in web editor to fix conflicts. However, GitLab's behaviour is not a `git rebase` -- istead, it's a `git merge`. The difference is illustrated below:
+
+![Conflict markers](/gitlab-course/assets/images/git_merge.png)
+
+This will lead to a more convoluted git tree, and is usually not recommended.
+
+<!-- /ROLE: A -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ROLE: B -->
+Now that everyone has created their merge requests, we will try merging them.
+However, your commits and those of **Team Members A and C** modified the same functions.
+As a consequence, once you merge one of these Merge Requests, it will block the two others.
+
+## What to do
+
+### Merging the first MR
+First, review and merge the MR of **Team Member A** (`difficulty-level` -> `dev`).
+You can see that this MR changes the same functions as your MR (the `pick_random_word` function).
+
+### Noticing the conflicts
+Once it is merged, go back to your MR. You should observe the following error:
+![Git conflict](/gitlab-course/assets/images/git_conflicts.png)
+
+This is because GitLab has detected that the recent commits on `dev` (caused by the merge) have modified the same parts of the file as the commits on your branch.
+
+## Solving the conflicts
+One way to solve the conflicts is to use GitLab's interface. We will talk about this option later -- you first have to learn how to fix the conflicts "manually". 
+The image below illustrates how we are going to do this: now that the new commit has been added to `dev`, we want to modify your `hints-system` branch so that its "base" is the curent version of `dev` (and not an outdated one).
+
+![Explanation of git rebase | source: https://www.atlassian.com/fr/git/tutorials/rewriting-history/git-rebase](/gitlab-course/assets/images/git_rebase.png)
+
+### Pull the latest changes
 ```bash
-git merge feature-branch
+git checkout dev
+git pull
+git checkout hints-system
+```
+
+### Perform a "rebase" of your branch. That command tells git to start from the current state of the `dev` branch, and try applying each one of the commits specific to the `hints-system`, one after the other. It will stop if conflicts appear, tell you to fix the conflicts, and keep going.
+```bash
+git rebase dev
+```
+
+It should tell you:
+```bash
 Auto-merging hangman.py
 CONFLICT (content): Merge conflict in hangman.py
-Automatic merge failed; fix conflicts and then commit the result.
+error: could not apply 098af88... Add hints system
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+Could not apply 098af88... Add hints system
 ```
 
-Check which files have conflicts:
+### Fix the first conflict
+Open the `hangman.py` file in VSCode. You will observe conflict markers like the following:
+
+![Conflict markers](/gitlab-course/assets/images/conflicts_member_b.png)
+
+The top part ("Current Change") contains changes that are already part of the `dev` branch, while the bottom part ("Incoming Change") contains changes introduced by your commits. 
+In our case, the Current Change adds the call to `calculate_difficulty()` inside a `while` loop, while the Incoming Change adds the call to `split()` to get the hint.
+Thus, we want both solutions -- we have to edit the code to fuse both of them together. You can click on ``Accept Both Changes'' and fix the result until both additions are contained in the code, like in the image below:
+
+![Code after conflicts are solved](/gitlab-course/assets/images/conflicts_member_b_solved.png)
+
+### Fix the second conflict
+
+There might be a second conflict in the `game()` function:
+
+![Conflict markers](/gitlab-course/assets/images/conflicts_member_b2.png)
+
+Similarly, you should fix the conflict to something like this:
+
+![Code after conflicts are solved](/gitlab-course/assets/images/conflicts_member_b2_solved.png)
+
+### Test the code
 ```bash
-git status
+python hangman.py
 ```
 
-### Step 2: Open the Conflicted File
-
-Open `hangman.py` in VSCode. You'll see conflict markers:
-
-```python
-def pick_random_word(difficulty_level="medium"):
-    """Pick a random word from the word list."""
-    with open("words.txt", "r") as file:
-        words = [word.strip() for word in file.readlines()]
-    
-<<<<<<< HEAD
-    # Team Member A's difficulty-based selection
-    while True:
-        random_word = random.choice(words)
-        if calculate_difficulty(random_word) == difficulty_level:
-            return random_word
-=======
-    # Team Member B's length-based selection
-    filtered_words = [word for word in words if 5 <= len(word) <= 8]
-    return random.choice(filtered_words)
->>>>>>> feature/word-length-filter
-```
-
-### Step 3: Resolve the Conflict
-
-You have three options:
-
-#### Option 1: Keep Only HEAD (Current Branch)
-Delete the conflict markers and incoming changes:
-```python
-def pick_random_word(difficulty_level="medium"):
-    """Pick a random word from the word list."""
-    with open("words.txt", "r") as file:
-        words = [word.strip() for word in file.readlines()]
-    
-    # Team Member A's difficulty-based selection
-    while True:
-        random_word = random.choice(words)
-        if calculate_difficulty(random_word) == difficulty_level:
-            return random_word
-```
-
-#### Option 2: Keep Only Incoming Changes
-Delete the conflict markers and current changes:
-```python
-def pick_random_word(difficulty_level="medium"):
-    """Pick a random word from the word list."""
-    with open("words.txt", "r") as file:
-        words = [word.strip() for word in file.readlines()]
-    
-    # Team Member B's length-based selection
-    filtered_words = [word for word in words if 5 <= len(word) <= 8]
-    return random.choice(filtered_words)
-```
-
-#### Option 3: Combine Both Changes (Recommended)
-Create a solution that incorporates both features:
-```python
-def pick_random_word(difficulty_level="medium"):
-    """Pick a random word from the word list with difficulty and length filtering."""
-    with open("words.txt", "r") as file:
-        words = [word.strip() for word in file.readlines()]
-    
-    # First filter by length (Team Member B's feature)
-    length_filtered = [word for word in words if 5 <= len(word) <= 8]
-    
-    # Then filter by difficulty (Team Member A's feature)
-    while True:
-        random_word = random.choice(length_filtered)
-        if calculate_difficulty(random_word) == difficulty_level:
-            return random_word
-```
-
-### Step 4: Test the Resolution
-
-After resolving conflicts:
-
-1. **Run the tests** to ensure your resolution works:
-   ```bash
-   python -m pytest test_hangman.py -v
-   ```
-
-2. **Test the function manually**:
-   ```bash
-   python -c "from hangman import pick_random_word; print(pick_random_word())"
-   ```
-
-### Step 5: Commit the Resolution
-
-Once all conflicts are resolved and tests pass:
-
+### Finish the rebase
+Now that you have fixed the conflicts, you can run:
 ```bash
-# Add the resolved files
 git add hangman.py
-
-# Commit the merge
-git commit -m "Resolve merge conflict: combine difficulty and length filtering
-
-- Integrated Team Member A's difficulty-based word selection
-- Integrated Team Member B's length-based word filtering  
-- Words are now filtered by both length (5-8 chars) and difficulty level
-- All tests passing"
+git rebase --continue
 ```
+It will open a temporary file using `nano` or `vim` - to exit, press Ctrl+X, then Y, then Enter (for `nano`) or press Esc, then type `:wq` and press Enter (for `vim`).
 
-## Advanced Conflict Resolution
+If you only had one commit on your branch, then the rebase will immediately stop. If you had several, it will repeat the previous step for every conflict found, until all commits have been applied.
 
-### Using VSCode's Merge Editor
-
-VSCode provides a visual merge editor:
-
-1. **Open conflicted file** in VSCode
-2. **Click "Resolve in Merge Editor"** when prompted
-3. **Use the three-pane view**:
-   - Left: Incoming changes
-   - Center: Result
-   - Right: Current changes
-4. **Click checkboxes** to accept changes
-5. **Edit result directly** if needed
-
-### Using Git Merge Tools
-
-Configure a merge tool for complex conflicts:
-
+### Push to origin
+With `git rebase`, you have rewritten the history of your branch. You will not be able to push it:
 ```bash
-# Configure VSCode as merge tool
-git config --global merge.tool vscode
-git config --global mergetool.vscode.cmd 'code --wait $MERGED'
-
-# Use the merge tool
-git mergetool
+To gitlab-student.centralesupelec.fr:2018cheynelt/test.git
+ ! [rejected]        hints-system -> hints-system (non-fast-forward)
+error: failed to push some refs to 'gitlab-student.centralesupelec.fr:2018cheynelt/test.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. If you want to integrate the remote changes,
+hint: use 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 ```
 
-## Best Practices
-
-### 1. Communicate with Your Team
-- **Discuss overlapping work** before starting
-- **Coordinate on shared functions** 
-- **Review each other's code** regularly
-
-### 2. Frequent Integration
-- **Pull changes often** from the main branch
-- **Merge small changes frequently** rather than large batches
-- **Keep feature branches short-lived**
-
-### 3. Write Clear Commit Messages
-Help future conflict resolution:
+**DO NOT** run `git pull` -- this is a recipe for disaster.
+In our case, having rewritten history, we want to force the remote branch (on the GitLab server) to mimic our local branch, so we will use:
 ```bash
-# Good
-git commit -m "Add difficulty calculation based on letter frequency"
-
-# Bad  
-git commit -m "Update function"
+git push --force-with-lease
 ```
 
-### 4. Test After Resolution
-- **Always run tests** after resolving conflicts
-- **Manual testing** for edge cases
-- **Ask teammates to review** complex resolutions
+### Check that conflicts have disappeared from GitLab
 
-## Common Conflict Scenarios
+![Conflict markers](/gitlab-course/assets/images/conflicts_member_b_resolved.png)
 
-### 1. Function Signature Changes
-When team members change function parameters:
-```python
-# Conflict between:
-def format_hidden_word(word, guessed_letters):  # Original
-def format_hidden_word(word_to_guess, letters_guessed, show_spaces=True):  # Modified
+Ask **Team Member C** to review, approve and merge your MR.
+
+### Merging the third MR
+
+Follow along with **Team Member C** as they perform the same steps on their branch.
+
+Once all three MR are merged, you should see the following git tree:
+
+![Conflict markers](/gitlab-course/assets/images/git_tree_abc.png)
+
+History was rewritten to make it look like each MR was created after the previous one was merged -- even though **Project Member B** didn't **actually** have to wait for **Project Member A**'s `difficulty-level` feature to start working on `hints-system`, and **Project Member C** didn't **actually** have to wait for **Project Member B**'s `hints-system` feature to start working on `daily-word`.
+
+## What we learned
+
+1. When two people modify the same parts of the same file, it causes conflicts, which prevents merging both branch to the same destination (`dev`)
+2. To solve the conflicts, we have to perform a `git rebase` to modify the base of our branch, before being able to merge
+3. When conflicts cannot be prevented by prior planning, each member should work on their own branch, which allows for parallel work even when changes collide
+
+### Why didn't we use GitLab's conflict resolution ?
+
+GitLab has a built-in web editor to fix conflicts. However, GitLab's behaviour is not a `git rebase` -- istead, it's a `git merge`. The difference is illustrated below:
+
+![Conflict markers](/gitlab-course/assets/images/git_merge.png)
+
+This will lead to a more convoluted git tree, and is usually not recommended.
+<!-- /ROLE: B -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ROLE: C -->
+Now that everyone has created their merge requests, we will try merging them.
+However, your commits and those of **Team Members A and B** modified the same functions.
+As a consequence, once you merge one of these Merge Requests, it will block the two others.
+
+## What to do
+
+### Merging the first MR
+[!WAIT]
+Wait until **Team Member B** has reviewed, approved and merged the MR of **Team Member A** (`difficulty-level` -> `dev`).
+[!/WAIT]
+
+Follow along with **Team Member B** the impact that this has on their own MR.
+
+[!WAIT]
+Wait until **Team Member B** has rebased and pushed their branch.
+[!/WAIT]
+
+### Mergig the second MR
+
+Then, review their MR (`hints-system` -> `dev`), approve it and merge it.
+You can see that this MR changes the same functions as your MR (the `pick_random_word` function).
+
+### Noticing the conflicts
+Once it is merged, go back to your MR. You should observe the following error:
+![Git conflict](/gitlab-course/assets/images/git_conflicts.png)
+
+This is because GitLab has detected that the recent commits on `dev` (caused by the merge) have modified the same parts of the file as the commits on your branch.
+
+## Solving the conflicts
+One way to solve the conflicts is to use GitLab's interface. We will talk about this option later -- you first have to learn how to fix the conflicts "manually". 
+The image below illustrates how we are going to do this: now that the new commit has been added to `dev`, we want to modify your `daily-word` branch so that its "base" is the curent version of `dev` (and not an outdated one).
+
+![Explanation of git rebase | source: https://www.atlassian.com/fr/git/tutorials/rewriting-history/git-rebase](/gitlab-course/assets/images/git_rebase.png)
+
+### Pull the latest changes
+```bash
+git checkout dev
+git pull
+git checkout daily-word
 ```
 
-**Resolution**: Choose the most complete signature and update all callers.
-
-### 2. Import Statement Conflicts
-Multiple imports added to the same location:
-```python
-<<<<<<< HEAD
-import random
-import string
-=======
-import random
-import sys
->>>>>>> feature-branch
+### Perform a "rebase" of your branch. That command tells git to start from the current state of the `dev` branch, and try applying each one of the commits specific to the `daily-word`, one after the other. It will stop if conflicts appear, tell you to fix the conflicts, and keep going.
+```bash
+git rebase dev
 ```
 
-**Resolution**: Include all necessary imports:
-```python
-import random
-import string
-import sys
+It should tell you:
+```bash
+Auto-merging hangman.py
+CONFLICT (content): Merge conflict in hangman.py
+error: could not apply 098af88... Add daily word feature
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+Could not apply 098af88... Add daily word feature
 ```
 
-### 3. Whitespace and Formatting
-Different formatting tools or preferences:
-- **Configure team formatting standards**
-- **Use .editorconfig file**
-- **Run formatters before committing**
+### Fix the first conflict
+Open the `hangman.py` file in VSCode. You will observe conflict markers like the following:
 
-## Preventing Conflicts
+![Conflict markers](/gitlab-course/assets/images/conflicts_member_c.png)
 
-### 1. Good Code Organization
-- **Single responsibility functions**
-- **Modular design**
-- **Clear interfaces between components**
+The top part ("Current Change") contains changes that are already part of the `dev` branch, while the bottom part ("Incoming Change") contains changes introduced by your commits. 
+In our case, the Current Change adds the `import time` and the definition of `calculate_difficulty`, and adds the argument `difficulty_level` to `pick_random_word`. The Incoming Change adds the `from datetime import date` and adds the argument `today` to `pick_random_word`.
+Thus, we want both solutions -- we have to edit the code to fuse both of them together. You can click on ``Accept Both Changes'' and fix the result until both additions are contained in the code, like in the image below:
 
-### 2. Team Coordination
-- **Assign different files/functions** to different members
-- **Use feature branches** for experimental work
-- **Regular team check-ins**
+![Code after conflicts are solved](/gitlab-course/assets/images/conflicts_member_c_solved.png)
 
-### 3. Development Workflow
-- **Pull before starting work**: `git pull origin dev`
-- **Push frequently**: Don't wait until feature is complete
-- **Small, focused commits**: Easier to resolve conflicts
+### Fix the second conflict
 
-## What's Next
+There might be a second conflict in the `game()` function:
 
-Once you've mastered conflict resolution, you'll learn about deploying your changes to the main branch with proper testing and validation workflows.
+![Conflict markers](/gitlab-course/assets/images/conflicts_member_c2.png)
 
-**Remember**: Conflicts are normal in collaborative development. The key is resolving them systematically and learning from each experience!
+Similarly, you should fix the conflict to something like this:
+
+![Code after conflicts are solved](/gitlab-course/assets/images/conflicts_member_c2_solved.png)
+
+### Test the code
+```bash
+python hangman.py
+```
+
+### Finish the rebase
+Now that you have fixed the conflicts, you can run:
+```bash
+git add hangman.py
+git rebase --continue
+```
+It will open a temporary file using `nano` or `vim` - to exit, press Ctrl+X, then Y, then Enter (for `nano`) or press Esc, then type `:wq` and press Enter (for `vim`).
+
+If you only had one commit on your branch, then the rebase will immediately stop. If you had several, it will repeat the previous step for every conflict found, until all commits have been applied.
+
+### Push to origin
+With `git rebase`, you have rewritten the history of your branch. You will not be able to push it:
+```bash
+To gitlab-student.centralesupelec.fr:2018cheynelt/test.git
+ ! [rejected]        hints-system -> hints-system (non-fast-forward)
+error: failed to push some refs to 'gitlab-student.centralesupelec.fr:2018cheynelt/test.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. If you want to integrate the remote changes,
+hint: use 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+```
+
+**DO NOT** run `git pull` -- this is a recipe for disaster.
+In our case, having rewritten history, we want to force the remote branch (on the GitLab server) to mimic our local branch, so we will use:
+```bash
+git push --force-with-lease
+```
+
+### Check that conflicts have disappeared from GitLab
+
+![Conflict markers](/gitlab-course/assets/images/conflicts_member_b_resolved.png)
+
+Ask **Team Member A** to review, approve and merge your MR.
+
+Once all three MR are merged, you should see the following git tree:
+
+![Conflict markers](/gitlab-course/assets/images/git_tree_abc.png)
+
+History was rewritten to make it look like each MR was created after the previous one was merged -- even though **Project Member B** didn't **actually** have to wait for **Project Member A**'s `difficulty-level` feature to start working on `hints-system`, and **Project Member C** didn't **actually** have to wait for **Project Member B**'s `hints-system` feature to start working on `daily-word`.
+
+## What we learned
+
+1. When two people modify the same parts of the same file, it causes conflicts, which prevents merging both branch to the same destination (`dev`)
+2. To solve the conflicts, we have to perform a `git rebase` to modify the base of our branch, before being able to merge
+3. When conflicts cannot be prevented by prior planning, each member should work on their own branch, which allows for parallel work even when changes collide
+
+### Why didn't we use GitLab's conflict resolution ?
+
+GitLab has a built-in web editor to fix conflicts. However, GitLab's behaviour is not a `git rebase` -- istead, it's a `git merge`. The difference is illustrated below:
+
+![Conflict markers](/gitlab-course/assets/images/git_merge.png)
+
+This will lead to a more convoluted git tree, and is usually not recommended.
+<!-- /ROLE: C -->

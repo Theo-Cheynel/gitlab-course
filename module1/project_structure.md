@@ -76,7 +76,7 @@ fatal: The current branch dev has no upstream branch
    git push --set-upstream origin dev
    ```
 
-**✅ You're done!** Let your team know the project structure is ready.
+**You're done!** Let your team know the project structure is ready.
 <!-- /ROLE: A -->
 
 <!-- ROLE: B,C,D,E,F -->

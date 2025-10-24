@@ -1,6 +1,8 @@
 <!-- ROLE: A -->
 
-Now that the basic hangman game is working, we'll add new features. This lesson teaches you about **merge conflicts** - what happens when multiple developers modify the same parts of the code. Each team member will modify overlapping parts of the code, creating conflicts that must be resolved when merging.
+Now that the basic hangman game is working, we'll add new features. 
+However, this time, features will cause several team members to edit the same parts of the same file. 
+This will demonstrate how **merge conflicts** happen -- and help you understand how to solve them.
 
 ## Team Member A: Add Difficulty Level
 
@@ -81,13 +83,14 @@ git push --set-upstream origin difficulty-level
    - Add title: "Add difficulty level feature"
    - Click **"Create Merge Request"**
 
-**✅ Your task is complete!** 
+**Your task is complete!** 
 <!-- /ROLE: A -->
 
 <!-- ROLE: B -->
 
-Now that the basic hangman game is working, we'll add new features. This lesson teaches you about **merge conflicts** - what happens when multiple developers modify the same parts of the code. Each team member will modify overlapping parts of the code, creating conflicts that must be resolved when merging.
-
+Now that the basic hangman game is working, we'll add new features. 
+However, this time, features will cause several team members to edit the same parts of the same file. 
+This will demonstrate how **merge conflicts** happen -- and help you understand how to solve them.
 ## Team Member B: Add Hints System
 
 ### What You'll Build
@@ -136,13 +139,14 @@ git push --set-upstream origin hints-system
    - Add title: "Add hints system"
    - Click **"Create Merge Request"**
 
-**✅ Your task is complete!** 
+**Your task is complete!** 
 <!-- /ROLE: B -->
 
 <!-- ROLE: C -->
 
-Now that the basic hangman game is working, we'll add new features. This lesson teaches you about **merge conflicts** - what happens when multiple developers modify the same parts of the code. Each team member will modify overlapping parts of the code, creating conflicts that must be resolved when merging.
-
+Now that the basic hangman game is working, we'll add new features. 
+However, this time, features will cause several team members to edit the same parts of the same file. 
+This will demonstrate how **merge conflicts** happen -- and help you understand how to solve them.
 ## Team Member C: Add Daily Word Feature
 
 ### What You'll Build
@@ -206,13 +210,14 @@ git push --set-upstream origin daily-word
    - Add title: "Add daily word feature"
    - Click **"Create Merge Request"**
 
-**✅ Your task is complete!**
+**Your task is complete!**
 <!-- /ROLE: C -->
 
 <!-- ROLE: D -->
 
-Now that the basic hangman game is working, we'll add new features. This lesson teaches you about **merge conflicts** - what happens when multiple developers modify the same parts of the code. Each team member will modify overlapping parts of the code, creating conflicts that must be resolved when merging.
-
+Now that the basic hangman game is working, we'll add new features. 
+However, this time, features will cause several team members to edit the same parts of the same file. 
+This will demonstrate how **merge conflicts** happen -- and help you understand how to solve them.
 ## Team Member D: Add Pretty Display
 
 ### What You'll Build
@@ -270,13 +275,14 @@ git push --set-upstream origin pretty-display
    - Add title: "Add pretty display with colors"
    - Click **"Create Merge Request"**
 
-**✅ Your task is complete!**
+**Your task is complete!**
 <!-- /ROLE: D -->
 
 <!-- ROLE: E -->
 
-Now that the basic hangman game is working, we'll add new features. This lesson teaches you about **merge conflicts** - what happens when multiple developers modify the same parts of the code. Each team member will modify overlapping parts of the code, creating conflicts that must be resolved when merging.
-
+Now that the basic hangman game is working, we'll add new features. 
+However, this time, features will cause several team members to edit the same parts of the same file. 
+This will demonstrate how **merge conflicts** happen -- and help you understand how to solve them.
 ## Team Member E: Display Guessed Letters
 
 ### What You'll Build
@@ -321,13 +327,14 @@ git push --set-upstream origin show-guessed-letters
    - Add title: "Display guessed letters"
    - Click **"Create Merge Request"**
 
-**✅ Your task is complete!**
+**Your task is complete!**
 <!-- /ROLE: E -->
 
 <!-- ROLE: F -->
 
-Now that the basic hangman game is working, we'll add new features. This lesson teaches you about **merge conflicts** - what happens when multiple developers modify the same parts of the code. Each team member will modify overlapping parts of the code, creating conflicts that must be resolved when merging.
-
+Now that the basic hangman game is working, we'll add new features. 
+However, this time, features will cause several team members to edit the same parts of the same file. 
+This will demonstrate how **merge conflicts** happen -- and help you understand how to solve them.
 ## Team Member F: Visual Remaining Guesses Display
 
 ### What You'll Build
@@ -372,6 +379,6 @@ git push --set-upstream origin hearts-display
    - Add title: "Add visual hearts display"
    - Click **"Create Merge Request"**
 
-**✅ Your task is complete!**
+**Your task is complete!**
 <!-- /ROLE: F -->
 

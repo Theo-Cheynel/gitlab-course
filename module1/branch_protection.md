@@ -17,7 +17,7 @@ In a real-world development environment, the `main` branch should be protected t
 1. Find the `main` branch and click on the **View details** button
 2. In **Allowed to push and merge**, set "No one"
 
-**✅ You're done!** The main branch is now protected.
+**You're done!** The main branch is now protected.
 
 
 ## Testing Branch Protection (All Team Members)
@@ -57,9 +57,9 @@ git reset --hard HEAD~1
 
 ## Your first release: merging `dev` into `main` 
 
-As **Team Member B**, you can now open a merge request to merge `dev` into `main`, which needs two approvals to be merged.
+As **Team Member B**, you can now open a merge request to merge `dev` into `main`, which needs to be approved and merged.
 
-**Team Members C and D** will later approve this pull request and merge it into the `main` branch.
+**Team Members C** will later approve this merge request and merge it into the `main` branch.
 
 ### Step 1: Ensure Dev Branch is Ready
 
@@ -88,7 +88,11 @@ As **Team Member B**, you can now open a merge request to merge `dev` into `main
 5. **Important**: Do NOT check "Delete source branch when merge request is accepted"
 6. Click **Create merge request**
 
-**✅ You're done!** The merge request is created and waiting for approvals.
+
+[!WAIT]
+Wait until **Team Member C** approves and merges your merge request.
+[/!WAIT]
+
 <!-- /ROLE: B -->
 
 <!-- ROLE: A,E,F,D -->
@@ -142,9 +146,13 @@ git reset --hard HEAD~1
 
 ## Your first release: merging `dev` into `main` 
 
-**Team Member B** will now open a merge request to merge `dev` into `main`, which needs two approvals to be merged.
+**Team Member B** will now open a merge request to merge `dev` into `main`, which needs to be approved and merged.
 
-**Team Members C and D** will approve this pull request and merge it into the `main` branch.
+**Team Member C** will approve this merge request and merge it into the `main` branch.
+
+[!WAIT]
+Wait until **Team Members B and C** finish the deployment.
+[/!WAIT]
 
 <!-- /ROLE: A,E,F,D -->
 

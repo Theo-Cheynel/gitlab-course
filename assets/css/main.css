@@ -1014,7 +1014,7 @@ body.dark-theme .module-header:hover {
 .lesson-body pre {
     background: #1e3a8a;
     color: #ffffff !important;
-    padding: var(--space-lg);
+    padding: var(--space-md);
     border-radius: var(--radius-lg);
     overflow-x: auto;
     margin: var(--space-md) 0;

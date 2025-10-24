@@ -23,7 +23,7 @@ git checkout difficulty-level
 
 3. **Implement the function**:
    
-   First, add a helper function to calculate difficulty:
+   - First, add a helper function to calculate difficulty:
 ```python
 def calculate_difficulty(word):
     """Calculate word difficulty based on letter frequency.
@@ -42,15 +42,15 @@ def calculate_difficulty(word):
         return "hard"
 ```
    
-   Then, modify `pick_random_word()`, so that it takes as argument a `difficulty_level` (`"easy"`, `"medium"` or `"hard"`). For this, the simplest way is to pick a random word until it matches the difficulty level (make sure to adapt this to the code that Member A wrote earlier):
-```
+   - Then, modify `pick_random_word()`, so that it takes as argument a `difficulty_level` (`"easy"`, `"medium"` or `"hard"`). For this, the simplest way is to pick a random word until it matches the difficulty level (make sure to adapt this to the code that Member A wrote earlier):
+```python
 while True:
     random_word = return random.choice(words)
     if calculate_difficulty(random_word) == difficulty_level:
         return random_word
 ```
    
-   Finally, modify the `game()` function to ask for difficulty (also adapt it to the code that Member F wrote earlier):
+   - Finally, modify the `game()` function to ask for difficulty (also adapt it to the code that Member F wrote earlier):
    ```python
 # Ask for difficulty level
 difficulty_input = None
@@ -111,9 +111,9 @@ git checkout hints-system
    Replace the content of `words.txt` by this. <!-- TODO -->
 
 4. **Implement the function**:
-   Modify `pick_random_word()` so that it extracts the word and the hint from the line, using `line.split('|')`. Make sure that the function returns the word and the hint.
+   - Modify `pick_random_word()` so that it extracts the word and the hint from the line, using `line.split('|')`. Make sure that the function returns the word and the hint.
    
-   Modify the `game()` function to show hints. Retrieve the word and the hint from the call to `pick_random_word()`, and then print the hint before the game loop starts. Also add a five seconds delay using `time.sleep(5)` so that the user takes time to read the hint (make sure to `import time` at the beginning of the file.)
+   - Modify the `game()` function to show hints. Retrieve the word and the hint from the call to `pick_random_word()`, and then print the hint before the game loop starts. Also add a five seconds delay using `time.sleep(5)` so that the user takes time to read the hint (make sure to `import time` at the beginning of the file.)
 
 5. **Manually try out your implementation**:
    ```bash
@@ -164,19 +164,19 @@ git checkout daily-word
 
 3. **Implement the function**:
    
-   Add the import at the top of the file:
+   - Add the import at the top of the file:
 ```python
 from datetime import date
 ```
    
-   Modify `pick_random_word()` with a new boolean argument `today`, so that before calling `random.choice()`, we do the following (make sure to adapt this to the code that Member A wrote earlier):
+   - Modify `pick_random_word()` with a new boolean argument `today`, so that before calling `random.choice()`, we do the following (make sure to adapt this to the code that Member A wrote earlier):
 ```python
 if today:
     random.seed(int(date.today().strftime("%Y%m%d")))
 ```
     which sets the seed of the random number generator with today's date.
    
-   Also modify the beginning of the `game()` function to ask whether the user wants to play the "daily" mode (also adapt it to the code that Member F wrote earlier)
+   - Also modify the beginning of the `game()` function to ask whether the user wants to play the "daily" mode (also adapt it to the code that Member F wrote earlier)
 ```python
 play_today = None
 while play_today not in ["yes", "no"]:
@@ -234,7 +234,7 @@ git checkout pretty-display
 
 3. **Implement the function**:
    
-   Add color constants at the top of the file:
+   - Add color constants at the top of the file:
 ```python
 # ANSI color codes
 RESET = "\033[0m"
@@ -245,9 +245,9 @@ RED = "\033[91m"
 BOLD = "\033[1m"
 ```
    
-   Modify the game loop in `game()` function, so that we clear the console at the beginning of each round: `print("\033[H\033[J", end="")` (these are special characters that clear the console).
+   - Modify the game loop in `game()` function, so that we clear the console at the beginning of each round: `print("\033[H\033[J", end="")` (these are special characters that clear the console).
 
-   Modify all the `print()` calls to add the colors you want : `print(CYAN, "text to print in cyan", RESET)`
+   - Modify all the `print()` calls to add the colors you want : `print(CYAN, "text to print in cyan", RESET)`
 
 4. **Manually try out your implementation**:
 ```bash
@@ -298,7 +298,7 @@ git checkout show-guessed-letters
 
 3. **Implement the function**:
    
-   Modify the game loop in `game()` function to display guessed letters on the same line as `format_hidden_word`. You can use `','.join(letters_guessed).
+   - Modify the game loop in `game()` function to display guessed letters on the same line as `format_hidden_word`. You can use `','.join(letters_guessed).
 
 4. **Manually try out your implementation**:
    ```bash
@@ -349,7 +349,7 @@ git checkout hearts-display
 
 3. **Implement the function**:
    
-   Modify the game loop in `game()` function to show hearts, on the same line as `format_hidden_word`. You can use `"♥ "*remaining_attempts` to create the string.
+   - Modify the game loop in `game()` function to show hearts, on the same line as `format_hidden_word`. You can use `"♥ "*remaining_attempts` to create the string.
 
 4. **Manually try out your implementation**:
    ```bash

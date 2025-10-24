@@ -6,7 +6,7 @@ In a real-world development environment, the `main` branch should be protected t
 
 **You are responsible for configuring main branch protection with approval requirements.**
 
-<### Step 1: Navigate to Project Settings
+### Step 1: Navigate to Project Settings
 
 1. In your GitLab project, click on **Settings** in the left sidebar
 2. Click on **Repository** from the settings menu
@@ -103,7 +103,7 @@ Wait until **Team Member B** finishes configuring the main branch protection rul
 1. **Branch protection**: Preventing direct pushes to main
 2. **Approval requirements**: Requiring 2 team member approvals for merges
 3. **Security rules**: Preventing secrets from being committed
-[!/WAIT]
+[/!WAIT]
 
 
 ## Testing Branch Protection (All Team Members)
@@ -161,7 +161,7 @@ Wait until **Team Member B** finishes configuring the main branch protection rul
 1. **Branch protection**: Preventing direct pushes to main
 2. **Approval requirements**: Requiring 2 team member approvals for merges
 3. **Security rules**: Preventing secrets from being committed
-[!/WAIT]
+[/!WAIT]
 
 
 
@@ -203,7 +203,7 @@ git reset --hard HEAD~1
 
 [!WAIT]
 Wait until **Team Member B** has opened a merge request to merge `dev` into `main`, which you will then review and approve before merging.
-[!/WAIT]
+[/!WAIT]
 
 You will then need to approve it before merging it into the `main` branch.
 

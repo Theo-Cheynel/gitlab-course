@@ -210,13 +210,13 @@ As a consequence, once you merge one of these Merge Requests, it will block the 
 ### Merging the first MR
 [!WAIT]
 Wait until **Team Member B** has reviewed, approved and merged the MR of **Team Member A** (`difficulty-level` -> `dev`).
-[!/WAIT]
+[/!WAIT]
 
 Follow along with **Team Member B** the impact that this has on their own MR.
 
 [!WAIT]
 Wait until **Team Member B** has rebased and pushed their branch.
-[!/WAIT]
+[/!WAIT]
 
 ### Merging the second MR
 
@@ -546,13 +546,13 @@ As a consequence, once you merge one of these Merge Requests, it will block the 
 ### Merging the first MR
 [!WAIT]
 Wait until **Team Member E** has reviewed, approved and merged the MR of **Team Member D** (`pretty-display` -> `dev`).
-[!/WAIT]
+[/!WAIT]
 
 Follow along with **Team Member E** the impact that this has on their own MR.
 
 [!WAIT]
 Wait until **Team Member E** has rebased and pushed their branch.
-[!/WAIT]
+[/!WAIT]
 
 ### Merging the second MR
 

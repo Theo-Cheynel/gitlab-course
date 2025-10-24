@@ -57,7 +57,7 @@ You can then review the MR of **Team Member B** (`format_hidden_word` -> `dev`):
 4. **Approval**: You must give your approval by clicking the "Approve" button in the "Overview" tab
 5. **Merge**: Once approved, the MR can be merged by clicking the "Merge" button
 
-![Changes of the format_hidden_word merge request](./gitlab-course/assets/images/mr_format_hidden_word.png)
+![Changes of the format_hidden_word merge request](/gitlab-course/assets/images/mr_format_hidden_word.png)
 
 ## Wait -- no conflicts?
 You'll see that all six merge requests can be merged without any conflicts.
@@ -129,7 +129,7 @@ You can then review the MR of **Team Member C** (`all_letters_guessed` -> `dev`)
 4. **Approval**: You must give your approval by clicking the "Approve" button in the "Overview" tab
 5. **Merge**: Once approved, the MR can be merged by clicking the "Merge" button
 
-![Changes of the all_letters_guessed merge request](./gitlab-course/assets/images/mr_all_letters_guessed.png)
+![Changes of the all_letters_guessed merge request](/gitlab-course/assets/images/mr_all_letters_guessed.png)
 
 ## Wait -- no conflicts?
 You'll see that all six merge requests can be merged without any conflicts.
@@ -201,7 +201,7 @@ You can then review the MR of **Team Member D** (`ask_for_valid_input` -> `dev`)
 4. **Approval**: You must give your approval by clicking the "Approve" button in the "Overview" tab
 5. **Merge**: Once approved, the MR can be merged by clicking the "Merge" button
 
-![Changes of the ask_for_valid_input merge request](./gitlab-course/assets/images/mr_ask_for_valid_input.png)
+![Changes of the ask_for_valid_input merge request](/gitlab-course/assets/images/mr_ask_for_valid_input.png)
 
 ## Wait -- no conflicts?
 You'll see that all six merge requests can be merged without any conflicts.
@@ -273,7 +273,7 @@ You can then review the MR of **Team Member E** (`update_game` -> `dev`):
 4. **Approval**: You must give your approval by clicking the "Approve" button in the "Overview" tab
 5. **Merge**: Once approved, the MR can be merged by clicking the "Merge" button
 
-![Changes of the update_game merge request](./gitlab-course/assets/images/mr_update_game.png)
+![Changes of the update_game merge request](/gitlab-course/assets/images/mr_update_game.png)
 
 ## Wait -- no conflicts?
 You'll see that all six merge requests can be merged without any conflicts.
@@ -346,7 +346,7 @@ You can then review the MR of **Team Member F** (`game` -> `dev`):
 4. **Approval**: You must give your approval by clicking the "Approve" button in the "Overview" tab
 5. **Merge**: Once approved, the MR can be merged by clicking the "Merge" button
 
-![Changes of the game merge request](./gitlab-course/assets/images/mr_game.png)
+![Changes of the game merge request](/gitlab-course/assets/images/mr_game.png)
 
 ## Wait -- no conflicts?
 You'll see that all six merge requests can be merged without any conflicts.
@@ -427,8 +427,8 @@ Conflicts **only** happen when several people edit the same part of the same fil
 
 Below is an illustration of the git tree before and after merging all branches (which you can see in **Code** > **Repository Graph**):
 
-![Illustration of the git tree before the merge operations](./gitlab-course/assets/images/git_graph_after_parallel.png)
-![Illustration of the git tree after the merge operations](./gitlab-course/assets/images/git_graph_after_parallel_merge.png)
+![Illustration of the git tree before the merge operations](/gitlab-course/assets/images/git_graph_after_parallel.png)
+![Illustration of the git tree after the merge operations](/gitlab-course/assets/images/git_graph_after_parallel_merge.png)
 
 Every time we merged a branch into `dev`, it created a new **merge commit** on dev with the changes from our branch. We can see that the `main` branch is outdated, as its last commit is the one where **Team Member F** wrote their name in the README.md
 

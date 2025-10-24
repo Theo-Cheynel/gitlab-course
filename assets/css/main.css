@@ -946,13 +946,33 @@ body.dark-theme .module-header:hover {
 }
 
 .lesson-body p {
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-md);
     color: var(--text-secondary);
+}
+
+/* Reduce spacing when paragraph is followed by list or code */
+.lesson-body p + ul,
+.lesson-body p + ol,
+.lesson-body p + pre {
+    margin-top: calc(var(--space-sm) * -1);
+}
+
+/* Reduce spacing when list is followed by paragraph */
+.lesson-body ul + p,
+.lesson-body ol + p {
+    margin-top: calc(var(--space-sm) * -1);
+}
+
+/* Reduce spacing when code block is followed by paragraph or list */
+.lesson-body pre + p,
+.lesson-body pre + ul,
+.lesson-body pre + ol {
+    margin-top: var(--space-sm);
 }
 
 .lesson-body ul,
 .lesson-body ol {
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-md);
     padding-left: var(--space-xl);
 }
 
@@ -966,14 +986,15 @@ body.dark-theme .module-header:hover {
 }
 
 .lesson-body li {
-    margin-bottom: var(--space-sm);
+    margin-bottom: calc(var(--space-sm) / 2);
     color: var(--text-secondary);
+    line-height: 1.6;
 }
 
 .lesson-body li ul,
 .lesson-body li ol {
-    margin-top: var(--space-sm);
-    margin-bottom: var(--space-sm);
+    margin-top: calc(var(--space-sm) / 2);
+    margin-bottom: calc(var(--space-sm) / 2);
     padding-left: var(--space-lg);
 }
 
@@ -996,7 +1017,7 @@ body.dark-theme .module-header:hover {
     padding: var(--space-lg);
     border-radius: var(--radius-lg);
     overflow-x: auto;
-    margin: var(--space-lg) 0;
+    margin: var(--space-md) 0;
     border-left: 4px solid #3b82f6;
     position: relative;
 }

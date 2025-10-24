@@ -30,7 +30,9 @@ class CourseApp {
             lessonOrder: [
                 'vscode', 'gitbash', 'ssh', 'repository', 'cloning', 'venv-setup', 'commits',
                 'project-structure',
-                'member-task', 'merge-requests-detailed', 'code-review', 'branch-protection', 'conflict',
+                'member-task', 'merge-requests-detailed', 'code-review', 'branch-protection',
+                'overlapping-tasks', 'resolving-conflicts', 'deploying-main',
+                'gitlab-ci', 'pipeline',
             ],
             lessons: {
                 'vscode': {
@@ -99,17 +101,35 @@ class CourseApp {
                     duration: '25 minutes',
                     file: 'module1/merge_requests_detailed.md'
                 },
-                'code-review': {
-                    title: 'Code Review Process',
-                    module: 'Module 1',
-                    duration: '35 minutes',
-                    file: 'module1/code_review.md'
-                },
-                'conflict': {
-                    title: 'Conflicts',
-                    module: 'Module 1',
+                'overlapping-tasks': {
+                    title: 'Overlapping Tasks',
+                    module: 'Module 2',
                     duration: '30 minutes',
-                    file: 'module1/conflicts.md'
+                    file: 'module2/overlapping_tasks.md'
+                },
+                'resolving-conflicts': {
+                    title: 'Resolving Conflicts',
+                    module: 'Module 2',
+                    duration: '25 minutes',
+                    file: 'module2/resolving_conflicts.md'
+                },
+                'deploying-main': {
+                    title: 'Deploying to Main',
+                    module: 'Module 2',
+                    duration: '20 minutes',
+                    file: 'module2/deploying_main.md'
+                },
+                'gitlab-ci': {
+                    title: 'GitLab CI Setup',
+                    module: 'Module 3',
+                    duration: '35 minutes',
+                    file: 'module3/gitlab_ci.md'
+                },
+                'pipeline': {
+                    title: 'Pipeline Configuration',
+                    module: 'Module 3',
+                    duration: '30 minutes',
+                    file: 'module3/pipeline.md'
                 }
             },
             roleDescriptions: {

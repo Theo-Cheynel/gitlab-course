@@ -7,7 +7,7 @@ So far, we have only been working on the `main` branch. However, think about wha
 - Two developers modify the same part of the same file, causing conflicts?
 - One developer pushes a commit which causes an error or a bug?
 
-To address those issues, we have to use the collaborative tools of Git and GitLab. To illustrate, we are going to build a small hangman game in Python, where the user has to guess a word letter by letter.
+To address those issues, we have to use branches and proper planning, using the tools provided by Git and GitLab. To illustrate, we are going to build a small hangman game in Python, where the user has to guess a word letter by letter.
 
 First, we are going to create another branch, called "dev", and add some default files to it, which we will fill later on during the project.
 
@@ -88,21 +88,18 @@ So far, we have only been working on the `main` branch. However, think about wha
 - Two developers modify the same part of the same file, causing conflicts?
 - One developer pushes a commit which causes an error or a bug?
 
-To address those issues, we have to use the collaborative tools of Git and GitLab. To illustrate, we are going to build a small hangman game in Python, where the user has to guess a word letter by letter.
+To address those issues, we have to use branches and proper planning, using the tools provided by Git and GitLab. To illustrate, we are going to build a small hangman game in Python, where the user has to guess a word letter by letter.
 
 ## What to do
 
 [!WAIT]
-**Team Member A is setting up the project structure**
-
-**Team Member A** is currently performing the following tasks:
-1. **Development branch**: Creating a separate branch for collaborative work
+Wait for **Team Member A** to finish setting up the project structure. They are currently performing the following tasks:
+1. **Development branch**: Creating a separate `dev` branch for collaborative work
 2. **Hangman game file**: Adding a python file that we will use for the team project
 3. **Test file**: Adding a unit tests which will allow us to individually test the game functions
-
-**You are Team Member {role}**. Once the setup is complete, you'll need to:
 [/!WAIT]
 
+ Once the setup is complete, you need to:
 1. **Pull the latest changes** once they're done:
    ```bash
    git pull

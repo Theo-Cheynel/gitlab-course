@@ -30,8 +30,7 @@ git branch pick_random_word
 git checkout pick_random_word
    ```
 
-3. **Implement the function**:
-   Open `hangman.py` and implement `pick_random_word`:
+3. **Implement the `pick_random_word` function in `hangman.py`**: 
    - Open and read the `words.txt` file
    - Split the content into individual words (one per line)
    - Use `random.choice()` to select a random word
@@ -93,8 +92,7 @@ git branch format_hidden_word
 git checkout format_hidden_word
    ```
 
-3. **Implement the function**:
-   Open `hangman.py` and implement `format_hidden_word`:
+3. **Implement the `format_hidden_word` function in `hangman.py`**:
    - Loop through each letter in `word_to_guess`
    - If the letter is in `letters_guessed`, show the letter
    - If not, show an underscore "_"
@@ -156,8 +154,7 @@ git branch all_letters_guessed
 git checkout all_letters_guessed
    ```
 
-3. **Implement the function**:
-   Open `hangman.py` and implement `all_letters_guessed`:
+3. **Implement the `all_letters_guessed` function in `hangman.py`**:
    - Check if every letter in `word_to_guess` is present in `letters_guessed`
    - Return `True` if all letters are guessed, `False` otherwise
    - Hint: You can loop through the word or use set operations
@@ -218,13 +215,12 @@ git branch ask_for_valid_input
 git checkout ask_for_valid_input
    ```
 
-3. **Implement the function**:
-   Open `hangman.py` and implement `ask_for_valid_input`:
+3. **Implement the `ask_for_valid_input` function in `hangman.py`**:
    - Use `input("Enter a letter [a-z]: ")` to get user input
    - Validate that input is:
-     - Exactly one character (`len(input) == 1`)
-     - A lowercase letter (`97 <= ord(letter) <= 122`)
-     - Not already guessed (`letter not in letters_guessed`)
+     + Exactly one character (`len(input) == 1`)
+     + A lowercase letter (`97 <= ord(letter) <= 122`)
+     + Not already guessed (`letter not in letters_guessed`)
    - Use a `while` loop to keep asking until valid input is received
    - Return the valid letter
 
@@ -284,12 +280,11 @@ git branch update_game
 git checkout update_game
    ```
 
-3. **Implement the function**:
-   Open `hangman.py` and implement `update_game`:
+3. **Implement the `update_game` function in `hangman.py`**:
    - Add `new_guess` to the `letters_guessed` string
    - Check if `new_guess` is in `word_to_guess`:
-     - If **yes**: keep `remaining_attempts` the same
-     - If **no**: decrease `remaining_attempts` by 1
+     + If **yes**: keep `remaining_attempts` the same
+     + If **no**: decrease `remaining_attempts` by 1
    - Return the updated `letters_guessed` and `remaining_attempts`
 
 4. **Test your implementation**:
@@ -348,18 +343,17 @@ git branch game
 git checkout game
    ```
 
-3. **Implement the function**:
-   Open `hangman.py` and implement `game`:
+3. **Implement the `game` function in `hangman.py`**:
    - Call `pick_random_word()` to get a word
    - Initialize `remaining_attempts = 8` and `letters_guessed = ""`
    - Create a `while` loop that continues while:
-     - `remaining_attempts > 0` AND
-     - `not all_letters_guessed(word_to_guess, letters_guessed)`
+     + `remaining_attempts > 0` AND
+     + `not all_letters_guessed(word_to_guess, letters_guessed)`
    - In each loop iteration:
-     - Print the formatted word using `format_hidden_word()`
-     - Print the number of remaining attempts
-     - Get user input using `ask_for_valid_input()`
-     - Update game state using `update_game()`
+     + Print the formatted word using `format_hidden_word()`
+     + Print the number of remaining attempts
+     + Get user input using `ask_for_valid_input()`
+     + Update game state using `update_game()`
    - After the loop: print "You won" if attempts > 0, else "You lost"
 
 4. **Note about testing**:

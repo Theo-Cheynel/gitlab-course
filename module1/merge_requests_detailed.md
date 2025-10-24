@@ -20,17 +20,13 @@ A merge request (MR) is a formal way to propose changes to a project. It allows 
 
 ### Step 3: Fill Out Merge Request Details
 
-#### Title
-Write a clear, descriptive title: something like "Implement pick_random_word function for hangman game"
+1. **Title**: Write a clear, descriptive title, something like "Implement pick_random_word function for hangman game"
 
-#### Description
-Include important details that a reviewer should read before reading your code (summary of what was changed and why, etc). In our case, the changes are small, but in your next projects, Merge Requests might contain more complex code.
+2. **Description**: Include important details that a reviewer should read before reading your code (summary of what was changed and why, etc). In our case, the changes are small, but in your next projects, Merge Requests might contain more complex code.
 
-#### Assignee
-- You can assign yourself to the MR (meaning if someone requests changes, you're the one to implement those changes).
+3. **Assignee**: You can assign yourself to the MR (meaning if someone requests changes, you're the one to implement those changes).
 
-#### Reviewer
-- Select Team Member F to review your code
+4. **Reviewer**: Select Team Member F to review your code
 
 ### Step 4: Review Before Creating
 
@@ -56,10 +52,12 @@ Wait until **Team Member B** has created their Merge Request.
 
 You can then review the MR of **Team Member B** (`format_hidden_word` -> `dev`):
 1. **Overview**: You can read their description to get an idea of what the MR contains, in the "Overview" tab
-2. **Changes**: You can review the proposed changes to their code in the "Changes" tab
+2. **Changes**: You can review the proposed changes to their code in the "Changes" tab (see below)
 3. **Discussion**: You can add comments and discussion, request changes, etc
 4. **Approval**: You must give your approval by clicking the "Approve" button in the "Overview" tab
 5. **Merge**: Once approved, the MR can be merged by clicking the "Merge" button
+
+![Changes of the format_hidden_word merge request](/assets/images/mr_format_hidden_word.png)
 
 ## Wait -- no conflicts?
 You'll see that all six merge requests can be merged without any conflicts.
@@ -94,17 +92,13 @@ A merge request (MR) is a formal way to propose changes to a project. It allows 
 
 ### Step 3: Fill Out Merge Request Details
 
-#### Title
-Write a clear, descriptive title: something like "Implement format_hidden_word function for hangman game"
+1. **Title**: Write a clear, descriptive title, something like "Implement format_hidden_word function for hangman game"
 
-#### Description
-Include important details that a reviewer should read before reading your code (summary of what was changed and why, etc). In our case, the changes are small, but in your next projects, Merge Requests might contain more complex code.
+2. **Description**: Include important details that a reviewer should read before reading your code (summary of what was changed and why, etc). In our case, the changes are small, but in your next projects, Merge Requests might contain more complex code.
 
-#### Assignee
-- You can assign yourself to the MR (meaning if someone requests changes, you're the one to implement those changes).
+3. **Assignee**: You can assign yourself to the MR (meaning if someone requests changes, you're the one to implement those changes).
 
-#### Reviewer
-- Select Team Member A to review your code
+4. **Reviewer**: Select Team Member A to review your code
 
 ### Step 4: Review Before Creating
 
@@ -130,10 +124,12 @@ Wait until **Team Member C** has created their Merge Request.
 
 You can then review the MR of **Team Member C** (`all_letters_guessed` -> `dev`):
 1. **Overview**: You can read their description to get an idea of what the MR contains, in the "Overview" tab
-2. **Changes**: You can review the proposed changes to their code in the "Changes" tab
+2. **Changes**: You can review the proposed changes to their code in the "Changes" tab (see below)
 3. **Discussion**: You can add comments and discussion, request changes, etc
 4. **Approval**: You must give your approval by clicking the "Approve" button in the "Overview" tab
 5. **Merge**: Once approved, the MR can be merged by clicking the "Merge" button
+
+![Changes of the all_letters_guessed merge request](/assets/images/mr_all_letters_guessed.png)
 
 ## Wait -- no conflicts?
 You'll see that all six merge requests can be merged without any conflicts.
@@ -168,17 +164,13 @@ A merge request (MR) is a formal way to propose changes to a project. It allows 
 
 ### Step 3: Fill Out Merge Request Details
 
-#### Title
-Write a clear, descriptive title: something like "Implement all_letters_guessed function for hangman game"
+1. **Title**: Write a clear, descriptive title, something like "Implement all_letters_guessed function for hangman game"
 
-#### Description
-Include important details that a reviewer should read before reading your code (summary of what was changed and why, etc). In our case, the changes are small, but in your next projects, Merge Requests might contain more complex code.
+2. **Description**: Include important details that a reviewer should read before reading your code (summary of what was changed and why, etc). In our case, the changes are small, but in your next projects, Merge Requests might contain more complex code.
 
-#### Assignee
-- You can assign yourself to the MR (meaning if someone requests changes, you're the one to implement those changes).
+3. **Assignee**: You can assign yourself to the MR (meaning if someone requests changes, you're the one to implement those changes).
 
-#### Reviewer
-- Select Team Member B to review your code
+4. **Reviewer**: Select Team Member B to review your code
 
 ### Step 4: Review Before Creating
 
@@ -204,10 +196,12 @@ Wait until **Team Member D** has created their Merge Request.
 
 You can then review the MR of **Team Member D** (`ask_for_valid_input` -> `dev`):
 1. **Overview**: You can read their description to get an idea of what the MR contains, in the "Overview" tab
-2. **Changes**: You can review the proposed changes to their code in the "Changes" tab
+2. **Changes**: You can review the proposed changes to their code in the "Changes" tab (see below)
 3. **Discussion**: You can add comments and discussion, request changes, etc
 4. **Approval**: You must give your approval by clicking the "Approve" button in the "Overview" tab
 5. **Merge**: Once approved, the MR can be merged by clicking the "Merge" button
+
+![Changes of the ask_for_valid_input merge request](/assets/images/mr_ask_for_valid_input.png)
 
 ## Wait -- no conflicts?
 You'll see that all six merge requests can be merged without any conflicts.
@@ -242,17 +236,13 @@ A merge request (MR) is a formal way to propose changes to a project. It allows 
 
 ### Step 3: Fill Out Merge Request Details
 
-#### Title
-Write a clear, descriptive title: something like "Implement ask_for_valid_input function for hangman game"
+1. **Title**: Write a clear, descriptive title, something like "Implement ask_for_valid_input function for hangman game"
 
-#### Description
-Include important details that a reviewer should read before reading your code (summary of what was changed and why, etc). In our case, the changes are small, but in your next projects, Merge Requests might contain more complex code.
+2. **Description**: Include important details that a reviewer should read before reading your code (summary of what was changed and why, etc). In our case, the changes are small, but in your next projects, Merge Requests might contain more complex code.
 
-#### Assignee
-- You can assign yourself to the MR (meaning if someone requests changes, you're the one to implement those changes).
+3. **Assignee**: You can assign yourself to the MR (meaning if someone requests changes, you're the one to implement those changes).
 
-#### Reviewer
-- Select Team Member C to review your code
+4. **Reviewer**: Select Team Member C to review your code
 
 ### Step 4: Review Before Creating
 
@@ -278,10 +268,12 @@ Wait until **Team Member E** has created their Merge Request.
 
 You can then review the MR of **Team Member E** (`update_game` -> `dev`):
 1. **Overview**: You can read their description to get an idea of what the MR contains, in the "Overview" tab
-2. **Changes**: You can review the proposed changes to their code in the "Changes" tab
+2. **Changes**: You can review the proposed changes to their code in the "Changes" tab (see below)
 3. **Discussion**: You can add comments and discussion, request changes, etc
 4. **Approval**: You must give your approval by clicking the "Approve" button in the "Overview" tab
 5. **Merge**: Once approved, the MR can be merged by clicking the "Merge" button
+
+![Changes of the update_game merge request](/assets/images/mr_update_game.png)
 
 ## Wait -- no conflicts?
 You'll see that all six merge requests can be merged without any conflicts.
@@ -316,17 +308,14 @@ A merge request (MR) is a formal way to propose changes to a project. It allows 
 
 ### Step 3: Fill Out Merge Request Details
 
-#### Title
-Write a clear, descriptive title: something like "Implement update_game function for hangman game"
+1. **Title**: Write a clear, descriptive title, something like "Implement update_game function for hangman game"
 
-#### Description
-Include important details that a reviewer should read before reading your code (summary of what was changed and why, etc). In our case, the changes are small, but in your next projects, Merge Requests might contain more complex code.
+2. **Description**: Include important details that a reviewer should read before reading your code (summary of what was changed and why, etc). In our case, the changes are small, but in your next projects, Merge Requests might contain more complex code.
 
-#### Assignee
-- You can assign yourself to the MR (meaning if someone requests changes, you're the one to implement those changes).
+3. **Assignee**: You can assign yourself to the MR (meaning if someone requests changes, you're the one to implement those changes).
 
-#### Reviewer
-- Select Team Member D to review your code
+4. **Reviewer**: Select Team Member D to review your code
+
 
 ### Step 4: Review Before Creating
 
@@ -352,10 +341,12 @@ Wait until **Team Member F** has created their Merge Request.
 
 You can then review the MR of **Team Member F** (`game` -> `dev`):
 1. **Overview**: You can read their description to get an idea of what the MR contains, in the "Overview" tab
-2. **Changes**: You can review the proposed changes to their code in the "Changes" tab
+2. **Changes**: You can review the proposed changes to their code in the "Changes" tab (see below)
 3. **Discussion**: You can add comments and discussion, request changes, etc
 4. **Approval**: You must give your approval by clicking the "Approve" button in the "Overview" tab
 5. **Merge**: Once approved, the MR can be merged by clicking the "Merge" button
+
+![Changes of the game merge request](/assets/images/mr_game.png)
 
 ## Wait -- no conflicts?
 You'll see that all six merge requests can be merged without any conflicts.
@@ -390,17 +381,13 @@ A merge request (MR) is a formal way to propose changes to a project. It allows 
 
 ### Step 3: Fill Out Merge Request Details
 
-#### Title
-Write a clear, descriptive title: something like "Implement game function for hangman game"
+1. **Title**: Write a clear, descriptive title, something like "Implement game function for hangman game"
 
-#### Description
-Include important details that a reviewer should read before reading your code (summary of what was changed and why, etc). In our case, the changes are small, but in your next projects, Merge Requests might contain more complex code.
+2. **Description**: Include important details that a reviewer should read before reading your code (summary of what was changed and why, etc). In our case, the changes are small, but in your next projects, Merge Requests might contain more complex code.
 
-#### Assignee
-- You can assign yourself to the MR (meaning if someone requests changes, you're the one to implement those changes).
+3. **Assignee**: You can assign yourself to the MR (meaning if someone requests changes, you're the one to implement those changes).
 
-#### Reviewer
-- Select Team Member E to review your code
+4. **Reviewer**: Select Team Member E to review your code
 
 ### Step 4: Review Before Creating
 
@@ -426,7 +413,7 @@ Wait until **Team Member A** has created their Merge Request.
 
 You can then review the MR of **Team Member A** (`pick_random_word` -> `dev`):
 1. **Overview**: You can read their description to get an idea of what the MR contains, in the "Overview" tab
-2. **Changes**: You can review the proposed changes to their code in the "Changes" tab
+2. **Changes**: You can review the proposed changes to their code in the "Changes" tab (see below)
 3. **Discussion**: You can add comments and discussion, request changes, etc
 4. **Approval**: You must give your approval by clicking the "Approve" button in the "Overview" tab
 5. **Merge**: Once approved, the MR can be merged by clicking the "Merge" button

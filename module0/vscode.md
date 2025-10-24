@@ -45,18 +45,12 @@ When you first open VSCode:
    - **Python**: Python language support (by Microsoft)
    - **GitLab Workflow**: GitLab integration
 
-To install extensions:
-1. Click the Extensions icon in the left sidebar (or press `Ctrl+Shift+X`)
-2. Search for the extension name
-3. Click "Install"
-
 ## Setting up your git identity
 
 Before we continue, let's configure Git with your identity:
 
-1. Open VSCode
-2. Open the integrated terminal (`View → Terminal`)
-3. Run these commands (replace with your information):
+1. Open a terminal, or open VSCode's integrated terminal (`View → Terminal`) 
+2. Run these commands (replace with your information):
 
 ```bash
 git config --global user.name "Your Name"

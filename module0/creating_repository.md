@@ -46,11 +46,7 @@ Your GitLab repository interface contains:
 ## Repository Setup in Progress
 
 [!WAIT]
-**Team Member A is setting up the GitLab repository**
-
-**You are Team Member {role}** - please wait until Team Member A is finished.
-
-For your curiosity, here is what Team Member A is doing:
+Wait until **Team Member A** is finished setting up the GitLab repository. Here is what they are doing:
 1. Creating a new GitLab project for your team
 2. Adding you as a team member with full access rights
 [/!WAIT]

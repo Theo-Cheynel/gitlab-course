@@ -1,24 +1,7 @@
-## Your First Team Commits
-
-Now that everyone has cloned the repository and set up their virtual environment, it's time to make your first commits as a team. This lesson will teach you the importance of coordinating changes and the basic Git workflow.
-
-### Understanding the Git Workflow
-
-When working in a team, you must follow this sequence:
-1. **Pull** the latest changes from the remote repository
-2. **Edit** your files locally
-3. **Add** your changes to the staging area
-4. **Commit** your changes with a descriptive message
-5. **Push** your changes to the remote repository
-
-**Important**: Never skip the pull step when working in a team!
-
----
-
-## Role-Based Instructions
-
 <!-- ROLE: A -->
-## Team Member A: Initialize the Project
+Now that everyone has cloned the repository and set up their virtual environment, it's time to make your first commits.
+
+## What to do
 
 **You go first!** You'll set up the initial project structure and demonstrate the Git workflow for your team.
 
@@ -118,10 +101,12 @@ git push
 <!-- /ROLE: A -->
 
 <!-- ROLE: B -->
-## Team Member B: Add Your Name Second
+Now that everyone has cloned the repository and set up their virtual environment, it's time to make your first commits.
+
+## What to do
 
 [!WAIT]
-**Wait for Team Member A to finish and push their changes** before you start.
+Wait for **Team Member A** to finish and push their changes before you start.
 [/!WAIT]
 
 ### Step 1: Pull the Latest Changes
@@ -160,11 +145,14 @@ git push
 <!-- /ROLE: B -->
 
 <!-- ROLE: C -->
-## Team Member C: Add Your Name Third
+Now that everyone has cloned the repository and set up their virtual environment, it's time to make your first commits.
+
+## What to do
 
 [!WAIT]
-**Wait for Team Member B to finish and push their changes** before you start.
+Wait for **Team Member B** to finish and push their changes before you start.
 [/!WAIT]
+
 
 ### Step 1: Pull the Latest Changes
 
@@ -203,11 +191,14 @@ git push
 <!-- /ROLE: C -->
 
 <!-- ROLE: D -->
-## Team Member D: Add Your Name Fourth
+Now that everyone has cloned the repository and set up their virtual environment, it's time to make your first commits.
+
+## What to do
 
 [!WAIT]
-**Wait for Team Member C to finish and push their changes** before you start.
+Wait for **Team Member C** to finish and push their changes before you start.
 [/!WAIT]
+
 
 ### Step 1: Pull the Latest Changes
 
@@ -247,11 +238,14 @@ git push
 <!-- /ROLE: D -->
 
 <!-- ROLE: E -->
-## Team Member E: Add Your Name Fifth
+Now that everyone has cloned the repository and set up their virtual environment, it's time to make your first commits.
+
+## What to do
 
 [!WAIT]
-**Wait for Team Member D to finish and push their changes** before you start.
+Wait for **Team Member D** to finish and push their changes before you start.
 [/!WAIT]
+
 
 ### Step 1: Pull the Latest Changes
 
@@ -292,11 +286,14 @@ git push
 <!-- /ROLE: E -->
 
 <!-- ROLE: F -->
-## Team Member F: Add Your Name Last
+Now that everyone has cloned the repository and set up their virtual environment, it's time to make your first commits.
+
+## What to do
 
 [!WAIT]
-**Wait for Team Member E to finish and push their changes** before you start.
+Wait for **Team Member E** to finish and push their changes before you start.
 [/!WAIT]
+
 
 ### Step 1: Pull the Latest Changes
 

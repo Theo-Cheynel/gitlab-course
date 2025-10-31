@@ -82,69 +82,32 @@ cat hangman.py
 
 ## Creating the Deployment Merge Request
 
-<!-- ROLE: A -->
-### Team Member A: Create Main Deployment MR
+<!-- ROLE: D -->
+### Team Member D: Create Main Deployment MR
 
 **You are responsible for creating the final merge request to deploy to main.**
 
-1. **Ensure dev branch is ready**:
-   ```bash
-   git checkout dev
-   git pull
-   git status  # Should be clean
-   ```
+Simply create a MR from dev to main:
 
-2. **Create the deployment merge request**:
-   - Go to GitLab → **Merge requests**
-   - Click **New merge request**
-   - **Source branch**: `dev`
-   - **Target branch**: `main`
-   - **Title**: `Deploy hangman game v1.0 to production`
-   - **Description**:
-     ```markdown
-     ## 🚀 Production Deployment: Hangman Game v1.0
-     
-     ### Features Included
-     - ✅ Random word selection with difficulty levels (Team Member A)
-     - ✅ Hidden word formatting with guessed letters (Team Member B)  
-     - ✅ Win condition detection (Team Member C)
-     - ✅ Input validation and user experience (Team Member D)
-     - ✅ Game state management (Team Member E)
-     - ✅ Complete game loop integration (Team Member F)
-     
-     ### Quality Assurance
-     - ✅ All merge conflicts resolved
-     - ✅ Full test suite passing (6/6 tests)
-     - ✅ Manual testing completed
-     - ✅ Code reviewed by team
-     - ✅ Branch protection requirements met
-     
-     ### Testing Instructions
-     1. Clone the repository
-     2. Run `python hangman.py` 
-     3. Test various difficulty levels
-     4. Verify all game mechanics work correctly
-     
-     ### Deployment Notes
-     - No breaking changes
-     - All original requirements satisfied
-     - Ready for production use
-     ```
+1. Go to GitLab → **Merge requests**
+2. Click **New merge request**
+3. **Source branch**: `dev`
+4. **Target branch**: `main`
+5. **Title**: `Deploy hangman game v1.0 to production`
+6. **Do NOT merge yet** - wait for team review and approval
+<!-- /ROLE: D -->
 
-3. **Do NOT merge yet** - wait for team review and approval
-<!-- /ROLE: A -->
-
-<!-- ROLE: B,C,D,E,F -->
+<!-- ROLE: A,B,C,E,F -->
 ### Wait for Deployment MR
 
 [!WAIT]
-**Team Member A is creating the deployment merge request**
+**Team Member D is creating the deployment merge request**
 
-Team Member A is preparing the final merge request to deploy the completed hangman game from dev to main branch.
+Team Member D is preparing the final merge request to deploy the completed hangman game from dev to main branch.
 
 Once created, you'll all participate in the final review and approval process.
 [/!WAIT]
-<!-- /ROLE: B,C,D,E,F -->
+<!-- /ROLE: A,B,C,E,F -->
 
 ## Team Review Process
 
@@ -189,7 +152,7 @@ Due to branch protection rules:
 **You are responsible for the final approvals and deployment.**
 
 1. **Review thoroughly** and click **Approve** 
-2. **Once both have approved**, Team Member A clicks **Merge**
+2. **Once both have approved**, Team Member D clicks **Merge**
 3. **Verify successful deployment**:
    ```bash
    git checkout main
@@ -198,7 +161,7 @@ Due to branch protection rules:
    ```
 <!-- /ROLE: A,B -->
 
-<!-- ROLE: C,D,E,F -->
+<!-- ROLE: C,E,F -->
 ### Other Team Members: Final Verification
 
 **Once deployment is complete:**
@@ -216,7 +179,7 @@ Due to branch protection rules:
    ```
 
 3. **Celebrate!** 🎉 Your collaborative project is now in production
-<!-- /ROLE: C,D,E,F -->
+<!-- /ROLE: C,E,F -->
 
 ## Post-Deployment Activities
 
@@ -245,16 +208,98 @@ A collaborative implementation of the classic word-guessing game.
 This game was built collaboratively by 6 team members using Git/GitLab workflows.
 ```
 
-### 2. Tag the Release
+### 2. Creating Tags and Releases
 
-Create a version tag for the deployment:
+<!-- ROLE: D -->
+**Team Member D: Create Version Tags and Releases**
+
+Now that the code is in main, you'll learn how to create tags and releases using GitLab's interface.
+
+#### Understanding Tags and Releases
+
+**Tags** mark specific points in your project's history, typically used for releases:
+- **v1.0, v1.1, v2.0**: Version numbers for releases
+- **Immutable**: Tags point to specific commits and don't change
+- **Reference points**: Easy way to find and checkout specific versions
+
+**Releases** are GitLab's way of packaging tags with additional information:
+- **Release notes**: What changed in this version
+- **Downloadable assets**: Compiled binaries, documentation
+- **User-friendly**: Non-technical users can easily find stable versions
+
+#### Creating a Tag via GitLab Interface
+
+1. **Navigate to Repository → Tags**
+2. **Click "New tag"**
+3. **Fill in the details**:
+   - **Tag name**: `v1.0`
+   - **Create from**: `main` (branch)
+   - **Message**: `Release version 1.0: Complete hangman game`
+4. **Click "Create tag"**
+
+#### Creating a Release from the Tag
+
+1. **Go to Deployments → Releases**
+2. **Click "New release"**
+3. **Select your tag**: `v1.0`
+4. **Release title**: `Hangman Game v1.0`
+5. **Release notes**:
+   ```markdown
+   ## 🎮 Hangman Game v1.0
+   
+   First stable release of our collaborative hangman game!
+   
+   ### Features
+   - Multiple difficulty levels
+   - Interactive gameplay
+   - Input validation
+   - Win/lose detection
+   - Complete test suite
+   
+   ### How to Play
+   1. Download the source code
+   2. Run `python hangman.py`
+   3. Choose your difficulty and start guessing!
+   
+   ### Contributors
+   Built collaboratively by Team Members A-F using Git workflows.
+   ```
+6. **Click "Create release"**
+<!-- /ROLE: D -->
+
+#### Why Version Tags Matter
+
+**Showing Working Versions to Teachers:**
+Tags allow you to demonstrate stable versions even while developing new features:
 
 ```bash
+# If you're working on new features and code is broken:
+git stash  # Save current work
+git checkout v1.0  # Switch to stable version
+python hangman.py  # Show teacher the working game
+
+# Return to development:
 git checkout main
-git pull
-git tag -a v1.0 -m "Release version 1.0: Complete hangman game"
-git push origin v1.0
+git stash pop  # Restore your work
 ```
+
+**Benefits:**
+- ✅ **Stable demos**: Always have a working version to show
+- ✅ **Progress tracking**: Clear milestones in development
+- ✅ **Easy rollback**: Can return to any previous version
+- ✅ **Professional workflow**: Industry standard practice
+
+<!-- ROLE: A,B,C,E,F -->
+### Wait for Tag Creation
+
+[!WAIT]
+**Team Member D is creating the version tag and release**
+
+Team Member D is learning how to create tags and releases using GitLab's interface. This creates an official v1.0 release of your hangman game.
+
+Once complete, you'll all be able to reference this stable version.
+[/!WAIT]
+<!-- /ROLE: A,B,C,E,F -->
 
 ### 3. Clean Up Branches
 

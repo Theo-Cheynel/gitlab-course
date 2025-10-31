@@ -7,6 +7,8 @@ from hangman import *
 def test_pick_random_word():
     """Tests the pick_random_word function."""
     word = pick_random_word()
+    if isinstance(word, tuple):  # This is needed for later changes in the hangman.py file
+        word = word[0]
     assert len(word) >= 7, "word is shorter than the shortest word in words.txt"
     assert len(word) <= 15, "word is longer than the longest word in words.txt"
     assert sum([1 for l in word if 97 <= ord(l) <= 122]), "word contains letters not in [a-z]"

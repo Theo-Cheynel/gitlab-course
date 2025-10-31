@@ -32,7 +32,7 @@ class CourseApp {
                 'project-structure',
                 'member-task', 'merge-requests-detailed', 'code-review', 'branch-protection',
                 'overlapping-tasks', 'resolving-conflicts', 'deploying-main',
-                'gitlab-ci', 'pipeline',
+                'gitlab-ci', 'package-structure', 'pipeline',
             ],
             lessons: {
                 'vscode': {
@@ -124,6 +124,12 @@ class CourseApp {
                     module: 'Module 3',
                     duration: '35 minutes',
                     file: 'module3/gitlab_ci.md'
+                },
+                'package-structure': {
+                    title: 'Python Package Structure',
+                    module: 'Module 3',
+                    duration: '45 minutes',
+                    file: 'module3/package_structure.md'
                 },
                 'pipeline': {
                     title: 'Pipeline Configuration',

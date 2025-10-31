@@ -64,7 +64,15 @@ You'll see that all six merge requests can be merged without any conflicts.
 
 This is because by splitting the code into independent chunks, and having one MR for each chunk, no two people were editing the same part of the file!
 
-Conflicts happen when several people edit the same part of the same file -- which, most of the time, can be prevented by properly planning the development phase.
+Conflicts **only** happen when several people edit the same part of the same file -- which, most of the time, can be prevented by properly planning the development phase.
+
+Below is an illustration of the git tree before and after merging all branches (which you can see in **Code** > **Repository Graph**):
+
+![Illustration of the git tree before the merge operations](/gitlab-course/assets/images/git_graph_after_parallel.png)
+![Illustration of the git tree after the merge operations](/gitlab-course/assets/images/git_graph_after_parallel_merge.png)
+
+Every time we merged a branch into `dev`, it created a new **merge commit** on dev with the changes from our branch. We can see that the `main` branch is outdated, as its last commit is the one where **Team Member F** wrote their name in the README.md
+
 <!-- /ROLE: A -->
 
 
@@ -136,7 +144,15 @@ You'll see that all six merge requests can be merged without any conflicts.
 
 This is because by splitting the code into independent chunks, and having one MR for each chunk, no two people were editing the same part of the file!
 
-Conflicts happen when several people edit the same part of the same file -- which, most of the time, can be prevented by properly planning the development phase.
+Conflicts **only** happen when several people edit the same part of the same file -- which, most of the time, can be prevented by properly planning the development phase.
+
+Below is an illustration of the git tree before and after merging all branches (which you can see in **Code** > **Repository Graph**):
+
+![Illustration of the git tree before the merge operations](/gitlab-course/assets/images/git_graph_after_parallel.png)
+![Illustration of the git tree after the merge operations](/gitlab-course/assets/images/git_graph_after_parallel_merge.png)
+
+Every time we merged a branch into `dev`, it created a new **merge commit** on dev with the changes from our branch. We can see that the `main` branch is outdated, as its last commit is the one where **Team Member F** wrote their name in the README.md
+
 <!-- /ROLE: B -->
 
 
@@ -208,7 +224,15 @@ You'll see that all six merge requests can be merged without any conflicts.
 
 This is because by splitting the code into independent chunks, and having one MR for each chunk, no two people were editing the same part of the file!
 
-Conflicts happen when several people edit the same part of the same file -- which, most of the time, can be prevented by properly planning the development phase.
+Conflicts **only** happen when several people edit the same part of the same file -- which, most of the time, can be prevented by properly planning the development phase.
+
+Below is an illustration of the git tree before and after merging all branches (which you can see in **Code** > **Repository Graph**):
+
+![Illustration of the git tree before the merge operations](/gitlab-course/assets/images/git_graph_after_parallel.png)
+![Illustration of the git tree after the merge operations](/gitlab-course/assets/images/git_graph_after_parallel_merge.png)
+
+Every time we merged a branch into `dev`, it created a new **merge commit** on dev with the changes from our branch. We can see that the `main` branch is outdated, as its last commit is the one where **Team Member F** wrote their name in the README.md
+
 <!-- /ROLE: C -->
 
 
@@ -280,7 +304,15 @@ You'll see that all six merge requests can be merged without any conflicts.
 
 This is because by splitting the code into independent chunks, and having one MR for each chunk, no two people were editing the same part of the file!
 
-Conflicts happen when several people edit the same part of the same file -- which, most of the time, can be prevented by properly planning the development phase.
+Conflicts **only** happen when several people edit the same part of the same file -- which, most of the time, can be prevented by properly planning the development phase.
+
+Below is an illustration of the git tree before and after merging all branches (which you can see in **Code** > **Repository Graph**):
+
+![Illustration of the git tree before the merge operations](/gitlab-course/assets/images/git_graph_after_parallel.png)
+![Illustration of the git tree after the merge operations](/gitlab-course/assets/images/git_graph_after_parallel_merge.png)
+
+Every time we merged a branch into `dev`, it created a new **merge commit** on dev with the changes from our branch. We can see that the `main` branch is outdated, as its last commit is the one where **Team Member F** wrote their name in the README.md
+
 <!-- /ROLE: D -->
 
 
@@ -353,7 +385,15 @@ You'll see that all six merge requests can be merged without any conflicts.
 
 This is because by splitting the code into independent chunks, and having one MR for each chunk, no two people were editing the same part of the file!
 
-Conflicts happen when several people edit the same part of the same file -- which, most of the time, can be prevented by properly planning the development phase.
+Conflicts **only** happen when several people edit the same part of the same file -- which, most of the time, can be prevented by properly planning the development phase.
+
+Below is an illustration of the git tree before and after merging all branches (which you can see in **Code** > **Repository Graph**):
+
+![Illustration of the git tree before the merge operations](/gitlab-course/assets/images/git_graph_after_parallel.png)
+![Illustration of the git tree after the merge operations](/gitlab-course/assets/images/git_graph_after_parallel_merge.png)
+
+Every time we merged a branch into `dev`, it created a new **merge commit** on dev with the changes from our branch. We can see that the `main` branch is outdated, as its last commit is the one where **Team Member F** wrote their name in the README.md
+
 <!-- /ROLE: E -->
 
 

@@ -102,11 +102,7 @@ In a real-world development environment, the `main` branch should be protected t
 ## Setting Up Branch Protection
 
 [!WAIT]
-Wait until **Team Member B** finishes configuring the main branch protection rules. This includes:
-
-1. **Branch protection**: Preventing direct pushes to main
-2. **Approval requirements**: Requiring 2 team member approvals for merges
-3. **Security rules**: Preventing secrets from being committed
+Wait until **Team Member B** finishes configuring the main branch protection rules.
 [/!WAIT]
 
 
@@ -164,11 +160,7 @@ In a real-world development environment, the `main` branch should be protected t
 ## Setting Up Branch Protection
 
 [!WAIT]
-Wait until **Team Member B** finishes configuring the main branch protection rules. This includes:
-
-1. **Branch protection**: Preventing direct pushes to main
-2. **Approval requirements**: Requiring 2 team member approvals for merges
-3. **Security rules**: Preventing secrets from being committed
+Wait until **Team Member B** finishes configuring the main branch protection rules.
 [/!WAIT]
 
 
@@ -230,8 +222,8 @@ You will then need to approve it before merging it into the `main` branch.
 2. Click the **Approve** button
 3. Optionally, you could add comments requesting changes.
 
-### Step 3 (after two approvals): Merge the Request into `main`
-1. After approving, you should see the **Merge** button becomes available
+### Step 3: Merge the Request into `main`
+1. After approving, the **Merge** button should become available
 2. **Important**: Make sure "Delete source branch" is **unchecked**
 3. Click **Merge** to complete the process
 <!-- /ROLE: C -->

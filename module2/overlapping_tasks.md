@@ -44,7 +44,7 @@ def calculate_difficulty(word):
         return "hard"
 ```
    
-   - Then, modify `pick_random_word()`, so that it takes as argument a `difficulty_level` (`"easy"`, `"medium"` or `"hard"`). For this, the simplest way is to pick a random word until it matches the difficulty level (make sure to adapt this to the code that Member A wrote earlier):
+   - Then, modify `pick_random_word()`, so that it takes as argument a `difficulty_level` (can be `"easy"`, `"medium"` or `"hard"` -- just **make sure you put a default value**!). For this, the simplest way is to pick a random word until it matches the difficulty level (make sure to adapt this to the code that Member A wrote earlier):
 ```python
 while True:
     random_word = return random.choice(words)
@@ -63,9 +63,10 @@ word_to_guess = pick_random_word(difficulty_input)
    ```
 
 4. **Manually try out your implementation**:
-   ```bash
-   python hangman.py
-   ```
+```bash
+python hangman.py
+python -m pytest
+```
 
 5. **Once it works, commit and push your work**:
 ```bash
@@ -121,6 +122,7 @@ git checkout hints-system
 5. **Manually try out your implementation**:
    ```bash
 python hangman.py
+python -m pytest
    ```
 
 6. **Commit and push your work**:
@@ -173,7 +175,7 @@ git checkout daily-word
 from datetime import date
 ```
    
-   - Modify `pick_random_word()` with a new boolean argument `today`, so that before calling `random.choice()`, we do the following (make sure to adapt this to the code that Member A wrote earlier):
+   - Modify `pick_random_word()` with a new boolean argument `today=False` (**make sure you put a default value**), so that before calling `random.choice()`, we do the following (make sure to adapt this to the code that Member A wrote earlier):
 ```python
 if today:
     random.seed(int(date.today().strftime("%Y%m%d")))
@@ -192,6 +194,7 @@ word = pick_random_word(play_today)
 4. **Manually try out your implementation**:
 ```bash
 python hangman.py
+python -m pytest
 ```
 
 5. **Commit and push your work**:
@@ -257,6 +260,7 @@ BOLD = "\033[1m"
 4. **Manually try out your implementation**:
 ```bash
 python hangman.py
+python -m pytest
 ```
 
 5. **Commit and push your work**:
@@ -307,9 +311,10 @@ git checkout show-guessed-letters
    - Modify the game loop in `game()` function to display guessed letters on the same line as `format_hidden_word`. You can use `','.join(letters_guessed).
 
 4. **Manually try out your implementation**:
-   ```bash
-   python hangman.py
-   ```
+```bash
+python hangman.py
+python -m pytest
+```
 
 5. **Commit and push your work**:
 ```bash
@@ -359,9 +364,10 @@ git checkout hearts-display
    - Modify the game loop in `game()` function to show hearts, on the same line as `format_hidden_word`. You can use `"♥ "*remaining_attempts` to create the string.
 
 4. **Manually try out your implementation**:
-   ```bash
-   python hangman.py
-   ```
+```bash
+python hangman.py
+python -m pytest
+```
 
 5. **Commit and push your work**:
 ```bash

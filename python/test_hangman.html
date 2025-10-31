@@ -1,4 +1,10 @@
-import pytest
+<!DOCTYPE html>
+<html>
+<head>
+    <title>test_hangman.py</title>
+</head>
+<body>
+<pre>import pytest
 
 from hangman import *
 
@@ -66,4 +72,6 @@ def test_update_game():
     assert update_game(word, "aeiou", "c", 10)[1] == 10, "update_game decreased the number of turns despite a correct guess"
 
     assert update_game(word, "ojzk", "c", 10)[0] == "ojzkc", "update_game did not update the guess list"
-    assert update_game(word, "ojzk", "c", 10)[1] == 10, "update_game decreased the number of turns despite a correct guess"
+    assert update_game(word, "ojzk", "c", 10)[1] == 10, "update_game decreased the number of turns despite a correct guess"</pre>
+</body>
+</html>

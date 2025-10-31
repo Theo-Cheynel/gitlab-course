@@ -38,16 +38,16 @@ First, we are going to create another branch, called "dev", and add some default
 Using VSCode, create the following files in your project directory:
 
 #### File 1: hangman.py
-Create a new file called `hangman.py` and paste the content from [this file](../python/hangman.html). This is a template containing empty functions for the hangman game, which each team member will implement.
+Create a new file called `hangman.py` and paste the content from [this file](/gitlab-course/python/hangman.html). This is a template containing empty functions for the hangman game, which each team member will implement.
 
 #### File 2: test_hangman.py
-Create a new file called `test_hangman.py` and paste the content from [this file](../python/test_hangman.html). This file contains tests for the functions that your team will implement in hangman.py.
+Create a new file called `test_hangman.py` and paste the content from [this file](/gitlab-course/python/test_hangman.html). This file contains tests for the functions that your team will implement in hangman.py.
 
 #### File 3: words.txt
-Create a new file called `words.txt` and paste the content from [this file](../python/words.html). This text file contains many words that will be used to pick a random word for the hangman game.
+Create a new file called `words.txt` and paste the content from [this file](/gitlab-course/python/words.html). This text file contains many words that will be used to pick a random word for the hangman game.
 
 #### File 4: .gitignore
-Create a new file called `.gitignore` and paste the content from [this file](../python/gitignore.html). This file tells Git to ignore certain files that shouldn't be committed (like the virtual environment folder).
+Create a new file called `.gitignore` and paste the content from [this file](/gitlab-course/python/gitignore.html). This file tells Git to ignore certain files that shouldn't be committed (like the virtual environment folder).
 
 ### Step 3: Commit and Push
 

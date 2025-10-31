@@ -52,7 +52,7 @@ git push origin dev
 ```
 <!-- /ROLE: D -->
 
-<!-- ROLE: B,C,D,E,F -->
+<!-- ROLE: A,B,C,E,F -->
 
 In this part, we'll explore a really useful aspect of GitLab: CI (Continuous Integration).
 
@@ -87,4 +87,4 @@ Here are some other things you could perform in a CI pipeline:
 2. Scanning for vulnerabilities in the code (e.g. )
 3. Building a documentation website (e.g. ![sphinx](https://www.sphinx-doc.org/en/master/))
 4. Build artifacts (compiling into a binary .exe file, etc)
-<!-- /ROLE: B,C,D,E,F -->
+<!-- /ROLE: A,B,C,E,F -->

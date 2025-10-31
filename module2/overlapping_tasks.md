@@ -112,7 +112,7 @@ git checkout hints-system
    ```
 
 3. **Update words.txt format**:
-   Replace the content of `words.txt` by this. <!-- TODO -->
+   Replace the content of `words.txt` by [this file](/gitlab-course/python/words_clues.html). <!-- TODO -->
 
 4. **Implement the function**:
    - Modify `pick_random_word()` so that it extracts the word and the hint from the line, using `line.split('|')`. Make sure that the function returns the word and the hint.

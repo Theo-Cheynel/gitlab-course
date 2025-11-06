@@ -717,7 +717,7 @@ body.dark-theme .module-header:hover {
     color: var(--text-secondary);
     font-size: 1.125rem;
     line-height: 1.7;
-    text-align: center;
+    text-align: justify;
 }
 
 .course-description strong {
@@ -958,6 +958,7 @@ body.dark-theme .module-header:hover {
 .lesson-body p {
     margin-bottom: var(--space-md);
     color: var(--text-secondary);
+    text-align: justify;
 }
 
 /* Reduce spacing when paragraph is followed by list or code */

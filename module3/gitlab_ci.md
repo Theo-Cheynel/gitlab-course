@@ -50,6 +50,25 @@ git add .gitlab-ci.yml
 git commit -m "Add GitLab CI pipeline config"
 git push origin dev
 ```
+
+
+## Checking that the pipeline works
+
+In your browser, open the GitLab project. Switch to the `dev` branch. You should see the latest commit:
+![Last commit with the green checkmark](/gitlab-course/assets/images/gitlab-ci.png)
+The green checkmark indicates that the CI pipeline has finished running without any errors.
+
+If you click on it, you can explore the results of the pipeline in more detail (investigate any failed tests, etc.)
+
+Now, every time you open a MR, a server will run your pipeline, allowing you to quickly check that the code still runs fine!
+
+## Some more things you could do with CI pipelines
+
+Here are some other things you could perform in a CI pipeline:
+1. Automating linting/formatting (e.g. ![flake8](https://flake8.pycqa.org/en/latest/), ![black](https://github.com/psf/black))
+2. Scanning for vulnerabilities in the code (e.g. )
+3. Building a documentation website (e.g. ![sphinx](https://www.sphinx-doc.org/en/master/))
+4. Build artifacts (compiling into a binary .exe file, etc)
 <!-- /ROLE: D -->
 
 <!-- ROLE: A,B,C,E,F -->

@@ -2,8 +2,10 @@
 
 ## Learning to work together
 
+In the previous module, we had to work **sequentially** to ensure that the team members could edit the file one after the other. This is highly inefficient, as only one person can work, while the others wait. In this module, we will work in parallel: by splitting the work in independent chunks, all of you can work on their own part of the code without needing to wait for the others.
+
 So far, we have only been working on the `main` branch. However, think about what would happen if:
-- We always want to have a quick access to a working version of the project (for example, to show the teachers when they come to our table)?
+- We want to have a quick access to a working version of the project (for example, to show the teachers when they come to our table)?
 - Two developers modify the same part of the same file, causing conflicts?
 - One developer pushes a commit which causes an error or a bug?
 
@@ -82,9 +84,10 @@ fatal: The current branch dev has no upstream branch
 <!-- ROLE: B,C,D,E,F -->
 
 ## Learning to work together
+In the previous module, we had to work **sequentially** to ensure that the team members could edit the file one after the other. This is highly inefficient, as only one person can work, while the others wait. In this module, we will work in parallel: by splitting the work in independent chunks, all of you can work on their own part of the code without needing to wait for the others.
 
 So far, we have only been working on the `main` branch. However, think about what would happen if:
-- We always want to have a quick access to a working version of the project (for example, to show the teachers when they come to our table)?
+- We want to have a quick access to a working version of the project (for example, to show the teachers when they come to our table)?
 - Two developers modify the same part of the same file, causing conflicts?
 - One developer pushes a commit which causes an error or a bug?
 

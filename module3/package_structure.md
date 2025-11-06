@@ -1,8 +1,14 @@
-# Python Package Structure
+<!-- ROLE: A -->
+
+So far, the project was quite simple, and could be implemented in a single Python file.
+
+More complex projects require splitting the code into several files, to make it more easy to work with.
+
+However, Python is inherently a **scripting language**, designed for single-file scripts.
+
+To manage multiple files, it is better to use a **package structure**. It also allows to package your work into a project that can be easily installed and deployed.
 
 In this lesson, we'll transform our hangman game into a proper Python package that can be installed and imported like any professional Python library.
-
-<!-- ROLE: A -->
 
 ## Step 1: Creating the Package Structure
 
@@ -12,7 +18,7 @@ In this lesson, we'll transform our hangman game into a proper Python package th
 ```bash
 git checkout dev
 git pull
-git checkout -b feature/package-structure
+git checkout -b package-structure
 ```
 
 2. **Create the package directory structure**:
@@ -46,20 +52,15 @@ setup(
 )
 ```
 
-5. **Update the hangman/__init__.py file** to export the main functions:
+5. **Update the hangman/__init__.py file** so that it exposes all functions:
 ```python
 from .hangman import *
-
-__version__ = "1.0.0"
 ```
 
 6. **Test that the package structure works**:
 ```bash
 # Install in development mode
 pip install -e .
-
-# Test that you can import
-python -c "import hangman; print('Package structure works!')"
 
 # Test the command line interface
 python -m hangman.hangman
@@ -72,485 +73,296 @@ git commit -m "Create Python package structure for hangman game"
 git push origin feature/package-structure
 ```
 
-8. **Create a merge request** targeting `dev` branch with:
-   - **Title**: "Add Python package structure"
-   - **Description**: "Transform hangman.py into a proper Python package with setup.py and __init__.py. Package can be installed with pip install -e . and run with python -m hangman.hangman"
+8. **Create a merge request** from the `package-structure` branch to the `dev` branch.
+
+
+## Step 2: Refactoring into Multiple Files
+[!WAIT]
+Wait for **Team Member** B to create their merge request, which splits the code into two files.
+[/!WAIT]
+
+Team Member D will review and approve this MR.
+
+
+## Step 3: How the new package structure works
+
+Once everything is merged into `dev`, you can now:
+```bash
+git checkout dev
+git pull
+pip install -e .
+```
+
+The first MR introduced the structure of a Python package -- which works exactly like `numpy` or `scipy`!
+Thanks to this:
+1. You can now install the package using `pip install -e .`
+2. Once the package is installed, you can import the `game` function (and the others) from any project.
+3. To run the game script, you can use `python -m hangman.game`
 
 <!-- /ROLE: A -->
 
 <!-- ROLE: B -->
 
-## Step 2: Refactoring into Multiple Files
+So far, the project was quite simple, and could be implemented in a single Python file.
+
+More complex projects require splitting the code into several files, to make it more easy to work with.
+
+However, Python is inherently a **scripting language**, designed for single-file scripts.
+
+To manage multiple files, it is better to use a **package structure**. It also allows to package your work into a project that can be easily installed and deployed.
+
+In this lesson, we'll transform our hangman game into a proper Python package that can be installed and imported like any professional Python library.
+
+## Step 1: Creating the Package Structure
 
 [!WAIT]
-**Wait for Team Member A to create their merge request before starting.**
+Wait for **Team Member** A to create their merge request before starting. No need to wait for it to be approved though!
+
+This MR sets up the structure for a Python package:
+- Moves the code into a new directory (`hangman/`)
+- Creates a file named `setup.py` containing information for package installation and use
+
 [/!WAIT]
+
+## Step 2: Refactoring into Multiple Files
 
 **You will refactor the package into separate modules and update tests.**
 
 1. **Create a new branch from A's branch**:
 ```bash
-git fetch origin
-git checkout -b feature/refactor-modules origin/feature/package-structure
+git pull
+git checkout package-structure
+git branch refactor-modules
+git checkout refactor-modules
 ```
 
 2. **Install the package in development mode** to test the current structure:
 ```bash
 pip install -e .
-python -c "import hangman; print('Base package works!')"
+python -m hangman.hangman"
 ```
 
-3. **Create two separate Python files in the hangman directory**:
+3. **Create two separate Python files in the hangman directory**: `game.py` and `utils.py`
 
-   **hangman/game.py** (move the main game logic here):
+4. Move the `game` function into the `game.py` file, and move the remaining functions (and imports) into `utils.py`.
+
+5. Make sure that the `game.py` file imports all necessary functions from the `utils.py` file:
 ```python
-from .utils import pick_random_word, format_hidden_word, all_letters_guessed, ask_for_valid_input
-
-def update_game(word, guesses, user_input):
-    """
-    Update the game state based on user input.
-    
-    Args:
-        word (str): The word to guess
-        guesses (list): List of letters already guessed
-        user_input (str): The letter guessed by the user
-    
-    Returns:
-        tuple: (updated_guesses, game_over, won)
-    """
-    # TODO: Implement this function
-    pass
-
-def game():
-    """
-    Main game loop for the hangman game.
-    """
-    # TODO: Implement this function
-    pass
+from .utils import pick_random_word, format_hidden_word, all_letters_guessed, ask_for_valid_input, update_game
 ```
 
-   **hangman/utils.py** (move utility functions here):
+6. **Update hangman/__init__.py** to import from both modules:
 ```python
-import random
-
-def pick_random_word():
-    """
-    Pick a random word from the words.txt file.
-    
-    Returns:
-        str: A random word from the file
-    """
-    # TODO: Implement this function
-    pass
-
-def format_hidden_word(word, guesses):
-    """
-    Format the word with guessed letters revealed and others as underscores.
-    
-    Args:
-        word (str): The word to guess
-        guesses (list): List of letters already guessed
-    
-    Returns:
-        str: The formatted word (e.g., "_ a _ g m a _")
-    """
-    # TODO: Implement this function
-    pass
-
-def all_letters_guessed(word, guesses):
-    """
-    Check if all letters in the word have been guessed.
-    
-    Args:
-        word (str): The word to guess
-        guesses (list): List of letters already guessed
-    
-    Returns:
-        bool: True if all letters are guessed, False otherwise
-    """
-    # TODO: Implement this function
-    pass
-
-def ask_for_valid_input():
-    """
-    Ask the user for a valid single letter input.
-    
-    Returns:
-        str: A valid single letter (lowercase)
-    """
-    # TODO: Implement this function
-    pass
+from .game import game
+from .utils import pick_random_word, format_hidden_word, all_letters_guessed, ask_for_valid_input, update_game
 ```
 
-4. **Update hangman/__init__.py** to import from both modules:
-```python
-from .game import game, update_game
-from .utils import pick_random_word, format_hidden_word, all_letters_guessed, ask_for_valid_input
-
-__version__ = "1.0.0"
-```
-
-5. **Remove the original hangman.py file**:
+7. **Remove the original hangman.py file**:
 ```bash
 rm hangman/hangman.py
 ```
 
-6. **Update setup.py** to reflect the new structure:
+8. **Update the `entry_points` in setup.py** to reflect the new structure:
 ```python
-from setuptools import setup, find_packages
-
-setup(
-    name="hangman-game",
-    version="1.0.0",
-    packages=find_packages(),
-    install_requires=[],
-    author="Team Hangman",
-    description="A simple hangman game implementation",
-    python_requires=">=3.7",
-    entry_points={
-        "console_scripts": [
-            "hangman=hangman.game:game",
-        ],
-    },
-)
+entry_points={
+    "console_scripts": [
+        "hangman=hangman.game:game",
+    ],
+}
 ```
 
-7. **Update the test file** to import from the new structure. Edit `test_hangman.py`:
+9. **Update the import in the test file** to import from the new structure. Add the following to `test_hangman.py`:
 ```python
-import pytest
-
 from hangman.utils import pick_random_word, format_hidden_word, all_letters_guessed, ask_for_valid_input
 from hangman.game import update_game, game
-
-# Keep all existing test functions unchanged, just update the imports
 ```
 
-8. **Test the refactored package**:
+10. **Test the refactored package**:
 ```bash
-# Reinstall the package
-pip install -e .
-
-# Test imports
-python -c "from hangman.utils import pick_random_word; from hangman.game import game; print('Refactored package works!')"
-
-# Test that it can still be run
 python -m hangman.game
 ```
 
-9. **Commit and push your changes**:
+11. **Commit and push your changes**:
 ```bash
 git add .
 git commit -m "Refactor hangman package into separate game and utils modules"
 git push origin feature/refactor-modules
 ```
 
-10. **Create a merge request** targeting `dev` branch with:
-   - **Title**: "Refactor hangman into separate modules"
-   - **Description**: "Split hangman functionality into hangman/game.py and hangman/utils.py for better code organization. Updated imports and tests accordingly."
+12. **Create a merge request** from the `refactor-modules` branch to the  `package-structure` branch.
 
+Team Member D will review and approve this MR.
+
+
+## Step 3: How the new package structure works
+
+Once everything is merged into `dev`, you can now:
+```bash
+git checkout dev
+git pull
+pip install -e .
+```
+
+The first MR introduced the structure of a Python package -- which works exactly like `numpy` or `scipy`!
+Thanks to this:
+1. You can now install the package using `pip install -e .`
+2. Once the package is installed, you can import the `game` function (and the others) from any project.
+3. To run the game script, you can use `python -m hangman.game`
 <!-- /ROLE: B -->
 
 <!-- ROLE: C -->
 
-## Step 3: Reviewing the Package Structure
+So far, the project was quite simple, and could be implemented in a single Python file.
+
+More complex projects require splitting the code into several files, to make it more easy to work with.
+
+However, Python is inherently a **scripting language**, designed for single-file scripts.
+
+To manage multiple files, it is better to use a **package structure**. It also allows to package your work into a project that can be easily installed and deployed.
+
+In this lesson, we'll transform our hangman game into a proper Python package that can be installed and imported like any professional Python library.
+
+## Step 1: Creating the Package Structure
 
 [!WAIT]
-**Wait for Team Member A to create their merge request before starting.**
+Wait for **Team Member** A to create their merge request.
+
+This MR sets up the structure for a Python package:
+- Moves the code into a new directory (`hangman/`)
+- Creates a file named `setup.py` containing information for package installation and use
+
 [/!WAIT]
 
-**You will review and merge Team Member A's package structure changes.**
+**You need to review, approve and merge Team Member A's package structure changes.**
 
-1. **Navigate to the merge request** created by Team Member A:
-   - Go to your GitLab project
-   - Click on "Merge requests" in the left sidebar
-   - Find the MR titled "Add Python package structure"
 
-2. **Review the changes**:
-   
-   **What this MR contains:**
-   - Creates a `hangman/` directory with `__init__.py`
-   - Moves `hangman.py` into `hangman/hangman.py`
-   - Adds `setup.py` for package installation
-   - Makes the package installable with `pip install -e .`
-   - Adds console script entry point for `hangman` command
+## Step 2: Refactoring into Multiple Files
 
-   **What to check:**
-   - ✅ Package structure: `hangman/__init__.py` and `hangman/hangman.py` exist
-   - ✅ `setup.py` contains correct package metadata
-   - ✅ Package can be installed and imported
-   - ✅ Console script entry point is configured
+[!WAIT]
+Wait for **Team Member** B to create their merge request.
 
-3. **Test the changes locally**:
-```bash
-# Check out the branch
-git fetch origin
-git checkout feature/package-structure
+This MR splits the code into two files.
+[/!WAIT]
 
-# Install and test the package
-pip install -e .
-python -c "import hangman; print('Package import successful')"
-python -m hangman.hangman
-```
+Team Member D will review and approve this MR.
 
-4. **Run the tests** to ensure everything still works:
-```bash
-python -m pytest test_hangman.py -v
-```
 
-5. **If tests pass, approve and merge**:
-   - In GitLab, click "Approve" on the merge request
-   - Add a comment: "Package structure looks good. Tests pass. Ready to merge."
-   - Click "Merge" to merge the changes into `dev`
+## Step 3: How the new package structure works
 
-6. **Update your local dev branch**:
+Once everything is merged into `dev`, you can now:
 ```bash
 git checkout dev
-git pull origin dev
+git pull
+pip install -e .
 ```
+
+The first MR introduced the structure of a Python package -- which works exactly like `numpy` or `scipy`!
+Thanks to this:
+1. You can now install the package using `pip install -e .`
+2. Once the package is installed, you can import the `game` function (and the others) from any project.
+3. To run the game script, you can use `python -m hangman.game`
 
 <!-- /ROLE: C -->
 
 <!-- ROLE: D -->
 
-## Step 4: Reviewing the Module Refactoring
+So far, the project was quite simple, and could be implemented in a single Python file.
+
+More complex projects require splitting the code into several files, to make it more easy to work with.
+
+However, Python is inherently a **scripting language**, designed for single-file scripts.
+
+To manage multiple files, it is better to use a **package structure**. It also allows to package your work into a project that can be easily installed and deployed.
+
+In this lesson, we'll transform our hangman game into a proper Python package that can be installed and imported like any professional Python library.
+
+## Step 1: Creating the Package Structure
 
 [!WAIT]
-**Wait for Team Member B to create their merge request before starting.**
+Wait for **Team Member** A to create their merge request.
+
+This MR sets up the structure for a Python package:
+- Moves the code into a new directory (`hangman/`)
+- Creates a file named `setup.py` containing information for package installation and use
+
 [/!WAIT]
 
-**You will review Team Member B's module refactoring changes.**
+Team Member C will review and approve this MR, while Team Member B will refactor into multiple files to demonstrate how imports work.
 
-1. **Navigate to the merge request** created by Team Member B:
-   - Go to your GitLab project
-   - Click on "Merge requests" in the left sidebar
-   - Find the MR titled "Refactor hangman into separate modules"
 
-2. **Review the changes**:
-   
-   **What this MR contains:**
-   - Splits functionality into `hangman/game.py` and `hangman/utils.py`
-   - Updates `hangman/__init__.py` to import from both modules
-   - Removes the original `hangman/hangman.py` file
-   - Updates `setup.py` entry point to use `hangman.game:game`
-   - Updates test imports to use the new module structure
-
-   **What to check:**
-   - ✅ Clean separation: game logic in `game.py`, utilities in `utils.py`
-   - ✅ Proper imports in `__init__.py`
-   - ✅ Test file updated with correct imports
-   - ✅ Package still installable and functional
-
-3. **Test the changes locally**:
-```bash
-# Check out the branch
-git fetch origin
-git checkout feature/refactor-modules
-
-# Install and test the refactored package
-pip install -e .
-python -c "from hangman.utils import pick_random_word; from hangman.game import game; print('Refactored imports work')"
-python -m hangman.game
-```
-
-4. **Run the tests** to ensure the refactoring didn't break anything:
-```bash
-python -m pytest test_hangman.py -v
-```
-
-5. **If tests pass, approve and merge**:
-   - In GitLab, click "Approve" on the merge request
-   - Add a comment: "Good module separation. Tests still pass. Code organization improved."
-   - Click "Merge" to merge the changes into `dev`
-
-<!-- /ROLE: D -->
-
-<!-- ROLE: E -->
-
-## Step 5: Creating Installation Documentation
+## Step 2: Refactoring into Multiple Files
 
 [!WAIT]
-**Wait for Team Member A to create their merge request before starting.**
+Wait for **Team Member** B to create their merge request.
+
+This MR splits the code into two files.
 [/!WAIT]
 
-**You will create documentation for package installation and usage.**
+**You need to review, approve and merge Team Member B's changes.**
 
-1. **Create a new branch from A's package structure branch**:
-```bash
-git fetch origin
-git checkout -b feature/package-docs origin/feature/package-structure
-```
+## Step 3: How the new package structure works
 
-2. **Create or update the README.md file** at the root of your project:
-```markdown
-# Hangman Game
-
-A simple command-line hangman game implemented in Python.
-
-## Installation
-
-### Development Installation
-
-To install the package in development mode (recommended for development):
-
-```bash
-pip install -e .
-```
-
-This installs the package in "editable" mode, meaning changes to the source code will immediately affect the installed package.
-
-### Regular Installation
-
-To install the package normally:
-
-```bash
-pip install .
-```
-
-## Usage
-
-### Running the Game
-
-After installation, you can run the hangman game in several ways:
-
-#### Method 1: Using the console script
-```bash
-hangman
-```
-
-#### Method 2: Using Python module syntax
-```bash
-python -m hangman.game
-```
-
-#### Method 3: Importing in Python code
-```python
-import hangman
-hangman.game()
-```
-
-### Importing Functions
-
-You can also import individual functions for use in your own code:
-
-```python
-from hangman.utils import pick_random_word, format_hidden_word
-from hangman.game import game, update_game
-
-# Pick a random word
-word = pick_random_word()
-
-# Format a word with some guesses
-formatted = format_hidden_word("python", ["p", "y", "n"])
-print(formatted)  # Output: "p y _ _ _ n"
-
-# Run the full game
-game()
-```
-
-## Package Structure
-
-```
-hangman/
-├── __init__.py          # Package initialization and exports
-├── game.py             # Main game logic and game loop
-└── utils.py            # Utility functions (word selection, formatting, etc.)
-setup.py                # Package configuration
-test_hangman.py         # Unit tests
-words.txt              # Word list for the game
-```
-
-## Development
-
-### Running Tests
-
-To run the unit tests:
-
-```bash
-python -m pytest test_hangman.py -v
-```
-
-### Requirements
-
-- Python 3.7 or higher
-- No external dependencies required
-
-## Features
-
-- Random word selection from a curated word list
-- Interactive command-line interface
-- Input validation
-- Win/lose conditions
-- Proper package structure for easy installation and import
-```
-
-3. **Test that the documentation is accurate**:
-```bash
-# Install the package
-pip install -e .
-
-# Test all the usage methods mentioned in README
-hangman
-python -m hangman.game
-python -c "import hangman; hangman.game()"
-```
-
-4. **Commit and push your changes**:
-```bash
-git add README.md
-git commit -m "Add comprehensive installation and usage documentation"
-git push origin feature/package-docs
-```
-
-5. **Create a merge request** targeting `dev` branch with:
-   - **Title**: "Add package installation and usage documentation"
-   - **Description**: "Added comprehensive README.md with installation instructions, usage examples, and package structure documentation."
-
-<!-- /ROLE: E -->
-
-<!-- ROLE: A,B,C,D,E,F -->
-
-## Step 6: Installing the Package (Everyone)
-
-Once all merge requests have been merged into `dev`, everyone should:
-
-1. **Update your local dev branch**:
+Once everything is merged into `dev`, you can now:
 ```bash
 git checkout dev
-git pull origin dev
-```
-
-2. **Install the package in development mode**:
-```bash
+git pull
 pip install -e .
 ```
 
-3. **Test that the package works**:
+The first MR introduced the structure of a Python package -- which works exactly like `numpy` or `scipy`!
+Thanks to this:
+1. You can now install the package using `pip install -e .`
+2. Once the package is installed, you can import the `game` function (and the others) from any project.
+3. To run the game script, you can use `python -m hangman.game`
+<!-- /ROLE: D -->
+
+<!-- ROLE: E, F -->
+
+So far, the project was quite simple, and could be implemented in a single Python file.
+
+More complex projects require splitting the code into several files, to make it more easy to work with.
+
+However, Python is inherently a **scripting language**, designed for single-file scripts.
+
+To manage multiple files, it is better to use a **package structure**. It also allows to package your work into a project that can be easily installed and deployed.
+
+In this lesson, we'll transform our hangman game into a proper Python package that can be installed and imported like any professional Python library.
+
+## Step 1: Creating the Package Structure
+
+[!WAIT]
+Wait for **Team Member** A to create their merge request.
+
+This MR sets up the structure for a Python package:
+- Moves the code into a new directory (`hangman/`)
+- Creates a file named `setup.py` containing information for package installation and use
+
+[/!WAIT]
+
+Team Member C will review and approve this MR.
+
+## Step 2: Refactoring into Multiple Files
+
+[!WAIT]
+Wait for **Team Member** B to create their merge request.
+
+This MR splits the code into two files.
+[/!WAIT]
+
+Team Member D will review and approve this MR.
+
+## Step 3: How the new package structure works
+
+Once everything is merged into `dev`, you can now:
 ```bash
-# Test the console command
-hangman
-
-# Test the module command
-python -m hangman.game
-
-# Test importing in Python
-python -c "import hangman; print('Package installed successfully!')"
+git checkout dev
+git pull
+pip install -e .
 ```
 
-4. **Verify you can import specific functions**:
-```python
-python -c "from hangman.utils import pick_random_word; from hangman.game import game; print('All imports work!')"
-```
-
-**Congratulations!** You now have a properly packaged Python application that can be installed with pip and run from the command line. This is how professional Python packages are structured and distributed.
-
-## What You've Learned
-
-- ✅ **Package Structure**: How to organize Python code into packages with `__init__.py`
-- ✅ **Setup Configuration**: Using `setup.py` to define package metadata and dependencies
-- ✅ **Development Installation**: Using `pip install -e .` for editable installs
-- ✅ **Console Scripts**: Creating command-line tools from Python functions
-- ✅ **Module Organization**: Separating code into logical modules (`game.py`, `utils.py`)
-- ✅ **Import Management**: Controlling what gets imported with `__init__.py`
-- ✅ **Documentation**: Writing clear installation and usage instructions
-
-<!-- /ROLE: A,B,C,D,E,F -->
+The first MR introduced the structure of a Python package -- which works exactly like `numpy` or `scipy`!
+Thanks to this:
+1. You can now install the package using `pip install -e .`
+2. Once the package is installed, you can import the `game` function (and the others) from any project.
+3. To run the game script, you can use `python -m hangman.game`
+<!-- /ROLE: E, F -->

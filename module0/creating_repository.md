@@ -40,6 +40,8 @@ Your GitLab repository interface contains:
 2. **Main area**: File listing (currently just README.md)
 3. **README.md**: Project description file (displayed below the file list)
 
+![Illustration of the gitlab interface](/gitlab-course/assets/images/initial_project.png)
+
 <!-- /ROLE: A -->
 
 <!-- ROLE: B,C,D,E,F -->
@@ -61,4 +63,7 @@ Your GitLab repository interface contains:
 1. **Left sidebar**: Navigation menu with Project, Issues, Merge requests, etc.
 2. **Main area**: File listing (currently just README.md)
 3. **README.md**: Project description file (displayed below the file list)
+
+![Illustration of the gitlab interface](/gitlab-course/assets/images/initial_project.png)
+
 <!-- /ROLE: B,C,D,E,F -->

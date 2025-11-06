@@ -1,6 +1,11 @@
 <!-- ROLE: A -->
 
-Now that the project structure is set up, each team member has a specific function to implement in the hangman game. This lesson teaches you about **parallel development** - working on different features simultaneously without conflicts.
+In order for all team members to work in parallel, we split our hangman program into six functions. This way, each team member can focus on implementing their function, and there will be no conflicts when we merge all implementations together.
+
+The **complex part** has already been done for you: 
+1. The six function have already been identified, and their inputs / outputs have been defined. You only need to fill the implementation.
+2. Unit tests have been written for each function. These tests serve as a way to check whether the implementation is correct, based on several predefined cases. Each test calls the corresponding function, with fixed inputs, and checks whether the correct outputs are returned.
+
 
 ### Understanding Parallel Development
 
@@ -41,6 +46,7 @@ git checkout pick_random_word
 python -m pip install pytest
 pytest test_hangman.py -k test_pick_random_word
    ```
+If it works -- great ! If it doesn't -- use the test to find out why, and fix your implementation until it passes the test.
 
 5. **Commit and push your work**:
    ```bash
@@ -63,7 +69,12 @@ git push --set-upstream origin pick_random_word
 
 <!-- ROLE: B -->
 
-Now that the project structure is set up, each team member has a specific function to implement in the hangman game. This lesson teaches you about **parallel development** - working on different features simultaneously without conflicts.
+In order for all team members to work in parallel, we split our hangman program into six functions. This way, each team member can focus on implementing their function, and there will be no conflicts when we merge all implementations together.
+
+The **complex part** has already been done for you: 
+1. The six function have already been identified, and their inputs / outputs have been defined. You only need to fill the implementation.
+2. Unit tests have been written for each function. These tests serve as a way to check whether the implementation is correct, based on several predefined cases. Each test calls the corresponding function, with fixed inputs, and checks whether the correct outputs are returned.
+
 
 ### Understanding Parallel Development
 
@@ -103,6 +114,7 @@ git checkout format_hidden_word
 python -m pip install pytest
 pytest test_hangman.py -k test_format_hidden_word
    ```
+If it works -- great ! If it doesn't -- use the test to find out why, and fix your implementation until it passes the test.
 
 5. **Commit and push your work**:
    ```bash
@@ -125,7 +137,12 @@ git push --set-upstream origin format_hidden_word
 
 <!-- ROLE: C -->
 
-Now that the project structure is set up, each team member has a specific function to implement in the hangman game. This lesson teaches you about **parallel development** - working on different features simultaneously without conflicts.
+In order for all team members to work in parallel, we split our hangman program into six functions. This way, each team member can focus on implementing their function, and there will be no conflicts when we merge all implementations together.
+
+The **complex part** has already been done for you: 
+1. The six function have already been identified, and their inputs / outputs have been defined. You only need to fill the implementation.
+2. Unit tests have been written for each function. These tests serve as a way to check whether the implementation is correct, based on several predefined cases. Each test calls the corresponding function, with fixed inputs, and checks whether the correct outputs are returned.
+
 
 ### Understanding Parallel Development
 
@@ -164,6 +181,7 @@ git checkout all_letters_guessed
 python -m pip install pytest
 pytest test_hangman.py -k test_all_letters_guessed
    ```
+If it works -- great ! If it doesn't -- use the test to find out why, and fix your implementation until it passes the test.
 
 5. **Commit and push your work**:
    ```bash
@@ -186,7 +204,12 @@ git push --set-upstream origin all_letters_guessed
 
 <!-- ROLE: D -->
 
-Now that the project structure is set up, each team member has a specific function to implement in the hangman game. This lesson teaches you about **parallel development** - working on different features simultaneously without conflicts.
+In order for all team members to work in parallel, we split our hangman program into six functions. This way, each team member can focus on implementing their function, and there will be no conflicts when we merge all implementations together.
+
+The **complex part** has already been done for you: 
+1. The six function have already been identified, and their inputs / outputs have been defined. You only need to fill the implementation.
+2. Unit tests have been written for each function. These tests serve as a way to check whether the implementation is correct, based on several predefined cases. Each test calls the corresponding function, with fixed inputs, and checks whether the correct outputs are returned.
+
 
 ### Understanding Parallel Development
 
@@ -229,6 +252,7 @@ git checkout ask_for_valid_input
    python -m pip install pytest
    pytest test_hangman.py -k test_ask_for_valid_input
    ```
+If it works -- great ! If it doesn't -- use the test to find out why, and fix your implementation until it passes the test.
 
 5. **Commit and push your work**:
    ```bash
@@ -251,7 +275,12 @@ git checkout ask_for_valid_input
 
 <!-- ROLE: E -->
 
-Now that the project structure is set up, each team member has a specific function to implement in the hangman game. This lesson teaches you about **parallel development** - working on different features simultaneously without conflicts.
+In order for all team members to work in parallel, we split our hangman program into six functions. This way, each team member can focus on implementing their function, and there will be no conflicts when we merge all implementations together.
+
+The **complex part** has already been done for you: 
+1. The six function have already been identified, and their inputs / outputs have been defined. You only need to fill the implementation.
+2. Unit tests have been written for each function. These tests serve as a way to check whether the implementation is correct, based on several predefined cases. Each test calls the corresponding function, with fixed inputs, and checks whether the correct outputs are returned.
+
 
 ### Understanding Parallel Development
 
@@ -292,6 +321,7 @@ git checkout update_game
 python -m pip install pytest
 pytest test_hangman.py -k test_update_game
    ```
+If it works -- great ! If it doesn't -- use the test to find out why, and fix your implementation until it passes the test.
 
 5. **Commit and push your work**:
    ```bash
@@ -314,7 +344,12 @@ git push --set-upstream origin update_game
 
 <!-- ROLE: F -->
 
-Now that the project structure is set up, each team member has a specific function to implement in the hangman game. This lesson teaches you about **parallel development** - working on different features simultaneously without conflicts.
+In order for all team members to work in parallel, we split our hangman program into six functions. This way, each team member can focus on implementing their function, and there will be no conflicts when we merge all implementations together.
+
+The **complex part** has already been done for you: 
+1. The six function have already been identified, and their inputs / outputs have been defined. You only need to fill the implementation.
+2. Unit tests have been written for each function. These tests serve as a way to check whether the implementation is correct, based on several predefined cases. Each test calls the corresponding function, with fixed inputs, and checks whether the correct outputs are returned.
+
 
 ### Understanding Parallel Development
 

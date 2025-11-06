@@ -1,6 +1,5 @@
 <!-- ROLE: A -->
-A merge request (MR) is a formal way to propose changes to a project. It allows team members to review code, discuss improvements, and ensure quality before changes are integrated into the main codebase.
-
+Now that you have implemented your changes on your branch, you want those changes to also apply to the `main` branch. However, your changes need to go through a **review process**: another team member will review your changes, discuss improvements, and give their approval. This review process takes the form of a **merge request** (MR).
 ## What to do
 
 ### Step 1: Navigate to Merge Requests
@@ -79,8 +78,7 @@ Every time we merged a branch into `dev`, it created a new **merge commit** on d
 
 
 <!-- ROLE: B -->
-A merge request (MR) is a formal way to propose changes to a project. It allows team members to review code, discuss improvements, and ensure quality before changes are integrated into the main codebase.
-
+Now that you have implemented your changes on your branch, you want those changes to also apply to the `main` branch. However, your changes need to go through a **review process**: another team member will review your changes, discuss improvements, and give their approval. This review process takes the form of a **merge request** (MR).
 ## What to do
 
 ### Step 1: Navigate to Merge Requests
@@ -159,8 +157,7 @@ Every time we merged a branch into `dev`, it created a new **merge commit** on d
 
 
 <!-- ROLE: C -->
-A merge request (MR) is a formal way to propose changes to a project. It allows team members to review code, discuss improvements, and ensure quality before changes are integrated into the main codebase.
-
+Now that you have implemented your changes on your branch, you want those changes to also apply to the `main` branch. However, your changes need to go through a **review process**: another team member will review your changes, discuss improvements, and give their approval. This review process takes the form of a **merge request** (MR).
 ## What to do
 
 ### Step 1: Navigate to Merge Requests
@@ -239,8 +236,7 @@ Every time we merged a branch into `dev`, it created a new **merge commit** on d
 
 
 <!-- ROLE: D -->
-A merge request (MR) is a formal way to propose changes to a project. It allows team members to review code, discuss improvements, and ensure quality before changes are integrated into the main codebase.
-
+Now that you have implemented your changes on your branch, you want those changes to also apply to the `main` branch. However, your changes need to go through a **review process**: another team member will review your changes, discuss improvements, and give their approval. This review process takes the form of a **merge request** (MR).
 ## What to do
 
 ### Step 1: Navigate to Merge Requests
@@ -319,8 +315,7 @@ Every time we merged a branch into `dev`, it created a new **merge commit** on d
 
 
 <!-- ROLE: E -->
-A merge request (MR) is a formal way to propose changes to a project. It allows team members to review code, discuss improvements, and ensure quality before changes are integrated into the main codebase.
-
+Now that you have implemented your changes on your branch, you want those changes to also apply to the `main` branch. However, your changes need to go through a **review process**: another team member will review your changes, discuss improvements, and give their approval. This review process takes the form of a **merge request** (MR).
 ## What to do
 
 ### Step 1: Navigate to Merge Requests
@@ -400,8 +395,7 @@ Every time we merged a branch into `dev`, it created a new **merge commit** on d
 
 
 <!-- ROLE: F -->
-A merge request (MR) is a formal way to propose changes to a project. It allows team members to review code, discuss improvements, and ensure quality before changes are integrated into the main codebase.
-
+Now that you have implemented your changes on your branch, you want those changes to also apply to the `main` branch. However, your changes need to go through a **review process**: another team member will review your changes, discuss improvements, and give their approval. This review process takes the form of a **merge request** (MR).
 ## What to do
 
 ### Step 1: Navigate to Merge Requests

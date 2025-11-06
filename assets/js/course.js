@@ -38,37 +38,37 @@ class CourseApp {
                 'vscode': {
                     title: 'Installing VSCode',
                     module: 'Module 0',
-                    duration: '15 minutes',
+                    duration: '5 minutes',
                     file: 'module0/vscode.md'
                 },
                 'gitbash': {
                     title: 'Installing Git Bash (Windows)',
                     module: 'Module 0',
-                    duration: '10 minutes',
+                    duration: '5 minutes',
                     file: 'module0/gitbash.md'
                 },
                 'ssh': {
                     title: 'Setting up SSH Keys',
                     module: 'Module 0', 
-                    duration: '10 minutes',
+                    duration: '5 minutes',
                     file: 'module0/ssh.md'
                 },
                 'repository': {
                     title: 'Creating Repository',
                     module: 'Module 0',
-                    duration: '8 minutes',
+                    duration: '10 minutes',
                     file: 'module0/creating_repository.md'
                 },
                 'cloning': {
                     title: 'Cloning Repository',
                     module: 'Module 0',
-                    duration: '7 minutes',
+                    duration: '5 minutes',
                     file: 'module0/cloning_repository.md'
                 },
                 'venv-setup': {
                     title: 'Python Virtual Environment',
                     module: 'Module 0',
-                    duration: '15 minutes',
+                    duration: '10 minutes',
                     file: 'module0/venv_setup.md'
                 },
                 'commits': {
@@ -92,13 +92,13 @@ class CourseApp {
                 'branch-protection': {
                     title: 'Branch Protection & Deployment',
                     module: 'Module 1',
-                    duration: '30 minutes',
+                    duration: '10 minutes',
                     file: 'module1/branch_protection.md'
                 },
                 'merge-requests-detailed': {
                     title: 'Creating Merge Requests',
                     module: 'Module 1',
-                    duration: '25 minutes',
+                    duration: '15 minutes',
                     file: 'module1/merge_requests_detailed.md'
                 },
                 'overlapping-tasks': {
@@ -110,25 +110,25 @@ class CourseApp {
                 'resolving-conflicts': {
                     title: 'Resolving Conflicts',
                     module: 'Module 2',
-                    duration: '25 minutes',
+                    duration: '20 minutes',
                     file: 'module2/resolving_conflicts.md'
                 },
                 'deploying-main': {
                     title: 'Deploying to Main',
                     module: 'Module 2',
-                    duration: '20 minutes',
+                    duration: '10 minutes',
                     file: 'module2/deploying_main.md'
                 },
                 'gitlab-ci': {
                     title: 'GitLab CI Setup',
                     module: 'Module 3',
-                    duration: '35 minutes',
+                    duration: '10 minutes',
                     file: 'module3/gitlab_ci.md'
                 },
                 'package-structure': {
                     title: 'Python Package Structure',
                     module: 'Module 3',
-                    duration: '45 minutes',
+                    duration: '20 minutes',
                     file: 'module3/package_structure.md'
                 }
             },

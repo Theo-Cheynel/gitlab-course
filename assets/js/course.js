@@ -30,7 +30,7 @@ class CourseApp {
             lessonOrder: [
                 'vscode', 'gitbash', 'ssh', 'repository', 'cloning', 'venv-setup', 'commits',
                 'project-structure',
-                'member-task', 'merge-requests-detailed', 'code-review', 'branch-protection',
+                'member-task', 'merge-requests-detailed', 'branch-protection',
                 'overlapping-tasks', 'resolving-conflicts', 'deploying-main',
                 'gitlab-ci', 'package-structure',
             ],

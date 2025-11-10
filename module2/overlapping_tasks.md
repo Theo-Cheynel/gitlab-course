@@ -308,7 +308,7 @@ git checkout show-guessed-letters
 
 3. **Implement the function**:
    
-   - Modify the game loop in `game()` function to display guessed letters on the same line as `format_hidden_word`. You can use `','.join(letters_guessed).
+   - Modify the game loop in `game()` function to display guessed letters on the same line as `format_hidden_word`. You can use `','.join(letters_guessed)`.
 
 4. **Manually try out your implementation**:
 ```bash

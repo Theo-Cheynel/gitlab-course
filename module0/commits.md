@@ -58,46 +58,7 @@ Upload your changes to GitLab:
 git push
 ```
 
-### Step 6: Create .gitignore File
-
-Your teammates will now add their names to the README.md, one by one (tell Team Member B to start).
-While your teammates are working, create a `.gitignore` file, which tells Git which files it should NEVER include in commits:
-
-1. Create the file:
-   ```bash
-touch .gitignore
-```
-
-2. Open it (for instance with VSCode):
-3. Add this content:
-   ```
-# Virtual Environment
-venv/
-__pycache__/
-*.pyc
-*.pyo
-
-# IDE files
-.vscode/
-.idea/
-
-# OS files
-.DS_Store
-Thumbs.db
-```
-
-4. Add and commit the changes:
-   ```bash
-git add .gitignore
-git commit -m "Add .gitignore file"
-```
-
-5. Push the changes:
-   ```bash
-git push
-```
-
-**You're done!**
+**You're done!** Let Team Member B know they can add their name.
 <!-- /ROLE: A -->
 
 <!-- ROLE: B -->
